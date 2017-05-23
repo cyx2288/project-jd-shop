@@ -1,0 +1,165 @@
+.homepage_follow_goods {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 3px #E9E9E9;
+  .follow_block {
+    position: relative;
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    height: -webkit-calc(32vw);
+    height: calc(32vw);
+    background-color: #fff;
+    .title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 10px 0 0 15px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      .org {
+        position: relative;
+        padding: 3px 10px 3px 15px;
+        color: #fc8b00;
+        font-weight: bold;
+        line-height: 16px;
+        background: #fff3e5;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -8px;
+          background: url("../images/product_b1_icon.png");
+          background-size: 100%;
+          width: 22px;
+          height: 22px;
+        }
+      }
+      .red{
+        position: relative;
+        padding: 3px 10px 3px 15px;
+        color: #f45657;
+        font-weight: bold;
+        line-height: 16px;
+        background: #fcecec;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -8px;
+          background: url("../images/product_b2_icon.png");
+          background-size: 100%;
+          width: 22px;
+          height: 22px;
+        }
+      }
+      .green{
+        position: relative;
+        padding: 3px 10px 3px 15px;
+        color: #56b300;
+        font-weight: bold;
+        line-height: 16px;
+        background: #eef7e5;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -8px;
+          background: url("../images/product_b3_icon.png");
+          background-size: 100%;
+          width: 22px;
+          height: 22px;
+        }
+      }
+      .blue{
+        position: relative;
+        padding: 3px 10px 3px 15px;
+        color: #009fea;
+        font-weight: bold;
+        line-height: 16px;
+        background: #e2f6ff;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -8px;
+          background: url("../images/product_b4_icon.png");
+          background-size: 100%;
+          width: 22px;
+          height: 22px;
+        }
+      }
+      .subtitle {
+        position: absolute;
+        top: 25px;
+        left: 0;
+        width: 100%;
+        font-size: 12px;
+        color: #ababab;
+        margin-left: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis
+      }
+    }
+
+    .follow_product {
+      height: -webkit-calc(31vw);
+      height: calc(31vw);
+      padding: 0 10px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      -webkit-align-items: flex-end;
+      align-items: flex-end;
+      .product_s {
+        width: 30%;
+        margin: 0 10px 0 15px;
+        img {
+          width: 100%;
+        }
+      }
+      .product_m {
+        width: 45%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      box-sizing: border-box;
+      width: 200%;
+      height: 200%;
+      left: 0;
+      top: 0;
+      border-bottom: 1px solid #d9d9d9;
+      border-right: 1px solid #d9d9d9;
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+      -webkit-transform: scale(.5);
+      transform: scale(.5);
+    }
+    &:nth-last-child(2):before,&:last-child:before{
+      content: '';
+      border-bottom: none;
+    }
+  }
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+    visibility: hidden;
+  }
+}
