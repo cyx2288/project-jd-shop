@@ -55,6 +55,8 @@ function devEjs() {
 
             var addJsRun = "<script src='../../js/jdShopMain.js'></script>\n";//运行的脚本
 
+            var addJs='<script>'
+
             var addJsHtmlHead = "<script src='";
 
             var addJSHtmlBottom = "'></script>\n";
@@ -77,13 +79,13 @@ function devEjs() {
 
                 else {
 
-                    addJsRun += $(this).html() + '\n';
+                    addJs += $(this).html() + '\n';
 
                 }
 
             });
 
-            addJsRun += "\n</script>\n";
+            addJs += "\n</script>\n";
 
 
             $('script').remove();
@@ -91,6 +93,8 @@ function devEjs() {
             $('body').append(addJSHtml);
 
             $('body').append(addJsRun);
+
+            $('body').append(addJs);
 
         }))
 
