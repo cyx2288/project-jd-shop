@@ -180,6 +180,8 @@ var jfAjzxContent={
 
         obj.innerHTML = innerHtml;
 
+        obj.setAttribute('href','#');
+
         document.getElementsByClassName('hot_goods_list')[0].appendChild(obj);
     }
 
