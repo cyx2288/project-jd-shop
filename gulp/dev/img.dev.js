@@ -24,6 +24,18 @@ function devImg() {
 
         .pipe(gulp.dest('build/icon'));
 
+    gulp.src('src/images/**/*.{png,jpg}')
+
+        .pipe(cache(imagemin({
+
+            progressive: true,
+
+            use: [pngquant()]
+
+        })))
+
+        .pipe(gulp.dest('build/images'));
+
     gulp.src("src/fonts/*.*")
 
         .pipe(gulp.dest('build/fonts'))
