@@ -55,7 +55,7 @@ function devEjs() {
 
             var addJsRun = "<script src='../../js/jdShopMain.js'></script>\n";//运行的脚本
 
-            var addJs='<script>'
+            var addJs="<script>addEventListener('load',function()\{";
 
             var addJsHtmlHead = "<script src='";
 
@@ -85,7 +85,7 @@ function devEjs() {
 
             });
 
-            addJs += "\n</script>\n";
+            addJs += "\})\n</script>\n";
 
 
             $('script').remove();
