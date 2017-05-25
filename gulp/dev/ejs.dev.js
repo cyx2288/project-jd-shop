@@ -42,7 +42,7 @@ function devEjs() {
 
             parserOptions: {
                 // Options here
-                decodeEntities: false
+               // decodeEntities: false
             }
 
             }

@@ -68,6 +68,11 @@
   .hot_goods_list {
     margin: 0 10px;
     a.product {
+
+      &:active{
+        opacity: 0.8;
+        background-color: #e4e4e4;
+      }
       display: inline-block;
       width: 49%;
       float: left;
@@ -100,6 +105,7 @@
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
         color: #4a4a4a;
+        height: 58px;
 
         .acc{
           color: #ff0200;
@@ -119,22 +125,31 @@
       .product_main_price {
         margin-top: 5px;
         box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         .price {
           color: #ff4646;
           font-size: 16px;
           margin-right: 10px;
+          width: 50%;
+          white-space: nowrap;
+          text-align:left;
         }
         .praise {
           position: relative;
           font-size: 12px;
           color: #ababab;
+          width: 50%;
+          white-space: nowrap;
+          text-align: right;
           span {
             font-size: 14px;
           }
           &:after{
             content: '';
             position: absolute;
-            top: 0;
+            top: 5px;
             left: -5px;
             height: 12px;
             border-left: 1px solid #ddd;

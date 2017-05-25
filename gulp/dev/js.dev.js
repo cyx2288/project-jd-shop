@@ -16,7 +16,7 @@ function devJs() {
 
     //主要依赖模块
 
-    gulp.src(['src/js/jdShopMain.js',  'src/component/**/*.js']) //该任务针对的文件7
+    gulp.src(['src/js/*.js',  'src/component/**/*.js']) //该任务针对的文件7
 
         .pipe(concat('jdShopMain.js'))
 
@@ -41,11 +41,11 @@ function devJs() {
     //.pipe(notify({message: 'js task complete'}));
 
 
-    gulp.src(['src/js/*.js','!src/js/jdShopMain.js']) //该任务针对的文件7
+   // gulp.src(['src/js/*.js','!src/js/jdShopMain.js']) //该任务针对的文件7
 
-        .pipe(gulp.dest('build/js'))
+       // .pipe(gulp.dest('build/js'))
 
-        .pipe(connect.reload());
+      //  .pipe(connect.reload());
 
     gulp.src(['src/json/*']) //该任务针对的文件7
 

@@ -113,6 +113,11 @@ var windowBanEvent = {
 };
 
 
+//增加active事件
+document.addEventListener('touchstart',function(){},false);
+
+
+
 
 
 

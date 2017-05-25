@@ -20,7 +20,10 @@ var jfLazyLoading={
         _this.bottomDistance=details.bottomDistance||'50';//图片未显示时距离底部的距离。触发加载的距离
 
 
-        //鼠标滚动事件
+        _this.getLazyDistance(); //页面初始化先执行一次；
+
+
+        //鼠标滚动事件，触发事件
         addEventListener("scroll",function(){
 
             _this.getLazyDistance()
@@ -174,7 +177,7 @@ var jfLazyLoading={
 
         obj.innerHTML = innerHtml;
 
-        obj.setAttribute('href','#');
+        obj.setAttribute('href','javascript:');
 
         document.getElementsByClassName('hot_goods_list')[0].appendChild(obj);
     }
