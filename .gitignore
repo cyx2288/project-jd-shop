@@ -39,3 +39,4 @@ jspm_packages
 # jf
 .idea
 build
+dist
