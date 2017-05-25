@@ -3,10 +3,11 @@
  */
 
 
-/*图片懒加载*/
-var jfLazyLoad={
+//懒加载以及异步加载
+var jfLazyLoading={
 
-    init:function(details){//初始化
+    //图片懒加载
+    lazyLoadInit:function(details){
 
         var _this=this;
 
@@ -22,13 +23,14 @@ var jfLazyLoad={
         //鼠标滚动事件
         addEventListener("scroll",function(){
 
-            _this.getMoveDistance()
+            _this.getLazyDistance()
 
         },false)
+
     },
 
-
-    getMoveDistance:function(){
+    //获取图片距离底部的距离
+    getLazyDistance:function(){
 
         var _this=this;
 
@@ -48,42 +50,38 @@ var jfLazyLoad={
 
             if(parseFloat(thisTopDistance)-thisMaxHeight<= _this.bottomDistance){
 
-                allLazyEle[i].setAttribute('src',thisImgSrc)
+                allLazyEle[i].setAttribute('src',thisImgSrc)//替换图片地址
 
             }
 
         }
 
-    }
+    },
 
-};
 
-/*图片懒加载结束*/
-
-/**异步加载*/
-var jfAjaxLoad={
-
-    init:function(details){
+    /*异步加载*/
+    ajaxLoadInit:function(details){
 
         var _this=this;
 
         if(!details){//如果details未输入，则防止报错
             details={};
         }
-        _this.bottomDistance=details.bottomDistance||'50';//元素未显示时距离底部的距离。触发加载的距离
+        _this.ajaxLoadDistance=details.ajaxLoadDistance||'50';//元素未显示时距离底部的距离。触发加载的距离
 
         _this.fn=details.fn||0;//默认执行的脚本
 
         //鼠标滚动事件
         addEventListener("scroll",function(){
 
-            _this.getMoveDistance()
+            _this.getAjaxLoadDistance();
 
         },false)
 
     },
-    getMoveDistance:function(){
 
+    //获取异步加载的触发距离
+    getAjaxLoadDistance:function(){
         var _this=this;
 
         var thisScrollTop=document.body.scrollTop;//获取滚动条的距离
@@ -92,25 +90,19 @@ var jfAjaxLoad={
 
         var thisWindowHeight= window.innerHeight;//屏幕可视窗口高度
 
-        if(parseFloat(thisDocumentHeight)-parseFloat(thisScrollTop+thisWindowHeight)<=_this.bottomDistance){//如果当前文档底部距离窗口底部的距离小于50，执行相应的脚本
+        if(parseFloat(thisDocumentHeight)-parseFloat(thisScrollTop+thisWindowHeight)<=_this.ajaxLoadDistance){//如果当前文档底部距离窗口底部的距离小于50，执行相应的脚本
+
             if(_this.fn){
 
                 _this.fn();
-
             }
 
         }
 
-    }
+    },
 
-};
-
-/*异步加载结束*/
-
-/*异步加载的内容*/
-var jfAjzxContent={
-
-    init:function(details){
+    //异步加载的内容
+    ajaxContentInit:function(details){
 
         var _this=this;
 
@@ -118,25 +110,28 @@ var jfAjzxContent={
             details={};
         }
 
+
+
         _this.productdata=details.productdata||[
 
                 {"data_src":"../../images/product_list_1.jpg",
                     "acc_text":"附",
                     "gift_text":"赠",
                     "product":"小米(MI)Air 13.3英寸全金属超轻薄笔记本电脑(i5-6200U 8G 256G PCIE固态硬盘 940MX独显 FHD WIN10)银",
-                    "price_text":"￥4999.00",
+                    "price_text":"4999.00",
                     "praise":"99%"
                 }
             ];
-
 
         var thisInner='';
 
         for(var i=0;i< _this.productdata.length;i++){
 
-            thisInner='<div class="product_main_img"><img class="loading_img" data-src='+_this.productdata[i].data_src+' src="../../images/img_loading.gif"></div><div class="product_main_title"><span class="acc">'+ _this.productdata[i].acc_text+'</span><span class="gift">'+ _this.productdata[i].gift_text+'</span>'+ _this.productdata[i].product+'</div><div class="product_main_price"><span class="price">'+ _this.productdata[i].price_text+'</span><span class="praise"><span>'+ _this.productdata[i].praise+'</span>好评</span></div>';
 
-            _this.addNode('a',thisInner,'product')
+
+            thisInner='<div class="product_main_img"><img class="loading_img" data-src='+_this.productdata[i].data_src+' src="../../images/img_loading.gif"></div><div class="product_main_title"><span class="acc">'+ _this.productdata[i].acc_text+'</span><span class="gift">'+ _this.productdata[i].gift_text+'</span>'+ _this.productdata[i].product+'</div><div class="product_main_price"><span class="price">￥'+ _this.productdata[i].price_text+'</span><span class="praise"><span>'+ _this.productdata[i].praise+'</span>好评</span></div>';
+
+            _this.ajaxAddnode('a',thisInner,'product');
 
         }
 
@@ -144,6 +139,8 @@ var jfAjzxContent={
 
         var allGiftEle=document.getElementsByClassName('hot_goods_list')[0].getElementsByClassName('gift');//所有‘赠’字的span元素
 
+
+        //判断当前有没有‘附’字
         for(var i=0;i<allAccEle.length;i++){
 
             if(allAccEle[i].innerHTML==""){
@@ -152,7 +149,7 @@ var jfAjzxContent={
             }
 
         }
-
+        //判断当前有没有‘赠’字
         for(var i=0;i<allGiftEle.length;i++){
 
             if(allGiftEle[i].innerHTML==""){
@@ -161,13 +158,10 @@ var jfAjzxContent={
 
         }
 
-
-
     },
 
-
-    //新建元素的方法
-    addNode: function (tag, innerHtml,  className) {
+    //添加元素
+    ajaxAddnode:function (tag, innerHtml, className) {
 
         var _this=this;
 
@@ -184,7 +178,8 @@ var jfAjzxContent={
 
         document.getElementsByClassName('hot_goods_list')[0].appendChild(obj);
     }
+}
+
+//懒加载以及异步加载结束
 
 
-
-};
