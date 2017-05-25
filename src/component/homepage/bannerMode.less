@@ -5,7 +5,7 @@
 
   .banner_tab{
     position: absolute;
-    left:-2%;
+   /* left:-2%;*/
     top:5%;
     z-index: 2;
     width: 50%;
@@ -25,9 +25,12 @@
     .banner_tab_text{
       font-size: 18px;
       color: white;
-      left: 10%;
-      top: 7%;
-      position: absolute;
+      text-align: center;
+      height: 100%;
+
+      @media screen and (max-width: 376px){
+        font-size: 16px;
+      }
     }
   }
   .banner_paster{
@@ -39,11 +42,18 @@
       width: 100%;
     }
   }
+  .banner_theme{
+    position: absolute;
+  }
 
   .banner_background{
     width: 100%;
+    line-height: 0;
     img{
       width:100%;
+      height: calc(100vw / 800 * 372);
+
+
     }
 
   }
@@ -56,7 +66,6 @@
     border-right: 18px solid #ffeff5;
   }
   &>.banner_theme.pink{
-    position: absolute;
     img{
       width: calc(32vw);
       height: calc(32vw);
@@ -72,7 +81,6 @@
     border-right: 18px solid #f3f9ff;
   }
   &>.banner_theme.blue{
-    position: absolute;
     img{
       width: calc(31vw);
       height: calc(31vw);
@@ -88,7 +96,6 @@
     border-right: 18px solid #f6e4f0;
   }
   &>.banner_theme.purple{
-    position: absolute;
     img{
       width: calc(36vw);
       height: calc(33vw);
@@ -105,7 +112,6 @@
     border-right: 18px solid #eef5e5;
   }
   &>.banner_theme.green{
-    position: absolute;
     img{
       width: calc(25vw);
       height: calc(25vw);
@@ -121,7 +127,6 @@
     border-right: 18px solid #ffffff;
   }
   &>.banner_theme.white{
-    position: absolute;
     img{
       width: calc(30vw);
       height: calc(30vw);
@@ -137,7 +142,6 @@
     border-right: 18px solid #ffffff;
   }
   &>.banner_theme.red{
-    position: absolute;
     img{
       width: calc(30vw);
       height: calc(30vw);
@@ -152,6 +156,13 @@
   &>.banner_tab.peony:after{
     border-right: 18px solid #ffffff;
   }
+  &>.banner_theme.peony{
+    img{
+      width: calc(38vw);
+      height: calc(35vw);
+    }
+
+  }
 
   //青色模块
   &>.banner_tab.cyan{
@@ -159,6 +170,13 @@
   }
   &>.banner_tab.cyan:after{
     border-right: 18px solid #ffffff;
+  }
+  &>.banner_theme.cyan{
+    img{
+      width: calc(36vw);
+      height: calc(36vw);
+    }
+
   }
 
 
