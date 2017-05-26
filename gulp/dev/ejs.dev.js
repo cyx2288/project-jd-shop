@@ -42,7 +42,7 @@ function devEjs() {
 
             parserOptions: {
                 // Options here
-                decodeEntities: false
+               // decodeEntities: false
             }
 
             }
@@ -54,6 +54,8 @@ function devEjs() {
             var addJSHtml = '';//保存引用的业务脚本
 
             var addJsRun = "<script src='../../js/jdShopMain.js'></script>\n";//运行的脚本
+
+            var addJs="<script>addEventListener('load',function()\{";
 
             var addJsHtmlHead = "<script src='";
 
@@ -77,13 +79,13 @@ function devEjs() {
 
                 else {
 
-                    addJsRun += $(this).html() + '\n';
+                    addJs += $(this).html() + '\n';
 
                 }
 
             });
 
-            addJsRun += "\n</script>\n";
+            addJs += "\})\n</script>\n";
 
 
             $('script').remove();
@@ -91,6 +93,8 @@ function devEjs() {
             $('body').append(addJSHtml);
 
             $('body').append(addJsRun);
+
+            $('body').append(addJs);
 
         }))
 

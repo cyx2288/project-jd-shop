@@ -1,0 +1,185 @@
+.JD_banner_template{
+  width: 100%;
+  display: block;
+  position: relative;
+
+  .banner_tab{
+    position: absolute;
+   /* left:-2%;*/
+    top:5%;
+    z-index: 2;
+    width: 50%;
+    height: 30px;
+
+    &:after{
+      content: " ";
+      display: block;
+      top:-4%;
+      right:-1%;
+      position: absolute;
+      border-top: 16px solid transparent;
+
+      border-bottom: 16px solid transparent;
+    }
+
+    .banner_tab_text{
+      font-size: 18px;
+      color: white;
+      text-align: center;
+      height: 100%;
+
+      @media screen and (max-width: 376px){
+        font-size: 16px;
+      }
+    }
+  }
+  .banner_paster{
+    z-index: 1;
+    position: absolute;
+    top:0;
+    left:0;
+    img{
+      width: 100%;
+    }
+  }
+  .banner_theme{
+    position: absolute;
+  }
+
+  .banner_background{
+    width: 100%;
+    line-height: 0;
+    img{
+      width:100%;
+      height: calc(100vw / 800 * 372);
+
+
+    }
+
+  }
+
+  //粉色模块
+  &>.banner_tab.pink{
+    background:linear-gradient(left,#eb4a86,#ea355d);
+  }
+  &>.banner_tab.pink:after{
+    border-right: 18px solid #ffeff5;
+  }
+  &>.banner_theme.pink{
+    img{
+      width: calc(32vw);
+      height: calc(32vw);
+    }
+
+  }
+
+  //蓝色模块
+  &>.banner_tab.blue{
+    background:linear-gradient(left,#58bcf5,#4192f2);
+  }
+  &>.banner_tab.blue:after{
+    border-right: 18px solid #f3f9ff;
+  }
+  &>.banner_theme.blue{
+    img{
+      width: calc(31vw);
+      height: calc(31vw);
+    }
+
+  }
+
+  //紫色模块
+  &>.banner_tab.purple{
+    background:linear-gradient(left,#c86af7,#8c43f6);
+  }
+  &>.banner_tab.purple:after{
+    border-right: 18px solid #f6e4f0;
+  }
+  &>.banner_theme.purple{
+    img{
+      width: calc(36vw);
+      height: calc(33vw);
+    }
+
+  }
+
+
+  //绿色模块
+  &>.banner_tab.green{
+    background:linear-gradient(left,#b2c98c,#8ca86c);
+  }
+  &>.banner_tab.green:after{
+    border-right: 18px solid #eef5e5;
+  }
+  &>.banner_theme.green{
+    img{
+      width: calc(25vw);
+      height: calc(25vw);
+    }
+
+  }
+
+  //白色模块
+  &>.banner_tab.white{
+    background:linear-gradient(left,#e5ca95,#c1aa74);
+  }
+  &>.banner_tab.white:after{
+    border-right: 18px solid #ffffff;
+  }
+  &>.banner_theme.white{
+    img{
+      width: calc(30vw);
+      height: calc(30vw);
+    }
+
+  }
+
+  //红色模块
+  &>.banner_tab.red{
+    background:linear-gradient(left,#f98b8a,#e44e50);
+  }
+  &>.banner_tab.red:after{
+    border-right: 18px solid #ffffff;
+  }
+  &>.banner_theme.red{
+    img{
+      width: calc(30vw);
+      height: calc(30vw);
+    }
+
+  }
+
+  //深红色模块
+  &>.banner_tab.peony{
+    background:linear-gradient(left,#b05f48,#992a25);
+  }
+  &>.banner_tab.peony:after{
+    border-right: 18px solid #ffffff;
+  }
+  &>.banner_theme.peony{
+    img{
+      width: calc(38vw);
+      height: calc(35vw);
+    }
+
+  }
+
+  //青色模块
+  &>.banner_tab.cyan{
+    background:linear-gradient(left,#c2d6df,#1c7d9f);
+  }
+  &>.banner_tab.cyan:after{
+    border-right: 18px solid #ffffff;
+  }
+  &>.banner_theme.cyan{
+    img{
+      width: calc(36vw);
+      height: calc(36vw);
+    }
+
+  }
+
+
+
+
+}
