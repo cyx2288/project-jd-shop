@@ -42,7 +42,10 @@ var jfAutoPlay = {
 
         jfAutoPlay.jfVariable.isAndroidVersion4 = !browser.supplier.wechat && browser.androidVersion && browser.androidVersion < 5;                  //安卓系统
 
-        if (jfAutoPlay.jfVariable.isAndroidVersion4) {                                                                  //安卓4.4以下 ，
+        if (
+            0
+            &&
+            jfAutoPlay.jfVariable.isAndroidVersion4) {                                                                  //安卓4.4以下 ，
 
             var allImages = thisFatherEle.getElementsByTagName('img');
 

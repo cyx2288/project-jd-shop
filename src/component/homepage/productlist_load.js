@@ -117,12 +117,15 @@ var jfLazyLoading={
 
         _this.productdata=details.productdata||[
 
-                {"data_src":"../../images/product_list_1.jpg",
+                {   "data_href":"javascript:",
+                    "loading_src":"../../images/img_loading.gif",
+                    "data_src":"../../images/product_list_1.jpg",
                     "acc_text":"附",
                     "gift_text":"赠",
                     "product":"小米(MI)Air 13.3英寸全金属超轻薄笔记本电脑(i5-6200U 8G 256G PCIE固态硬盘 940MX独显 FHD WIN10)银",
                     "price_text":"4999.00",
-                    "praise":"99%"
+                    "praise":"99%",
+
                 }
             ];
 
@@ -132,9 +135,11 @@ var jfLazyLoading={
 
 
 
-            thisInner='<div class="product_main_img"><img class="loading_img" data-src='+_this.productdata[i].data_src+' src="../../images/img_loading.gif"></div><div class="product_main_title"><span class="acc">'+ _this.productdata[i].acc_text+'</span><span class="gift">'+ _this.productdata[i].gift_text+'</span>'+ _this.productdata[i].product+'</div><div class="product_main_price"><span class="price">￥'+ _this.productdata[i].price_text+'</span><span class="praise"><span>'+ _this.productdata[i].praise+'</span>好评</span></div>';
+            thisInner='<div class="product_main_img"><img class="loading_img" data-src='+_this.productdata[i].data_src+' src='+_this.productdata[i].loading_src+'></div><div class="product_main_title"><span class="acc">'+ _this.productdata[i].acc_text+'</span><span class="gift">'+ _this.productdata[i].gift_text+'</span>'+ _this.productdata[i].product+'</div><div class="product_main_price"><span class="price">￥'+ _this.productdata[i].price_text+'</span><span class="praise"><span>'+ _this.productdata[i].praise+'</span>好评</span></div>';
 
-            _this.ajaxAddnode('a',thisInner,'product');
+           var thisAddEle= _this.ajaxAddnode('a',thisInner,'product');//增加a标签
+
+            thisAddEle.setAttribute('href',_this.productdata[i].data_href)
 
         }
 
@@ -177,9 +182,11 @@ var jfLazyLoading={
 
         obj.innerHTML = innerHtml;
 
-        obj.setAttribute('href','javascript:');
+        //obj.setAttribute('href',_this.productdata[i].data_href);
 
         document.getElementsByClassName('hot_goods_list')[0].appendChild(obj);
+
+        return obj
     }
 }
 
