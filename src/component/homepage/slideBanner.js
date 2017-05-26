@@ -884,11 +884,11 @@ var jfAutoPlay = {
 
     jfCarouselInit: function () {                                                                                   //初始化
 
-        window.addEventListener('load', function () {
+        //window.addEventListener('load', function () {
 
             jfAutoPlay.jfAutoPlayInit();
 
-        });
+        //});
 
     }
 
