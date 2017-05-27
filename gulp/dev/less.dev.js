@@ -50,7 +50,7 @@ function devLess() {
         .pipe(less()) //编译less
 
         .pipe(autoprefixer({
-            browsers: ['Android >= 4.0', 'IOS >=7', 'Firefox >= 20', 'ie >= 8'],//兼容设备
+            browsers: ['Android >= 4.0', 'IOS >=7'],//兼容设备
 
             cascade: true, //是否美化属性值 默认：true 像这样：
             //-webkit-transform: rotate(45deg);
