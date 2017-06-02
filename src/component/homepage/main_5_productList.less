@@ -1,0 +1,175 @@
+.homepage_product_list {
+  position: relative;
+  .hot_goods_title {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 0 5px 0;
+    color: #fa4143;
+    div {
+      position: relative;
+      margin: 0 auto;
+      width: 30%;
+      border: 1px solid #fa4143;
+      border-radius: 50px;
+      box-shadow: 2px 2px 0 #f6d1d5;
+      img {
+        width: 16px;
+        height: 16px;
+        margin-right: 5px;
+      }
+      span {
+        color: #4a4a4a;
+      }
+      &:before {
+        content: '/////////';
+        position: absolute;
+        top: 2px;
+        left: -55%;
+        font-weight: normal;
+        opacity: .4;
+      }
+      &:after {
+        content: '/////////';
+        position: absolute;
+        top: 2px;
+        right: -55%;
+        font-weight: normal;
+        opacity: .4;
+      }
+    }
+    i{
+      position: absolute;
+      top: 15px;
+      left: 120px;
+      display: block;
+      width: 10px;
+      height: 27px;
+      background: #fff;
+      opacity: 0;
+      animation: shadowMove 2.5s ease-in-out 2s infinite;
+      @keyframes shadowMove {
+        45%{
+          opacity: 0;
+          transform: skew(-20deg) translateX(0px);
+        }
+        50%{
+          opacity: .6;
+        }
+        65%{
+          opacity: 0;
+          transform: skew(-20deg) translateX(120px);
+        }
+      }
+    }
+  }
+
+
+  .hot_goods_list {
+    margin: 0 10px;
+    a.product {
+
+      &:active{
+        opacity: 0.8;
+        background-color: #e4e4e4;
+      }
+      display: inline-block;
+      width: 49%;
+      float: left;
+      border-radius: 10px;
+      background-color: #fff;
+      margin-top: 5px;
+      box-sizing: border-box;
+      padding: 0 8px 5px 8px;
+      box-shadow: 1px 2px 2px #E9E9E9;
+      .product_main_img {
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 5px;
+        img{
+          display: block;
+          width: 100%;
+          height: -webkit-calc((100vw - 15px)/ 2 - .6rem);
+          height: calc((100vw - 15px)/ 2 - .6rem);
+        }
+      }
+      .product_main_title {
+        font-size: 14px;
+        line-height: 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        color: #4a4a4a;
+        height: 58px;
+
+        .acc{
+          color: #ff0200;
+          padding: 2px 3px;
+          border-radius: 5px 0 5px;
+          background: linear-gradient(45deg,#ffeced,#fff9f9);
+          margin-right: 2px;
+        }
+        .gift{
+          color: #fc8b00;
+          padding: 2px 3px;
+          border-radius: 5px 0 5px;
+          margin-right: 2px;
+          background: linear-gradient(45deg,#fff5dc,#fffdf1);
+        }
+      }
+      .product_main_price {
+        margin-top: 5px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .price {
+          color: #ff4646;
+          font-size: 16px;
+          margin-right: 10px;
+          width: 50%;
+          white-space: nowrap;
+          text-align:left;
+        }
+        .praise {
+          position: relative;
+          font-size: 12px;
+          color: #ababab;
+          width: 50%;
+          white-space: nowrap;
+          text-align: right;
+          span {
+            font-size: 14px;
+          }
+          &:after{
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -5px;
+            height: 12px;
+            border-left: 1px solid #ddd;
+            color: #ddd;
+            transform: scaleX(.4);
+          }
+        }
+      }
+      &:nth-child(2n){
+        margin-left: 3px;
+      }
+      &:nth-child(2n+1){
+        margin-right: 3px;
+      }
+    }
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+      visibility: hidden;
+    }
+  }
+}
