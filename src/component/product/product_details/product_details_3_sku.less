@@ -1,0 +1,33 @@
+.product_details_sku{
+  padding:20px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .choose_sku{
+    width: 90%;
+    .details_sku{
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      div:first-child{
+        width: 40px;
+        color: #8a8a8a;
+        margin-right: 10px;
+      }
+    }
+  }
+  .choose_point{
+    i{
+      opacity: .2;
+    }
+    i+i{
+      opacity: .6;
+    }
+    i+i+i{
+      opacity: .8;
+    }
+  }
+  &:active{
+    opacity: 0.6;
+  }
+}

@@ -27,7 +27,7 @@ footer.bottom_tabbar{
     &:after{
       content: '';
       position: absolute;
-      top: 0;
+      top: -1px;
       left: 0;
       width: 100%;
       border: 1px solid #ddd;
@@ -43,9 +43,10 @@ footer.bottom_tabbar{
       box-sizing: border-box;
       width: 100%;
       &:active{
-        background-color: #fff;
+        opacity: .6;
+       /* background-color: #fff;
         box-shadow: 0 0 10px #d9d9d9 inset;
-        -webkit-box-shadow: 0 0 10px #d9d9d9 inset;
+        -webkit-box-shadow: 0 0 10px #d9d9d9 inset;*/
       }
       .tabbar_icon{
         display: -webkit-box;
