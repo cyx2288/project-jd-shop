@@ -1,0 +1,71 @@
+<nav class="top_product_bar">
+    <div class="tab_box"></div>
+    <div class="product_nav_contain">
+        <a class="left">
+            <p><img src="../../images/nav_go_back.png"></p>
+        </a>
+        <div class="content">
+            <div class="product_images_href">商品</div>
+            <div class="product_details_href choose">图文</div>
+        </div>
+        <a class="right">&nbsp;</a>
+    </div>
+</nav>
+
+<div class="product_details">
+
+    <%- include('product_details/product_details_1_autoPlay.ejs')%>
+
+    <%- include('product_details/product_details_2_main.ejs')%>
+
+    <%- include('product_details/product_details_3_sku.ejs')%>
+
+    <%- include('product_details/product_details_4_address.ejs')%>
+
+    <%- include('product_details/product_details_5_advantage.ejs')%>
+
+    <%- include('product_details/product_details_6_banner.ejs')%>
+
+    <%- include('product_details/product_details_7_enclosure.ejs')%>
+
+</div>
+
+<div class="product_images">
+
+    <%- include('product_images/product_images_1_nav.ejs')%>
+
+    <%- include('product_images/product_images_2_description.ejs')%>
+
+    <%- include('product_images/product_images_3_parameter.ejs')%>
+
+    <%- include('product_images/product_images_4_service.ejs')%>
+
+</div>
+
+<div id="product_prompt">
+
+    <%- include('product_prompt/product_prompt_1_address.ejs')%>
+
+    <%- include('product_prompt/product_prompt_2_mainImage.ejs')%>
+
+    <%- include('product_prompt/product_prompt_3_acc.ejs')%>
+
+    <%- include('product_prompt/product_prompt_4_buy.ejs')%>
+
+</div>
+<footer class="bottom_product_tabbar">
+    <div class="tab_box"></div>
+    <div class="product_tabbar_contain">
+        <a>
+            <div class="tabbar_icon"><img src="../../icon/icon_main_home_red.png"></div>
+            <p>商城首页</p>
+        </a>
+        <a>
+            <div class="tabbar_icon"><img src="../../icon/icon_main_car_red.png"></div>
+            <p>购物车</p>
+        </a>
+        <a class="shopping_btn orange" onclick="show1.show()">加入购物车</a>
+        <a class="shopping_btn red">立即购买</a>
+    </div>
+
+</footer>
