@@ -20,12 +20,19 @@ var jfShowPop = function (details) {
 
 };
 
-jfShowPop.prototype.show = function (e) {
+jfShowPop.prototype.show = function (details) {
+
+
+    if(details){
+
+        details.fn();
+
+    }
+
 
     var thisEle = document.getElementById(this.details.ele);
 
     thisEle.style.display = 'block';
-
 
     setTimeout(function () {
 
@@ -35,8 +42,7 @@ jfShowPop.prototype.show = function (e) {
 
         }
 
-    }, 1);
-
+    }, 1)
 
 };
 
@@ -51,6 +57,8 @@ jfShowPop.prototype.hide = function () {
         thisEle.className = thisEle.className.replace(' show', '')
 
     }
+
+
 
     function transitionMove(ele) {
 
