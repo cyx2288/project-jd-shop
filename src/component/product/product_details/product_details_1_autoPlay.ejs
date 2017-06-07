@@ -1,4 +1,41 @@
 <!--主图轮播-->
-<div class="product_details_autoPlay">
-    <a><img src="../../images/product_list_1.jpg"></a>
+<div class="product_autoPlay">
+
+    <!--图片部分-->
+    <div class="product_details_autoPlay">
+        <div><img   src="../../images/product_list_1.jpg" ></div>
+        <div><img   src="../../images/product_list_1.jpg" ></div>
+        <div><img   src="../../images/product_list_1.jpg" ></div>
+        <div><img   src="../../images/product_list_1.jpg"></div>
+        <div><img   src="../../images/product_list_1.jpg" ></div>
+    </div>
+
+    <!--点点部分-->
+
+    <div class="allpoint">
+        <span class="showpoint"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
 </div>
+
+
+<script>
+    /*图片懒加载*/
+    jfLazyLoading.lazyLoadInit({
+
+        "bottomDistance":"50"//距离底部的距离，触发事件，单位省略
+    })
+
+    /*商品详情页图片滚动*/
+
+    productInfoShow.moveEvent({
+        "moveEle":"product_details_autoPlay",
+        "pointEle":"allpoint"
+    });
+
+
+</script>
