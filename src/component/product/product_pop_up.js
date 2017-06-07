@@ -20,7 +20,15 @@ var jfShowPop = function (details) {
 
 };
 
-jfShowPop.prototype.show = function () {
+jfShowPop.prototype.show = function (details) {
+
+
+    if(details){
+
+        details.fn();
+
+    }
+
 
     var thisEle = document.getElementById(this.details.ele);
 

@@ -47,9 +47,9 @@ function devJs() {
 
       //  .pipe(connect.reload());
 
-    gulp.src(['src/json/*']) //该任务针对的文件7
+    gulp.src(['src/api/*']) //该任务针对的文件7
 
-        .pipe(gulp.dest('build/json'))
+        .pipe(gulp.dest('build/api'))
 
         .pipe(connect.reload());
 
