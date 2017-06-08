@@ -5,8 +5,8 @@
             <p><img src="../../images/nav_go_back.png"></p>
         </a>
         <div class="content">
-            <div class="nav_tab choose_tab">商品</div>
-            <div class="nav_tab">图文</div>
+            <div class="nav_tab choose_tab" onclick="jfProductDetails.scrollEle(document.getElementsByClassName('product_autoPlay')[0],45)">商品</div>
+            <div class="nav_tab" onclick="jfProductDetails.scrollEle(document.getElementById('NavTab'),45)">图文</div>
         </div>
         <a class="right">&nbsp;</a>
     </div>
@@ -64,8 +64,19 @@
             <div class="tabbar_icon"><img src="../../icon/icon_main_car_red.png"></div>
             <p>购物车</p>
         </a>
-        <a class="shopping_btn orange" onclick="showProductSku.show()">加入购物车</a>
-        <a class="shopping_btn red" onclick="showProductSku.show()">立即购买</a>
+        <a class="shopping_btn orange" onclick="showProductSku.show({fn:function () {jfProductDetails.changeHideBtn('orange');}})">加入购物车</a>
+        <a class="shopping_btn red" onclick="showProductSku.show({fn:function() {jfProductDetails.changeHideBtn('red');}})">立即购买</a>
     </div>
 
 </footer>
+
+<script>
+
+    //切换顶部tab
+    jfProductDetails.clickTabChange(document.getElementsByClassName('content')[0], 'choose_tab', 'nav_tab');
+
+    //滚动切换
+    jfProductDetails.tabScrollChange();
+
+
+</script>

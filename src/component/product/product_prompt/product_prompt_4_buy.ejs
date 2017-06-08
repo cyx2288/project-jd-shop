@@ -45,18 +45,21 @@
                 <div class="sku_volume_purchased">
                     <div>数量</div>
                     <div>
-                        <span>－</span>
-                        <input type="number" pattern="[0-9]*" maxlength="3" class="volume_input" value="1"/>
-                        <span>＋</span>
+                        <span class="reduce">－</span>
+                        <input type="number" pattern="[0-9]*" maxlength="6" class="volume_input" value="1"/>
+                        <span class="add">＋</span>
                     </div>
                 </div>
                 <!-- -->
-                <a class="product_prompt_btn orange" style="display: none">
-                    <div>加入购物车</div>
-                </a>
-                <a class="product_prompt_btn red">
-                    <div>立即购买</div>
-                </a>
+                <div class="prompt_btn">
+                    <a class="product_prompt_btn red hidebtn">
+                        <div>立即购买</div>
+                    </a>
+                    <a class="product_prompt_btn orange">
+                        <div>加入购物车</div>
+                    </a>
+                </div>
+
             </div>
         </div>
 
@@ -68,13 +71,20 @@
 
 <script>
 
+    //弹出框方法
     showProductSku=new jfShowPop({'ele':'product_prompt_buy'})
 
-    clickTabChange(document.getElementsByClassName('sku_contain')[0], 'choose_tab','sku_box');
 
-    clickTabChange(document.getElementsByClassName('sku_contain')[1], 'choose_tab','sku_box');
+    //sku 选择
 
-    clickTabChange(document.getElementsByClassName('sku_contain')[2], 'choose_tab','sku_box');
+    jfProductDetails.clickTabChange(document.getElementsByClassName('sku_contain')[0], 'choose_tab','sku_box');
+
+    jfProductDetails.clickTabChange(document.getElementsByClassName('sku_contain')[1], 'choose_tab','sku_box');
+
+    jfProductDetails.clickTabChange(document.getElementsByClassName('sku_contain')[2], 'choose_tab','sku_box');
+
+    //购物车加减
+    jfProductDetails.numChangeValue();
 
 
 </script>

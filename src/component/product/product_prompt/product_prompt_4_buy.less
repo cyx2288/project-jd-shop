@@ -41,13 +41,14 @@
     padding: 20px 15px;
     span{
       display: inline-block;
-      width: 18px;
-      height: 18px;
+      width: 22px;
+      height: 22px;
+      line-height: 22px;
       border-radius: 50%;
       border: 1px solid #c9c9c9;
       text-align: center;
       vertical-align: middle;
-      font-size: 12px;
+      font-size: 14px;
     }
     input.volume_input{
       border: 0;
@@ -72,12 +73,19 @@
   }
     a.product_prompt_btn {
       position: relative;
-      display: block;
+      display: none;
       width: 100%;
       height: 55px;
       color: #fff;
       text-align: center;
       font-size: 18px;
       line-height: 55px;
+      &.hidebtn{
+        display: block;
+      }
+      &:active{
+        -webkit-filter: grayscale(20%);
+        color: hsla(0,0,100%,.6);
+      }
     }
   }
