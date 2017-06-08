@@ -1,17 +1,16 @@
-/**
- * Created by Qiaodan on 2017/6/7.
- */
 
-
-
-
+/*图片手动轮播*/
 var productInfoShow={
 
     "figer":{
 
-        'move':true
+        "ischange":true,
+
+        "ismove":true //true表示左右移动，执行轮播的JS，false表示上下移动，不执行轮播的JS
 
     },
+
+
 
     /*图片弹出*/
     showImages:function(details){
@@ -28,7 +27,9 @@ var productInfoShow={
 
         _this.allShowEle=details.allShowEle||'showImg';//整个弹出的元素,class选择器
 
-        _this.moveDistance = 0;//移动的距离(一根手指)
+        _this.moveDistanceX = 0;//x方向移动的距离(一根手指)
+
+        _this.moveDistanceY=0;//y方向移動的距離
 
         _this.thisPosition = 0;//初始化现在在第几个页面
 
@@ -47,10 +48,7 @@ var productInfoShow={
 
         AllShowContent.style.display='block';//弹出元素显示
 
-        if(this.figer.move){
-
-            _this.moveEvent();//调用绑定事件
-        }
+        _this.moveEvent();//调用绑定事件
 
     },
 
@@ -73,9 +71,13 @@ var productInfoShow={
 
         var thisWindowWidth = window.innerWidth;//屏幕可视窗口宽度
 
-        var firstTouchesClientX; //初次点击的位置
+        var firstTouchesClientX; //初次点击的位置X坐标
 
-        var moveTouchesClientX;//移动一段距离后，停止点的位置
+        var firstTouchesClientY;//初次点击的位置Y坐标
+
+        var moveTouchesClientX;//移动一段距离后，停止点的位置(X)
+
+        var moveTouchesClientY;//移动一段距离后，停止点的位置(Y)
 
         var lastDis=0;//前一次距离
 
@@ -83,54 +85,83 @@ var productInfoShow={
 
         var lastDistanceSpeed=0;//最后一次速度
 
-        moveEle.addEventListener('touchstart',function(e){
+        moveEle.addEventListener('touchstart',function(event){
 
-            e.preventDefault();
+            var evt = event ? event : window.event;
 
-            getFirstPosition(e)
+            _this.figer.ischange=true;//初始化可移动
+
+            getFirstPosition(event)
 
         },false);//获取初始位置
 
-        moveEle.addEventListener('touchmove',function(e){
+        moveEle.addEventListener('touchmove',function(event){
 
-            e.preventDefault();
+            var evt = event ? event : window.event;
 
-            lastDistanceSpeed=getLastPosition(e);
+            lastDistanceSpeed=getLastPosition(event);
 
-            if((_this.thisPosition==0)&&_this.moveDistance>0){
+            if(_this.figer.ischange){
 
-                _this.moveDistance=_this.moveDistance/3;   //第一页以及最后一页，滑动会产生一个阻力
+                if(Math.abs(_this.moveDistanceY)>Math.abs(_this.moveDistanceX)){//如果在Y軸方向移動的距離大於X軸方向，則不轮播
 
+                    _this.figer.ismove=false
+                }else {
+
+                    _this.figer.ismove=true
+                }
+
+                _this.figer.ischange=false;//进行锁定一次，
             }
 
-            if((_this.thisPosition==-4) &&_this.moveDistance<0){
+            if( _this.figer.ismove){//判断为左右移动时，即可运行相应的JS
 
-                _this.moveDistance=_this.moveDistance/3;   //第一页以及最后一页，滑动会产生一个阻力
+                evt.preventDefault();//阻止浏览器的默认行为
+
+                if((_this.thisPosition==0)&&_this.moveDistanceX>0){
+
+                    _this.moveDistanceX=_this.moveDistanceX/3;   //第一页以及最后一页，滑动会产生一个阻力
+
+                }
+
+                if((_this.thisPosition==-4) &&_this.moveDistanceX<0){
+
+                    _this.moveDistanceX=_this.moveDistanceX/3;   //第一页以及最后一页，滑动会产生一个阻力
+
+                }
+
+                _this.changeTranslate(moveEle, parseFloat(_this.thisPosition*thisWindowWidth)+parseFloat(_this.moveDistanceX) + 'px');//移动中
 
             }
-
-            _this.changeTranslate(moveEle, parseFloat(_this.thisPosition*thisWindowWidth)+parseFloat(_this.moveDistance) + 'px');//移动中
 
         },false);
 
-        moveEle.addEventListener('touchend',function(e){
+        moveEle.addEventListener('touchend',function(event){
 
-            e.preventDefault();
+            var evt = event ? event : window.event;
 
-            moveEle.className= ""+_this.moveEle+" contentchange";//添加class,带有Transition的属性
+            if(_this.figer.ismove){
 
-            if(Math.abs(_this.moveDistance)>(thisWindowWidth/3)||lastDistanceSpeed>6){//当手指的移动距离大于屏幕的1/3时，变化
+                evt.preventDefault();//阻止浏览器的默认行为
 
-                _this.movePosition(_this.moveDistance)
+                moveEle.className= ""+_this.moveEle+" contentchange";//添加class,带有Transition的属性
 
-            }else {
+                if(Math.abs(_this.moveDistanceX)>(thisWindowWidth/3)||lastDistanceSpeed>6){//当手指的移动距离大于屏幕的1/3时，变化
 
-                _this.changeTranslate(moveEle, parseFloat(_this.thisPosition*thisWindowWidth) + 'px');//变化到指定位置
+                    _this.movePosition(_this.moveDistanceX)
+
+                }else {
+
+                    _this.changeTranslate(moveEle, parseFloat(_this.thisPosition*thisWindowWidth) + 'px');//变化到指定位置
+                }
+
+                moveEle.addEventListener("TransitionEnd",transitionMoveEndFn,false);
+
+                moveEle.addEventListener("webkitTransitionEnd",transitionMoveEndFn,false);
+
             }
 
-            moveEle.addEventListener("TransitionEnd",transitionMoveEndFn,false);
 
-            moveEle.addEventListener("webkitTransitionEnd",transitionMoveEndFn,false);
         },false);
 
         //绑定平滑过渡后的方法
@@ -150,9 +181,9 @@ var productInfoShow={
 
             var evt = event ? event : window.event;
 
-            evt.preventDefault();
+            firstTouchesClientX = parseFloat(evt.touches[0].clientX);//当前点击事件距离屏幕左边的距离(初始位置-X);
 
-            firstTouchesClientX = parseFloat(evt.touches[0].clientX);//当前点击事件距离屏幕左边的距离(初始位置);
+            firstTouchesClientY=parseFloat(evt.touches[0].clientY);//当前点击事件距离屏幕左边的距离(初始位置-X);
 
             lastDis=newDis=firstTouchesClientX;
 
@@ -168,13 +199,17 @@ var productInfoShow={
 
             var evt = event ? event : window.event;
 
-            moveTouchesClientX = parseFloat(evt.changedTouches[0].clientX);//末尾位置;
+            moveTouchesClientX = parseFloat(evt.changedTouches[0].clientX);//末尾位置(X);
+
+            moveTouchesClientY = parseFloat(evt.changedTouches[0].clientY);//末尾位置(Y);
 
             lastDis=newDis;
 
             newDis=moveTouchesClientX;
 
-            _this.moveDistance = moveTouchesClientX - firstTouchesClientX;//最终移动的距离（第一根手指）
+            _this.moveDistanceX = moveTouchesClientX - firstTouchesClientX;//x軸方向最终移动的距离（第一根手指）
+
+            _this.moveDistanceY = moveTouchesClientY - firstTouchesClientY;//Y軸方向最终移动的距离（第一根手指）
 
             return Math.abs(newDis-lastDis);
 
