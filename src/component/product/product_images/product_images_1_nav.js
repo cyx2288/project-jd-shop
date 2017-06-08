@@ -44,6 +44,7 @@ function clickTabChange(fatherEle, changeClass, className) {
 
     var allEle = fatherEle.getElementsByClassName(className);
 
+
     for (var i = 0; i < allEle.length; i++) {
 
         allEle[i].addEventListener('click', function () {
@@ -56,9 +57,17 @@ function clickTabChange(fatherEle, changeClass, className) {
 
     }
 
-};
+}
 
-clickTabChange(document.getElementsByClassName(''));
+
+clickTabChange(document.getElementsByClassName('content')[0],'choose_tab','nav_tab');
+
+
+clickTabChange(document.getElementById('NavTab'),'choose_tab','tab');
+
+
+
+
 
 function tabSrollChange() {
 
