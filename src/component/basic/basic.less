@@ -35,12 +35,33 @@ html,body {
     font-size: 14px;
     font-family: Arial,'微软雅黑',Helvetica Neue,Helvetica,sans-serif;
   }
-.jdshop_alignment{
+
+.jdshop_alignment_center{  /*垂直两端对齐*/
    display: flex;
    justify-content: space-between;
    align-items: center;
  }
-.jdshop_shadow{
+
+.jdshop_alignment_top{ /*顶部两端对齐*/
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.jdshop_alignment_bottom{ /*底部两端对齐*/
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.jdshop_alignment_left{ /*顶部左对齐*/
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.jdshop_shadow{   /*每个模块的阴影*/
   box-shadow: 0 2px 3px #E9E9E9; ;
 }
+
 
