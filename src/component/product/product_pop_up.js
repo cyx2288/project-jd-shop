@@ -18,6 +18,46 @@ var jfShowPop = function (details) {
 
     }
 
+    /*this.ban=function (e) {
+
+
+        window.event? window.event.cancelBubble = true : e.stopPropagation();//阻止冒泡
+
+    };*/
+
+    if(thisEle.getElementsByClassName('jf_pop_up_bg')[0]) {
+
+        addEvent(thisEle.getElementsByClassName('jf_pop_up_bg')[0]);
+
+    }
+
+     if(thisEle.getElementsByClassName('pop_top')[0]) {
+
+         addEvent(thisEle.getElementsByClassName('pop_top')[0]);
+         
+     }
+
+
+    function addEvent(ele) {
+
+        var allEvent=['touchstart','touchmove','touchend'];
+
+         for(var i=0;i<allEvent.length;i++) {
+
+           ele.addEventListener(allEvent[i],eventBan,false)
+
+         }
+
+     }
+
+     function eventBan(e) {
+
+            // window.event? window.event.cancelBubble = true : e.stopPropagation();
+
+              window.event? window.event.returnValue = false : e.preventDefault();
+
+     }
+
 };
 
 jfShowPop.prototype.show = function (details) {
@@ -29,6 +69,9 @@ jfShowPop.prototype.show = function (details) {
 
     }
 
+   /* this.ban();*/
+
+    /*document.body.addEventListener('touchmove', this.ban, true);*/
 
     var thisEle = document.getElementById(this.details.ele);
 
@@ -49,6 +92,8 @@ jfShowPop.prototype.show = function (details) {
 jfShowPop.prototype.hide = function () {
 
     var thisEle = document.getElementById(this.details.ele);
+
+     /*document.body.removeEventListener('touchmove', this.ban, true);*/
 
     if (thisEle.className.indexOf('show') > -1) {
 
