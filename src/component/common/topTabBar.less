@@ -1,0 +1,74 @@
+/*product_nav*/
+nav.jd_top_bar {
+  position: relative;
+  z-index: 500;
+  font-size: 16px;
+  .tab_box {
+    box-sizing: border-box;
+    height: 100%;
+    padding-bottom: 45px;
+    overflow: auto;
+  }
+  .nav_contain{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: -webkit-linear-gradient(top,#20232b,#343943);
+    height: 45px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    .left{
+      width: 21px;
+      font-size: 10px;
+      color: #fff;
+      padding: 0 10px 0 15px ;
+      p{
+        width: 21px;
+        height: 21px;
+        img{
+          width: 100%;
+        }
+      }
+      &:active{
+        opacity: 0.5;
+      }
+    }
+    .content{
+      position: relative;
+      width: auto;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      div{
+        padding: 0 20px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+      }
+      .choose_tab{
+        position: relative;
+        font-size: 16px;
+        &:after{
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 6px;
+          height: 1px;
+          border-top: 2px solid #fff;
+          color: #fff;
+          width: 80%;
+        }
+      }
+    }
+    .right{
+      display: inline-block;
+      width: 21px;
+      padding: 0 15px 0 10px ;
+    }
+  }
+}
