@@ -126,9 +126,10 @@ var jfProductDetails = {
                 titleTabChange();
 
             }
-            function slideTabChoose(element, childClassName, num) {                                                        //
+            function slideTabChoose(element, childClassName, num) {                                                    //选择切换tab
 
                 if (element.getElementsByClassName('choose_tab')[0]) {
+
 
                     element.getElementsByClassName('choose_tab')[0].className = element.getElementsByClassName('choose_tab')[0].className.replace('choose_tab', '');
 
