@@ -33,7 +33,7 @@ var productInfoPlay={
 
         _this.moveDistanceY=0;//y方向移動的距離
 
-        _this.initPointEle(_this.moveEleParent,'allpoint');//初始化点点（参数一当前移动元素的父元素，参数二变化的点点元素class）
+        _this.initPointEle(_this.moveEleParent,'allpoint jdshow_center_center');//初始化点点（参数一当前移动元素的父元素，参数二变化的点点元素class）
 
         _this.moveEvent( _this.moveEle,'allpoint');//元素绑定事件（参数一当前移动元素，参数二变化的点点元素class）
 
@@ -48,7 +48,7 @@ var productInfoPlay={
 
         document.getElementsByClassName( _this.allShowEle)[0].style.display='block';//弹出元素显示
 
-        _this.initPointEle( _this.allShowEle,'point_content');//初始化点点元素
+        _this.initPointEle( _this.allShowEle,'point_content jdshow_center_center');//初始化点点元素
 
         _this.moveEvent(_this.allsaveImg,'point_content');//调用绑定事件
 
