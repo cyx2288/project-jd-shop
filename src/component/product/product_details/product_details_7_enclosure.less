@@ -13,25 +13,26 @@
       position: relative;
       padding: 10px 15px;
       background: #fff;
+  &:first-child:before,&:before{
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    height: 1px;
+    top: 0;
+  }
+  &:first-child:before {
 
-      &:first-child:before {
-        content: '';
-        position: absolute;
-        box-sizing: border-box;
         width: 100%;
-        height: 1px;
+
         left: 0;
-        top: 0;
+
         border: none;
       }
       &:before {
-        content: '';
-        position: absolute;
-        box-sizing: border-box;
+
         width: 92%;
-        height: 1px;
+
         left: 15px;
-        top: 0;
         border: 1px solid #ddd;
         transform-origin: 0 0;
         transform: scaleY(.2);
@@ -43,9 +44,22 @@
 
 .details_acc_title {
   margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+  .acc_title,.gift_title{
+
+    &:before,&:after{
+      content: '●';
+      position: absolute;
+      top: 0;
+      opacity: .4;
+    }
+    &:before {
+      left: -4px;
+    }
+    &:after {
+      right: -4px;
+    }
+  }
   .acc_title {
     position: relative;
     border: 1px solid #c9c9c9;
@@ -54,20 +68,7 @@
     color: #ff0200;
     font-size: 12px;
     text-align: center;
-    &:before {
-      content: '●';
-      position: absolute;
-      top: 0;
-      left: -4px;
-      opacity: .4;
-    }
-    &:after {
-      content: '●';
-      position: absolute;
-      top: 0;
-      right: -4px;
-      opacity: .4;
-    }
+
   }
   .gift_title{
     position: relative;
@@ -77,20 +78,7 @@
     color: #fc8b00;
     font-size: 12px;
     text-align: center;
-    &:before {
-      content: '●';
-      position: absolute;
-      top: 0;
-      left: -4px;
-      opacity: .4;
-    }
-    &:after {
-      content: '●';
-      position: absolute;
-      top: 0;
-      right: -4px;
-      opacity: .4;
-    }
+
   }
   .acc_tips {
     font-size: 12px;
@@ -105,9 +93,7 @@
   }
 }
 .details_acc_goods {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+
   .goods_pic {
     img {
       width: 75px;
@@ -125,9 +111,7 @@
       -webkit-line-clamp: 2;
     }
     .goods_num {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+
       p + p {
         color: #ababab;
         font-size: 12px;
