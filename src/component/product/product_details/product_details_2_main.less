@@ -3,9 +3,6 @@
   padding: 10px 15px 5px 15px;
   .product_title{
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     .product_name{
       width: 80%;
       width: calc( 65vh );
@@ -36,9 +33,6 @@
   }
   .product_imf{
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     .product_price{
       font-size: 16px;
       font-weight: bold;
@@ -47,54 +41,7 @@
         font-size: 22px;
       }
     }
-    .product_additional_goods{
-      text-align: right;
-      width: 30%;
-      font-size: 12px;
-      .red_acc{
-        position: relative;
-        border: 1px solid #c9c9c9;
-        border-radius: 8px;
-        padding: 2px 6px;
-        color: #ff0200;
-        margin-right: 8px;
-        &:before{
-          content: '●';
-          position: absolute;
-          top: 0;
-          left: -4px;
-          opacity: .4;
-        }
-        &:after{
-          content: '●';
-          position: absolute;
-          top: 0;
-          right: -4px;
-          opacity: .4;
-        }
-      }
-      .org_gift{
-        position: relative;
-        border: 1px solid #c9c9c9;
-        border-radius: 8px;
-        padding: 2px 6px;
-        color: #fc8b00;
-        &:before{
-          content: '●';
-          position: absolute;
-          top: 0;
-          left: -4px;
-          opacity: .4;
-        }
-        &:after{
-          content: '●';
-          position: absolute;
-          top: 0;
-          right: -4px;
-          opacity: .4;
-        }
-      }
-    }
+
   }
   &:before{
     content: '';
@@ -108,5 +55,45 @@
     border: 1px solid #ddd;
     transform-origin: 0 0;
     transform: scaleY(.2);
+  }
+}
+
+.product_additional_goods{
+  text-align: right;
+  width: 30%;
+  font-size: 12px;
+  .red_acc,.org_gift{
+
+    position: relative;
+    border: 1px solid #c9c9c9;
+    border-radius: 8px;
+    padding: 2px 6px;
+
+    &:before{
+      left: -4px;
+    }
+
+    &:after{
+      right: -4px;
+    }
+
+    &:after,&:before{
+      content: '●';
+      position: absolute;
+      top: 0;
+      opacity: .4;
+    }
+
+  }
+  .red_acc{
+
+    color: #ff0200;
+    margin-right: 8px;
+
+  }
+  .org_gift{
+
+    color: #fc8b00;
+
   }
 }
