@@ -1,6 +1,6 @@
 
 /*图片手动轮播*/
-var productInfoShow={
+var productInfoPlay={
 
     "figer":{
 
@@ -9,11 +9,8 @@ var productInfoShow={
         "ismove":true //true表示左右移动，执行轮播的JS，false表示上下移动，不执行轮播的JS
 
     },
-
-
-
-    /*图片弹出*/
-    showImages:function(details){
+    /*初始化,没有动画弹出*/
+    init:function(details){
 
         var _this=this;
 
@@ -21,53 +18,48 @@ var productInfoShow={
             details={};
         }
 
-        _this.thisImgEle = details.thisImgEle || 'allimg';//当前显示的banner图片的整个div,class选择器
+        _this.moveEle = details.moveEle || 'allimg';//当前显示的banner图片的整个div,class选择器
 
-        _this.saveImgEle=details.saveImgEle||'img_content';//点击后显示的图片的整个div.calss选择器
+        _this.moveEleParent=details.moveEleParent||'demo1';//当前显示的整个框架
 
-        _this.allShowEle=details.allShowEle||'showImg';//整个弹出的元素,class选择器
+        _this.allShowEle=details.allShowEle||'main_content';//整个弹出的元素框架,class选择器
+
+        _this.allsaveImg=details.allsaveImg||'img_content';//点击后显示的图片的整个div.calss选择器
+
+
+        _this.thisPosition = 0;//初始化现在在第几个页面
 
         _this.moveDistanceX = 0;//x方向移动的距离(一根手指)
 
         _this.moveDistanceY=0;//y方向移動的距離
 
-        _this.thisPosition = 0;//初始化现在在第几个页面
+        _this.initPointEle(_this.moveEleParent,'allpoint');//初始化点点（参数一当前移动元素的父元素，参数二变化的点点元素class）
 
+        _this.moveEvent( _this.moveEle,'allpoint');//元素绑定事件（参数一当前移动元素，参数二变化的点点元素class）
 
-        var AllBannerImg=document.getElementsByClassName(_this.thisImgEle)[0];//显示中的banner图片
+    },
 
-        var showImgEle=document.getElementsByClassName(_this.saveImgEle)[0];//包裹所有主体中的banner图片的父级元素
+    /*图片弹出*/
+    showImages:function(){
 
-        var thisSaveImgDiv=AllBannerImg.getElementsByTagName('div');//获取显示图片的父级元素
+        var _this=this;
 
-        var AllShowContent=document.getElementsByClassName( _this.allShowEle)[0];////整个弹出的元素
+        document.getElementsByClassName(_this.allsaveImg)[0].innerHTML=document.getElementsByClassName( _this.moveEle)[0].innerHTML;//获取所有的图片=主体内容图片部分
 
-        showImgEle.innerHTML=AllBannerImg.innerHTML;//获取所有的图片=主体内容图片部分
+        document.getElementsByClassName( _this.allShowEle)[0].style.display='block';//弹出元素显示
 
-        _this.initPointEle();//初始化点点元素
+        _this.initPointEle( _this.allShowEle,'point_content');//初始化点点元素
 
-        AllShowContent.style.display='block';//弹出元素显示
-
-        _this.moveEvent();//调用绑定事件
+        _this.moveEvent(_this.allsaveImg,'point_content');//调用绑定事件
 
     },
 
     /*元素绑定事件*/
-    moveEvent:function(details){
+    moveEvent:function(EventEle,pointEle){//参数一为移动元素的class值，参数二是点点的父元素
 
         var _this=this;
 
-        if(!details){//如果details未输入，则防止报错
-            details={};
-        }
-
-        _this.moveEle = details.moveEle || 'img_content';//当前显示的banner图片的整个div,class选择器
-
-        _this.pointEle=details.pointEle||'point_content';//点点的父元素
-
-        _this.thisPosition = 0;//初始化现在在第几个页面
-
-        var moveEle=document.getElementsByClassName(_this.moveEle)[0];//banner轮播图
+        var moveEle=document.getElementsByClassName(EventEle)[0];//banner轮播图
 
         var thisWindowWidth = window.innerWidth;//屏幕可视窗口宽度
 
@@ -88,6 +80,8 @@ var productInfoShow={
         moveEle.addEventListener('touchstart',function(event){
 
             var evt = event ? event : window.event;
+
+            _this.moveDistanceX=0;//清除上一次移动的距离
 
             _this.figer.ischange=true;//初始化可移动
 
@@ -144,15 +138,16 @@ var productInfoShow={
 
                 evt.preventDefault();//阻止浏览器的默认行为
 
-                moveEle.className= ""+_this.moveEle+" contentchange";//添加class,带有Transition的属性
+                moveEle.className= ""+EventEle+" contentchange";//添加class,带有Transition的属性
 
                 if(Math.abs(_this.moveDistanceX)>(thisWindowWidth/3)||lastDistanceSpeed>6){//当手指的移动距离大于屏幕的1/3时，变化
 
-                    _this.movePosition(_this.moveDistanceX)
+                    _this.movePosition(_this.moveDistanceX,EventEle,pointEle)
 
                 }else {
 
                     _this.changeTranslate(moveEle, parseFloat(_this.thisPosition*thisWindowWidth) + 'px');//变化到指定位置
+
                 }
 
                 moveEle.addEventListener("TransitionEnd",transitionMoveEndFn,false);
@@ -167,7 +162,7 @@ var productInfoShow={
         //绑定平滑过渡后的方法
         function transitionMoveEndFn(){
 
-            moveEle.className=""+_this.moveEle+"";//移除class,带有Transition的属性
+            moveEle.className=""+EventEle+"";//移除class,带有Transition的属性
 
 
             moveEle.removeEventListener('transitionend', transitionMoveEndFn, false);
@@ -187,9 +182,9 @@ var productInfoShow={
 
             lastDis=newDis=firstTouchesClientX;
 
-            if(moveEle.className=""+_this.moveEle+" contentchange"){
+            if(moveEle.className=""+EventEle+" contentchange"){
 
-                moveEle.className=""+_this.moveEle+""
+                moveEle.className=""+EventEle+""
 
             }
         }
@@ -216,18 +211,17 @@ var productInfoShow={
         }
     },
 
-
     /*元素移动*/
-    movePosition:function(position){
+    movePosition:function(position,EventEle,pointEle){//参数一当前移动的位置方向，参数二移动的元素，参数三点点父元素的class值
         var _this=this;
 
         var thisWindowWidth = window.innerWidth;//屏幕可视窗口宽度
 
-        var moveEle=document.getElementsByClassName(_this.moveEle)[0];//包裹所有主体中的banner图片的父级元素
+        var moveEle=document.getElementsByClassName(EventEle)[0];//包裹所有主体中的banner图片的父级元素
 
         var thisNum = moveEle.getElementsByTagName('div').length - 1;
 
-        var PointParent=document.getElementsByClassName(_this.pointEle)[0];//点点的父元素
+        var PointParent=document.getElementsByClassName(pointEle)[0];//点点的父元素
 
         var allPointEle=PointParent.getElementsByTagName('span');
 
@@ -245,29 +239,29 @@ var productInfoShow={
             _this.thisPosition < 0 ? _this.thisPosition++ : _this.thisPosition = 0;
         }
 
-        _this.changeTranslate(moveEle, thisWindowWidth * this.thisPosition + 'px',1);//变化到指定位置
+        _this.changeTranslate(moveEle, thisWindowWidth * this.thisPosition + 'px');//变化到指定位置
+
 
         if(allPointEle){
             //变化点点的位置
             PointParent.getElementsByClassName('showpoint')[0].className="";
 
             allPointEle[-this.thisPosition].className="showpoint"
+
         }
 
 
     },
 
     /*添加元素*/
-    initPointEle:function(){
+    initPointEle:function(pointParentEle,pointClassname){//参数是点点以及banner的父元素,以及点点父元素的class值
         var _this = this;
 
-        var AllBannerImg=document.getElementsByClassName(_this.thisImgEle)[0];//显示中的banner图片
-
-        var thisSaveImgDiv=AllBannerImg.getElementsByTagName('div');//获取显示图片的父级元素
+        var AllBannerImg=document.getElementsByClassName( _this.moveEle)[0].getElementsByTagName('div');//显示的banner图片
 
         var pointEle="";//点点元素
 
-        for(var i=0;i<thisSaveImgDiv.length;i++){
+        for(var i=0;i<AllBannerImg.length;i++){
 
 
             if (i == 0) {
@@ -283,7 +277,7 @@ var productInfoShow={
 
         }
 
-        addnode("div",pointEle);
+        addnode("div",pointEle,pointClassname);
 
         function addnode(tag, innerHtml, className){
 
@@ -296,7 +290,7 @@ var productInfoShow={
 
             obj.innerHTML = innerHtml;
 
-            document.getElementsByClassName('point_content')[0].appendChild(obj);
+            document.getElementsByClassName(pointParentEle)[0].appendChild(obj);
         }
 
     },
