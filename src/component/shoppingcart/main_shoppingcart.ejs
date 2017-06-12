@@ -1,16 +1,16 @@
 <!-- 顶部导航 -->
-<nav class="top_shoppingcart_bar">
+<nav class="jd_top_bar">
     <div class="tab_box"></div>
-    <div class="top_shoppingcart_contain">
+    <div class="jd_top_contain jdshop_alignment_center">
         <a class="left">
             <p class="icon_btn"></p>
             <p>嘉福平台</p>
         </a>
-        <div class="content">
-
+        <div class="content jdshop_alignment_center">
+            购物车
         </div>
-        <a class="right">
-            <p>编辑</p>
+        <a class="right" id="editTabBtn">
+            编辑
         </a>
     </div>
 </nav>
@@ -29,19 +29,39 @@
 
 <!-- 切换tab-->
 
-<div class="shopping_cart">
 
-    <!-- -->
+    <!-- 编辑 -->
+    <div class="operation_tab jdshop_alignment_center" id="settlementTab">
+        <div class="jdshop_alignment_left">
+            <label>
+                <input class="radio allcheck" type="checkbox" id="allcheck" onclick="jfShoppinCart.checkBoxChange()"><span>全选</span>
+            </label>
+            <div class="price">合计:<span class="font_red">￥139000.00</span></div>
+        </div>
+        <a class="operation_btn orange">去结算</a>
+    </div>
+    <!-- 删除 -->
+    <div class="operation_tab jdshop_alignment_center" id="deleteTab">
+        <div class="jdshop_alignment_left">
+            <label>
+                <input class="radio allcheck" type="checkbox"><span>全选</span>
+            </label>
+        </div>
+        <a class="operation_btn red">删除</a>
+    </div>
 
-
-
-    <!-- -->
-
-</div>
 
 <!-- 底部导航 -->
 <%- include('../../component/common/bottomTabBar.ejs') %>
 
 
+<script>
 
+
+    jfShoppinCart.editDeleteChange();
+
+
+
+
+</script>
 
