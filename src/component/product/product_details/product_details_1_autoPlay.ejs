@@ -10,15 +10,8 @@
         <div><img   src="../../images/product_list_1.jpg" ></div>
     </div>
 
-    <!--点点部分-->
+    <!--点点部分——自动生成-->
 
-    <div class="allpoint">
-        <span class="showpoint"></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
 
 </div>
 
@@ -30,11 +23,12 @@
         "bottomDistance":"50"//距离底部的距离，触发事件，单位省略
     })
 
-    /*商品详情页图片滚动*/
 
-    productInfoShow.moveEvent({
-        "moveEle":"product_details_autoPlay", //图片包裹所有图片的class选择器
-        "pointEle":"allpoint" //分页器的class选择器
+    /*商品详情页图片滚动*/
+    productInfoPlay.init({
+        "moveEle":"product_details_autoPlay",//包裹所有图片的class选择器
+
+        "moveEleParent":"product_autoPlay"//包括点点以及图片的父元素，class选择器
     });
 
 

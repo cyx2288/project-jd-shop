@@ -168,7 +168,7 @@ var jfLazyLoading = {
 
             thisInner += _this.productdata[i].product +
 
-                '</div><div class="product_main_price"><span class="price">￥'
+                '</div><div class="product_main_price jdshop_alignment_center"><span class="price">￥'
 
                 + _this.productdata[i].price_text +
 
