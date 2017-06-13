@@ -15,40 +15,47 @@
     </div>
 </nav>
 
+
 <!-- 页面内容 -->
 <div class="shopping_cart_module">
 
+    <%- include('shopping_cart_module/shopping_cart_1_address.ejs') %>
 
-    <%- include('shopping_cart_module/shopping_cart_1_address.ejs')%>
+    <%- include('shopping_cart_module/shopping_cart_2_instruction.ejs') %>
 
-    <%- include('shopping_cart_module/shopping_cart_2_instruction.ejs')%>
+    <%- include('shopping_cart_module/shopping_cart_3_list.ejs') %>
 
-    <%- include('shopping_cart_module/shopping_cart_3_list.ejs')%>
+</div>
+
+
+<div id="shopping_cart_prompt">
+
+    <%- include('../../component/product/product_prompt/product_prompt_1_address.ejs') %>
 
 </div>
 
 <!-- 切换tab-->
 
 
-    <!-- 编辑 -->
-    <div class="operation_tab jdshop_alignment_center" id="settlementTab">
-        <div class="jdshop_alignment_left">
-            <label>
-                <input class="radio allcheck" type="checkbox" id="allcheck" onclick="jfShoppinCart.checkBoxChange()"><span>全选</span>
-            </label>
-            <div class="price">合计:<span class="font_red">￥139000.00</span></div>
-        </div>
-        <a class="operation_btn orange">去结算</a>
+<!-- 编辑 -->
+<div class="operation_tab jdshop_alignment_center" id="settlementTab">
+    <div class="jdshop_alignment_left">
+        <label>
+            <input class="radio allcheck" type="checkbox"><span>全选</span>
+        </label>
+        <div class="price">合计:<span class="font_red">￥139000.00</span></div>
     </div>
-    <!-- 删除 -->
-    <div class="operation_tab jdshop_alignment_center" id="deleteTab">
-        <div class="jdshop_alignment_left">
-            <label>
-                <input class="radio allcheck" type="checkbox"><span>全选</span>
-            </label>
-        </div>
-        <a class="operation_btn red">删除</a>
+    <a class="operation_btn orange">去结算</a>
+</div>
+<!-- 删除 -->
+<div class="operation_tab jdshop_alignment_center" id="deleteTab">
+    <div class="jdshop_alignment_left">
+        <label>
+            <input class="radio allcheck" type="checkbox"><span>全选</span>
+        </label>
     </div>
+    <a class="operation_btn red" id="deleteBtn">删除</a>
+</div>
 
 
 <!-- 底部导航 -->
@@ -58,7 +65,52 @@
 <script>
 
 
+    //编辑&完成 tab切换
     jfShoppinCart.editDeleteChange();
+
+    //全选反选
+
+    checkBoxChange();
+
+
+    function deleteList() {
+
+
+        document.getElementById('deleteBtn').addEventListener('click', function () {
+
+
+            jfShowTips.dialogShow({
+
+                'mainText': '友情提示',
+                'minText': '确认要删除这个商品吗？',
+                'checkFn': function () {
+
+                    jfShowTips.dialogRemove();//弹出框消失
+
+                    var listBox = document.getElementById('list_contain').getElementsByClassName('list_contain');
+
+                    for (var i = 0; i < listBox.length; i++) {
+
+                        if (listBox[i].getElementsByClassName('radio')[0].checked) {
+
+
+                            listBox[i].style.display = 'none';
+
+
+                        }
+                    }
+
+
+                }
+            });
+
+
+        }, false)
+
+    }
+
+    deleteList();
+
 
 
 
