@@ -1,5 +1,7 @@
 var gulp = require('gulp');
 
+var browserSync = require('browser-sync').create("My Server");
+
 //服务器,开发
 var devServer = require('./gulp/dev/server.dev.js');
 
@@ -31,6 +33,8 @@ gulp.task('imageMinDev', devImg);
 
 
 //监听文件变化
+
+
 gulp.task('devWatch', function () {
 
     //less文件修改 ，注入css
@@ -40,6 +44,7 @@ gulp.task('devWatch', function () {
     gulp.watch(['src/**/*.ejs', 'src/**/*.js'], ["fileIncludeDev",'changeJsDev']);
 
 });
+
 
 //开发环境
 gulp.task('.myServer', ['imageMinDev', 'changeLessDev', 'changeJsDev', 'fileIncludeDev', 'devWatch', 'connect']);
