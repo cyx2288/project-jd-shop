@@ -26,6 +26,8 @@ var productInfoPlay={
 
         _this.allsaveImg=details.allsaveImg||'img_content';//点击后显示的图片的整个div.calss选择器
 
+        _this.fn=details.fn||0;//滑动到最后一页执行相应的脚本
+
 
         _this.thisPosition = 0;//初始化现在在第几个页面
 
@@ -60,6 +62,8 @@ var productInfoPlay={
         var _this=this;
 
         var moveEle=document.getElementsByClassName(EventEle)[0];//banner轮播图
+
+        var thisNum = moveEle.getElementsByTagName('div').length - 1;
 
         var thisWindowWidth = window.innerWidth;//屏幕可视窗口宽度
 
@@ -112,19 +116,15 @@ var productInfoPlay={
 
                 evt.preventDefault();//阻止浏览器的默认行为
 
-                if((_this.thisPosition==0)&&_this.moveDistanceX>0){
+                if(((_this.thisPosition==0)&&_this.moveDistanceX>0)||((_this.thisPosition==-thisNum) &&_this.moveDistanceX<0)){//第一页，滑动会产生一个阻力
 
-                    _this.moveDistanceX=_this.moveDistanceX/3;   //第一页以及最后一页，滑动会产生一个阻力
-
-                }
-
-                if((_this.thisPosition==-4) &&_this.moveDistanceX<0){
-
-                    _this.moveDistanceX=_this.moveDistanceX/3;   //第一页以及最后一页，滑动会产生一个阻力
+                    _this.moveDistanceX=_this.moveDistanceX/3;
 
                 }
 
-                _this.changeTranslate(moveEle, parseFloat(_this.thisPosition*thisWindowWidth)+parseFloat(_this.moveDistanceX) + 'px');//移动中
+                _this.changeTranslate(moveEle, parseFloat(_this.thisPosition*thisWindowWidth)+parseFloat(_this.moveDistanceX) + 'px');//正常移动中
+
+
 
             }
 
@@ -139,6 +139,16 @@ var productInfoPlay={
                 evt.preventDefault();//阻止浏览器的默认行为
 
                 moveEle.className= ""+EventEle+" contentchange";//添加class,带有Transition的属性
+
+
+                if(((_this.thisPosition==-thisNum) &&_this.moveDistanceX<0)&&(Math.abs(_this.moveDistanceX)>55)){//如果当前处于第4页，并且继续活动，执行相应的脚本
+
+                    if(_this.fn){
+
+                        _this.fn()
+                    }
+
+                }
 
                 if(Math.abs(_this.moveDistanceX)>(thisWindowWidth/3)||lastDistanceSpeed>6){//当手指的移动距离大于屏幕的1/3时，变化
 
@@ -226,14 +236,14 @@ var productInfoPlay={
         var allPointEle=PointParent.getElementsByTagName('span');
 
 
-        //如果向右滚动，则不能超过最大图片个数
+        //如果向左边滚动，则不能超过最大图片个数
         if (parseFloat(position) < 0) {
 
             _this.thisPosition > -thisNum ? _this.thisPosition-- : _this.thisPosition = -thisNum;
 
         }
 
-        //如果向左边滚动，不能超过最左边
+       //如果向右滚动，则不能超过最左边
         else if (parseFloat(position) > 0) {
 
             _this.thisPosition < 0 ? _this.thisPosition++ : _this.thisPosition = 0;

@@ -28,7 +28,12 @@
     productInfoPlay.init({
         "moveEle":"product_details_autoPlay",//包裹所有图片的class选择器
 
-        "moveEleParent":"product_autoPlay"//包括点点以及图片的父元素，class选择器
+        "moveEleParent":"product_autoPlay",//包括点点以及图片的父元素，class选择器
+
+        fn:function(){//执行相应的脚本
+
+            jfProductDetails.scrollEle(document.getElementById('NavTab'),45)
+        }
     });
 
 

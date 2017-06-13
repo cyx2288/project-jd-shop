@@ -24,11 +24,33 @@
       height: 100%;
       flex-shrink: 0;
 
+      &:last-child{
+        position: relative;
+
+        &:after{
+          content: "释放即可查看图文详情";
+          display: block;
+          margin-left: 20px;
+          position: absolute;
+          right: -40px;
+          top: 0;
+          text-align: center;
+          writing-mode: vertical-lr;
+          letter-spacing: 4px;
+          height: 100%;
+        }
+      }
+
+
+
       img{
         width: 100%;
         box-shadow: 0 2px 3px #E9E9E9;
       }
     }
+
+
+
 
   }
 
