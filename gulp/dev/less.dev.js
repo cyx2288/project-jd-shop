@@ -1,4 +1,4 @@
-/**样式翻译合并
+7/**样式翻译合并
  * 开发*/
 
 var gulp = require('gulp'),
@@ -14,6 +14,8 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),//服务器
 
     rename = require("gulp-rename");//重命名
+
+var browserSync = require('browser-sync').get("My Server");
 
 
 function devLess() {
@@ -65,7 +67,9 @@ function devLess() {
 
         .pipe(gulp.dest('build/css')) //将会在build/css下生成index.css
 
-        .pipe(connect.reload());
+        .pipe(browserSync.stream());
+
+        //.pipe(connect.reload());
 
    /* gulp.src(['src/css/component.css'])
 
