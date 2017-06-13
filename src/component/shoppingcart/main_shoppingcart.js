@@ -35,49 +35,94 @@ var jfShoppinCart = {
     },
 
 
-    /*选择radio*/
-    checkBoxChange: function () {
 
-        var allCheckBox = document.getElementsByClassName('allcheck');
-
-        var checkBox = document.getElementsByName('radio');
-
-        for (var i = 0; i < checkBox.length; i++) {
-
-            var thischeckBox = checkBox[i];
-
-            /*thischeckBox.checked = allCheckBox.checked;*/
-        }
+};
 
 
-        //判断checkbox亮否
+function checkBoxChange() {
 
-        function judgeRadioChecked() {
+    var radiobox = document.getElementById('list_contain').getElementsByClassName('radio');
 
-            var checkBoxTab = document.getElementsByTagName('input').document.getElementsByClassName('radio');
+    var allbox = document.getElementsByClassName('allcheck');
 
-            for (var i = 0; i < checkBoxTab.length; i++) {
+    for (var i=0;i<allbox.length;i++){
 
-                if (checkBoxTab[i].checked) {
+        allbox[i].addEventListener('click',function () {
 
-                    return false;
-                }
+            var thisChecked = this.checked; //点中的那个为亮
+
+            radioCheckWay(thisChecked);
+
+            tabRadioCheckWay(thisChecked);
+
+
+        },false);
+
+    }
+
+    for( var j=0;j<radiobox.length;j++){
+
+        radiobox[j].addEventListener('click',function () {
+
+
+            tabRadioCheckWay(judgeRadioChecked());
+
+        },false);
+
+    }
+
+
+
+    //判断方式 判断全亮&不全亮 返回值为true 全亮 ;返回值为false 不全亮
+
+    function judgeRadioChecked() {
+
+        var checkBoxTab = document.getElementById('list_contain').getElementsByClassName('radio');
+
+        for (var i = 0; i < checkBoxTab.length; i++) {
+
+            if (!checkBoxTab[i].checked) {
+
+                return false;
             }
-            return true;
         }
-        
-        //亮灯方式
+        return true;
+    }
 
-        function RadioCheckWay() {
+   //当传参数为true时候全亮，false为全不亮 （所有tab按钮）
 
-            var checkBoxTab = document.getElementsByTagName('input').document.getElementsByClassName('radio');
-            
+
+    function radioCheckWay(isChecked) {
+
+        isCheck(document.getElementById('list_contain').getElementsByClassName('radio'),isChecked)
+    }
+
+    //当传参数为true时候全亮，false为全不亮 (两个tab的全选按钮)
+
+    function tabRadioCheckWay(isChecked) {
+
+
+        isCheck(document.getElementsByClassName('allcheck'),isChecked)
+
+    }
+
+    function isCheck(ele,isCheck) {
+
+        for (var i=0; i<ele.length;i++){
+
+            ele[i].checked = isCheck;
+
         }
 
     }
 
 
-};
+}
+
+
+//
+
+
 
 
 
