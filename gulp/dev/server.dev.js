@@ -16,15 +16,15 @@ function devServer() {
 
     browserSync.init({
 
-        server: {
-
-            baseDir: './build/',//目录
-
-            index: "html/jdshop_homepage/main.html"
-
-        },
+        server: option,
 
         reloadDebounce: 500,
+
+        browser: "chrome",
+
+        notify: false,
+
+        //port: 666,//端口
 
     });
 
