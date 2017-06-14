@@ -115,7 +115,7 @@ function devEjs() {
         //.pipe(connect.reload());
 
     /*框架html导入*/
-    gulp.src("src/*.html")
+    gulp.src("src/index.html")
 
         .pipe(gulp.dest('build'));
 
