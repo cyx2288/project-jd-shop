@@ -13,23 +13,23 @@
 
             </div>
 
-            <div class="pop_main">
+            <div class="pop_main" id="main_sku">
                 <div class="pop_content">
                     <!--sku 颜色-->
                     <div class="sku_title">颜色</div>
-                    <div class="sku_contain">
+                    <div class="sku_contain jdshop_alignment_left">
                         <div class="sku_box choose_tab">标配版</div>
                         <div class="sku_box">保护套装</div>
                     </div>
                     <!--sku 颜色-->
                     <div class="sku_title">版本</div>
-                    <div class="sku_contain">
+                    <div class="sku_contain jdshop_alignment_left">
                         <div class="sku_box choose_tab">11.6英寸</div>
                         <div class="sku_box">13.3英寸</div>
                     </div>
                     <!--sku 选择配置-->
                     <div class="sku_title">选择配置</div>
-                    <div class="sku_contain">
+                    <div class="sku_contain jdshop_alignment_left">
                         <div class="sku_box choose_tab">双核i5/4GB内存/128GB闪存</div>
                         <div class="sku_box">双核i5/8GB内存/128GB闪存</div>
                         <div class="sku_box">双核i5/8GB内存/256GB闪存</div>
@@ -42,13 +42,9 @@
                     </div>
                 </div>
                 <!--数量-->
-                <div class="sku_volume_purchased">
+                <div class="sku_volume_purchased jdshop_alignment_center">
                     <div>数量</div>
-                    <div>
-                        <span class="reduce">－</span>
-                        <input type="number" pattern="[0-9]*" maxlength="6" class="volume_input" value="1"/>
-                        <span class="add">＋</span>
-                    </div>
+                    <%- include('product_prompt_4_buy_volume.ejs')%>
                 </div>
                 <!-- -->
                 <div class="prompt_btn">
@@ -72,19 +68,16 @@
 <script>
 
     //弹出框方法
-    showProductSku=new jfShowPop({'ele':'product_prompt_buy'})
+    showProductSku = new jfShowPop({'ele':'product_prompt_buy'})
 
 
     //sku 选择
 
-    jfProductDetails.clickTabChange(document.getElementsByClassName('sku_contain')[0], 'choose_tab','sku_box');
+    jfProductDetails.skuBoxChange();
 
-    jfProductDetails.clickTabChange(document.getElementsByClassName('sku_contain')[1], 'choose_tab','sku_box');
-
-    jfProductDetails.clickTabChange(document.getElementsByClassName('sku_contain')[2], 'choose_tab','sku_box');
 
     //购物车加减
-    jfProductDetails.numChangeValue();
+    jfProductDetails.volumeChange(true);
 
 
 </script>
