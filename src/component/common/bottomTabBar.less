@@ -33,11 +33,10 @@ footer.bottom_tabbar{
       box-sizing: border-box;
       width: 100%;
       color: #c91523;
+      -webkit-filter: grayscale(100%);
+      opacity: .6;
       &:active{
-        opacity: .6;
-       /* background-color: #fff;
-        box-shadow: 0 0 10px #d9d9d9 inset;
-        -webkit-box-shadow: 0 0 10px #d9d9d9 inset;*/
+        opacity: .3;
       }
       .tabbar_icon{
 
@@ -57,8 +56,8 @@ footer.bottom_tabbar{
       }
     }
     a.current_page{
-      -webkit-filter: grayscale(100%);
-      opacity: .6;
+      -webkit-filter: grayscale(0%);
+      opacity: 1;
     }
   }
 }

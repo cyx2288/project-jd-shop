@@ -63,7 +63,6 @@
   width: 30%;
   font-size: 12px;
   .red_acc,.org_gift{
-
     position: relative;
     border: 1px solid #c9c9c9;
     border-radius: 8px;
@@ -78,9 +77,12 @@
     }
 
     &:after,&:before{
-      content: '●';
+      content: '';
       position: absolute;
-      top: 0;
+      top: 6px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
       opacity: .4;
     }
 
@@ -89,11 +91,19 @@
 
     color: #ff0200;
     margin-right: 8px;
+    &:before,&:after{
+
+      background-color: #ff0200 ;
+    }
 
   }
   .org_gift{
 
     color: #fc8b00;
+    &:before,&:after{
+
+      background-color: #fc8b00 ;
+    }
 
   }
 }

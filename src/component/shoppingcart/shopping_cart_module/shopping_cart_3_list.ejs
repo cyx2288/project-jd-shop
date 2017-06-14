@@ -11,7 +11,7 @@
 
             <a class="goods_list jdshop_alignment_top">
                 <div class="main_images">
-                    <img src="../../images/product_list_5.jpg">
+                    <img data-src="../../images/product_list_4.jpg" src="../../images/img_loading.gif" class="loading_img">
                 </div>
                 <div class="main_details">
                     <div class="title">科沃斯（Ecovacs）地宝魔钻(BFD-wwt) 扫地机器人家用吸尘器全自动智能拖地机</div>
@@ -41,7 +41,7 @@
 
             <a class="goods_list jdshop_alignment_top">
                 <div class="main_images">
-                    <img src="../../images/product_list_1.jpg">
+                    <img data-src="../../images/product_list_1.jpg" src="../../images/img_loading.gif" class="loading_img">
                 </div>
                 <div class="main_details">
                     <div class="title">小米(MI)Air 13.3英寸全金属超轻薄笔记本电脑(i5-6200U 8G 256G PCIE固态硬盘 940MX独显 FHD WIN10)银</div>
@@ -69,7 +69,7 @@
             </label>
 
             <a class="goods_list jdshop_alignment_top">
-                <div class="main_images"><img src="../../images/product_list_2.jpg"></div>
+                <div class="main_images"><img data-src="../../images/product_list_2.jpg" src="../../images/img_loading.gif" class="loading_img"></div>
                 <div class="main_details">
                     <div class="title">【6期免息】【赠备用数据线】Apple iPhone 7 4.7英寸苹果7 苹果手机 全网 红色特别版 全网通 (128G)</div>
                     <div class="sku font_middle_gary"><span>重量:5.26kg</span><span>颜色:魔钻 千帕吸力 高颜值</span></div>
@@ -97,7 +97,7 @@
             </label>
 
             <a class="goods_list jdshop_alignment_top">
-                <div class="main_images"><img src="../../images/product_list_4.jpg"></div>
+                <div class="main_images"><img data-src="../../images/product_list_4.jpg" src="../../images/img_loading.gif" class="loading_img"></div>
                 <div class="main_details">
                     <div class="title">科沃斯（Ecovacs）地宝魔钻(BFD-wwt) 扫地机器人家用吸尘器全自动智能拖地机</div>
                     <div class="sku font_middle_gary"><span>重量:5.26kg</span><span>颜色:魔钻 千帕吸力 高颜值</span></div>
@@ -125,7 +125,7 @@
             </label>
 
             <a class="goods_list jdshop_alignment_top">
-                <div class="main_images"><img src="../../images/product_list_1.jpg"></div>
+                <div class="main_images"><img data-src="../../images/product_list_1.jpg" src="../../images/img_loading.gif" class="loading_img"></div>
                 <div class="main_details">
                     <div class="title">科沃斯（Ecovacs）地宝魔钻(BFD-wwt) 扫地机器人家用吸尘器全自动智能拖地机</div>
                     <div class="sku font_middle_gary"><span>重量:5.26kg</span><span>颜色:魔钻 千帕吸力 高颜值</span></div>
@@ -153,7 +153,7 @@
             </label>
 
             <a class="goods_list jdshop_alignment_top">
-                <div class="main_images"><img src="../../images/product_list_3.jpg"></div>
+                <div class="main_images"><img data-src="../../images/product_list_3.jpg" src="../../images/img_loading.gif" class="loading_img"></div>
                 <div class="main_details">
                     <div class="title">科沃斯（Ecovacs）地宝魔钻(BFD-wwt) 扫地机器人家用吸尘器全自动智能拖地机</div>
                     <div class="sku font_middle_gary"><span>重量:5.26kg</span><span>颜色:魔钻 千帕吸力 高颜值</span></div>
@@ -181,7 +181,7 @@
             </label>
 
             <div class="goods_list jdshop_alignment_top">
-                <div class="main_images"><img src="../../images/product_list_3.jpg"></div>
+                <div class="main_images"><img data-src="../../images/product_list_3.jpg" src="../../images/img_loading.gif" class="loading_img"></div>
                 <div class="main_details">
                     <div class="title">科沃斯（Ecovacs）地宝魔钻(BFD-wwt) 扫地机器人家用吸尘器全自动智能拖地机</div>
                     <div class="sku font_middle_gary"><span>重量:5.26kg</span><span>颜色:魔钻 千帕吸力 高颜值</span></div>
@@ -204,8 +204,14 @@
 
 <script>
 
+
+    /*图片懒加载*/
+    jfLazyLoading.lazyLoadInit({
+
+        "bottomDistance":"50"//距离底部的距离，触发事件，单位省略
+    })
+
     //购物车加减
     jfProductDetails.volumeChange();
-
 
 </script>
