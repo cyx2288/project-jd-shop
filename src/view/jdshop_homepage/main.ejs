@@ -15,8 +15,15 @@
 <%- include('../../component/homepage/main_4_followGoods.ejs') %>
 <!-- 热卖商品 -->
 <%- include('../../component/homepage/main_5_productList.ejs') %>
+
 <!-- 底部导航 -->
-<%- include('../../component/common/bottomTabBar.ejs') %>
+
+<%- include('../../component/common/bottomTabBar.ejs',{
+"tabone":true,
+"tabtwo":false,
+"tabthree":false,
+"tabfour":false
+}) %>
 </body>
 
 

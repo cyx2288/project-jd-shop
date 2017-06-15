@@ -48,9 +48,12 @@
   .acc_title,.gift_title{
 
     &:before,&:after{
-      content: '●';
+      content: '';
       position: absolute;
-      top: 0;
+      top: 6px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
       opacity: .4;
     }
     &:before {
@@ -68,6 +71,10 @@
     color: #ff0200;
     font-size: 12px;
     text-align: center;
+    &:before,&:after{
+      background-color: #ff0200;
+
+    }
 
   }
   .gift_title{
@@ -78,6 +85,10 @@
     color: #fc8b00;
     font-size: 12px;
     text-align: center;
+    &:before,&:after{
+      background-color: #fc8b00;
+
+    }
 
   }
   .acc_tips {
