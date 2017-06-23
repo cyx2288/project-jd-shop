@@ -232,6 +232,38 @@ var jfProductDetails = {
 
                 inputEle.addEventListener('blur', blurScrollPosition, false);
             }
+            else {
+
+                var inputEle = volumeBox[i].getElementsByClassName('volume_input')[0];
+
+                inputEle.addEventListener('focus', focusAndroidTab, false);
+
+                inputEle.addEventListener('blur', blurAndroidTab, false);
+                
+                
+
+            }
+
+        }
+        function focusAndroidTab() {
+
+            document.getElementById('settlementTab').style.display = 'none';
+
+            document.getElementById('deleteTab').style.display = 'none';
+
+            document.getElementsByClassName('bottom_tabbar')[0].style.display = 'none'
+
+
+
+        }
+
+        function blurAndroidTab() {
+
+            document.getElementById('settlementTab').style.display = '';
+
+            document.getElementById('deleteTab').style.display = '';
+
+            document.getElementsByClassName('bottom_tabbar')[0].style.display = ''
 
         }
 
