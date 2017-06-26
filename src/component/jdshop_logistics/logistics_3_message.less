@@ -1,0 +1,146 @@
+/*
+.message_state {
+  padding-bottom: 40px;
+  padding-left: 30px;
+  background: white;
+  margin-top: 11px;
+  font-size: 13px;
+  color: #4a4a4a;
+  padding-top: 4px;
+  line-height: 25px;
+  &.message_state {
+    padding-right: 20px;
+  }
+  span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: red;
+
+  }
+  .message_state_title {
+    color: #bbbbbb;
+    padding-top: 8px;
+    position: relative;
+
+    &.service {
+      margin-left: -13px;
+      color: #4a4a4a;
+
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: -14px;
+      border-left: 1px solid #bbbbbb;
+      height: 81px;
+
+    }
+
+  }
+  .message_state_time {
+    color: #bbbbbb;
+    margin-top: -2px;
+
+  }
+}
+
+
+*/
+
+.message_state_main {
+
+  overflow: hidden;
+  margin-top: 10px;
+  padding: 10px 10px 10px 40px;
+  background: white;
+  line-height: 28px;
+
+}
+
+.message_state {
+
+  font-size: 12px;
+  position: relative;
+  line-height: 20px;
+  margin-bottom: 15px;
+
+  &:first-child {
+
+    .message_state_title {
+      font-size: 14px;
+      color: #4a4a4a;
+
+      &:after {
+
+        background: red;
+        z-index: 4;
+
+      }
+
+      &:before {
+
+        content: '';
+        position: absolute;
+        left: -31px;
+        top: 2px;
+        width: 20px;
+        height: 20px;
+        z-index: 4;
+        border: 1px red solid;
+        border-radius: 50%;
+        transform: scale(.5, .5);
+
+      }
+
+    }
+
+  }
+
+  &:after {
+
+    content: '';
+    width: 1px;
+    height: 200px;
+
+
+    display: block;
+    background: #bbb;
+    position: absolute;
+    left: -21px;
+    top: 10px;
+
+  }
+
+  .message_state_title {
+
+    position: relative;
+    font-size: 14px;
+    color: #bbb;
+
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: -23px;
+      top: 10px;
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: #bbb;
+      border-radius: 50%;
+
+    }
+
+  }
+
+  .message_state_time {
+    margin-left: 7px;
+
+    color: #bbb
+
+  }
+
+}
