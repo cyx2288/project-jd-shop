@@ -124,6 +124,7 @@ var shoppingCart = {
 
             allEle.getElementsByClassName('address')[j].className += ' show';
 
+
         }
 
         function clearClass(num) {
@@ -149,6 +150,14 @@ var shoppingCart = {
 
         var data = JSON.parse(thisJson).data;
 
+        var tabCity = ele.getElementsByClassName('top_address')[0].getElementsByTagName('div');
+
+        for(var i=1;i<tabCity.length;i++){
+
+            tabCity[i].innerHTML=""
+
+        }
+
         addLi(ele.getElementsByClassName('address')[0], data);
 
         function addLi(faEle, allData) {
@@ -160,6 +169,7 @@ var shoppingCart = {
             var thisDomB = '</p>';
 
             var writeDom = '';
+
 
             for (var i = 0; i < allData.length; i++) {
 
@@ -211,6 +221,8 @@ var shoppingCart = {
 
         var thisCityAll = [];
 
+        //chooseAdressId=[];
+
         /*每个父切换元素*/
         function fatherEleClick(evt) {
 
@@ -232,6 +244,8 @@ var shoppingCart = {
 
                 allCityPoint[j] = thisNum;
 
+                allCityPoint=allCityPoint.slice(0,j+1);
+
                 var thisData = data;
 
                 var thisCity;
@@ -244,8 +258,8 @@ var shoppingCart = {
 
                     if(!thisData)break
 
-
                 }
+
 
 
                 /*修改tab*/
@@ -253,6 +267,8 @@ var shoppingCart = {
                 var tabCity = ele.getElementsByClassName('top_address')[0].getElementsByTagName('div');
 
                 thisCityAll[j] = thisCity.name;
+
+                thisCityAll=thisCityAll.slice(0,j+1);
 
                 tabCity[j].innerHTML = thisCity.name;
 
@@ -275,15 +291,11 @@ var shoppingCart = {
 
                 else {
 
-                    console.log(thisCityAll);
-
                     var thisInnerHtml='';
 
                     for (var x = 0; x < thisCityAll.length; x++) {
 
                         thisInnerHtml += thisCityAll[x];
-
-                        console.log(thisCityAll[x]);
 
                         if(x!=thisCityAll.length-1) {
 
@@ -291,12 +303,44 @@ var shoppingCart = {
 
                         }
 
+
+
                     }
 
                     thisWrightHtml.innerHTML=thisInnerHtml;
 
+
+                    chooseAdressId=(function(){
+
+
+                        var allNum=[];
+
+                        var thisData=data;
+
+
+                        for(var i=0;i<allCityPoint.length;i++) {
+
+                            allNum[i]=thisData[allCityPoint[i]].id;
+
+                            thisData=thisData[allCityPoint[i]].child;
+
+                        }
+
+                        return allNum;
+
+                        //地址数据data;
+
+
+                    })();
+
+
                     setTimeout(function () {
+
                         thisFn();
+
+
+
+
                     },300)
 
 
@@ -309,7 +353,8 @@ var shoppingCart = {
 
         }
 
-    }
+    },
+
 
 };
 
