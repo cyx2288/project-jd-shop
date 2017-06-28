@@ -32,6 +32,13 @@ nav.top_search_bar{
           white-space: nowrap;
         }
       }
+      p.back{
+        width: 21px;
+        height: 21px;
+        img{
+          width: 100%;
+        }
+      }
 
     }
     .content{
@@ -56,9 +63,30 @@ nav.top_search_bar{
           height: 17px;
 
         }
+        input{
+          display: block;
+          border: 0;
+          resize: none;
+          color: #4a4a4a;
+          font-size: 14px;
+          outline: 0;
+          width: 100%;
+          overflow: hidden;
+          margin-left: 10px;
+        }
         span{
           padding-left: 10px;
         }
+      }
+    }
+    .right {
+      display: inline-block;
+      padding-right: 15px;
+      text-align: center;
+      color: #fff;
+      white-space: nowrap;
+      &:active {
+        opacity: 0.5;
       }
     }
   }
