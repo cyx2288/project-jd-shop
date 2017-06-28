@@ -232,7 +232,7 @@ var jfProductDetails = {
 
                 inputEle.addEventListener('blur', blurScrollPosition, false);
             }
-            else {
+/*            else {
 
                 var inputEle = volumeBox[i].getElementsByClassName('volume_input')[0];
 
@@ -242,7 +242,7 @@ var jfProductDetails = {
                 
                 
 
-            }
+            }*/
 
         }
         function focusAndroidTab() {
