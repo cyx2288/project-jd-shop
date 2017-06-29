@@ -8,6 +8,7 @@
   bottom: 0;
   width: 140px;
   height: 140px;
+  overflow: hidden;
 
 }
 
@@ -31,7 +32,7 @@
   top: -5px;
   z-index: 1;
   position: absolute;
-  animation: cloudMove 2s;
+  animation: cloudMove 2s .3s both;
   animation-direction: alternate;
 
   @keyframes cloudMove {
@@ -50,11 +51,11 @@
   height: 105px;
   background-image: url("../../../images/fail_animation_wrong.png");
   background-position: -284px -34px;
-  right: 100px;
+  right: 90px;
   top: -5px;
   z-index: 1;
   position: absolute;
-  animation: line2Move 2.5s infinite;
+  animation: line2Move 2.5s  .3s infinite both;
   animation-direction: alternate;
 }
 
@@ -77,7 +78,7 @@
   top: 12px;
   z-index: 1;
   position: absolute;
-  animation: line3Move 2.5s infinite;
+  animation: line3Move 2.5s  .3s infinite both;
   animation-direction: alternate;
 }
 
@@ -95,15 +96,86 @@
 
 /*打钩*/
 
-.success_animation_right {
 
-  width: 86px;
-  height: 74px;
-  background-image: url("../../../images/fail_animation_wrong.png");
-  background-position: -25px -52px;
-  left: 28px;
-  top: 22px;
-  z-index: 5;
-  position: absolute;
+.m-box {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  margin: 200px auto;
 
+
+  .m-duigou {
+
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    left: 75px;
+    top: -250px;
+    margin: -40px 0 0 -50px;
+    transform: rotate(-45deg);
+    overflow: hidden;
+
+    &:before {
+
+      content: "";
+      position: absolute;
+      background: -webkit-linear-gradient(-45deg, #fd7070, #fe4848);
+      border-radius: 10px;
+
+      width: 12px;
+      height: 50px;
+      left: 0;
+      animation: dgLeft .1s linear .1s both;
+
+    }
+
+    &:after {
+
+      content: "";
+      position: absolute;
+      background: -webkit-linear-gradient(45deg, #fd7070, #fe4848,#d61515);
+      border-radius: 10px;
+
+      width: 94px;
+      height: 12px;
+      bottom: 0;
+      animation: dgRight .1s linear .2s both;
+
+    }
+
+  }
+  @keyframes dgLeft {
+
+    0% {
+     /*top: -100%*/
+      transform: translate3d(0,-100%,0);
+
+    }
+
+    100% {
+      /*top: 0%*/
+      transform: translate3d(0,0,0);
+
+    }
+
+  }
+
+  @keyframes dgRight {
+
+    0% {
+      /*left: -100%*/
+      transform: translate3d(-100%,0,0);
+
+    }
+
+    100% {
+      /*    left: 0%*/
+
+      transform: translate3d(0,0,0);
+
+    }
+  }
 }
+
+
+
