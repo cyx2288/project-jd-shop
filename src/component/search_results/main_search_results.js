@@ -6,6 +6,7 @@ function tickChoose() {
 
     var chooseTab = document.getElementsByClassName('in_stock')[0];
 
+    var  labelTab = chooseTab.getElementsByTagName('label')[0];
 
     chooseTab.addEventListener('click', function () {
 
@@ -45,38 +46,36 @@ function priceChoose() {
 
     var allEle = document.getElementsByClassName('search_tab');
 
+
         for (var i = 0;i<allEle.length;i++){
 
             allEle[i].addEventListener('click',function () {
 
-                this.className += ' show'
+                remove();
 
-                    if(this.className.indexOf('show') > -1){
+                this.className +=' show';
 
 
-                        this.className = this.className.replace('show','');
+
+
+
+            },false);
+
+
+            function remove() {
+
+                for (var j= 0;j<allEle.length;j++){
+
+                    if(allEle[j].className.indexOf('show') > -1){
+
+                        allEle[j].className = allEle[j].className.replace('show','')
 
                     }
+                }
 
-
-
-            });
-
-
-
+            }
 
 
         }
-
-
-
-
-
-
-
-
-
-
-
 
 }
