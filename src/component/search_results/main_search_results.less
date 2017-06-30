@@ -45,7 +45,6 @@
         }
           &.show{
             z-index: 1;
-            color: #ff0200;
             &~span{
               color: #ff0200;
             }
@@ -54,7 +53,6 @@
         .up_arrow{
           top: 0;
           color: #8a8a8a;
-          z-index: 3;
         }
         .down_arrow{
           top: 5px;
@@ -73,9 +71,6 @@
        /* display: flex;
           align-items: center;
           text-align: center;*/
-          span{
-            pointer-events: none;
-          }
           input.radio {
             position: relative;
             width: 16px;
@@ -85,12 +80,12 @@
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 50%;
+            margin-left: 5px;
             vertical-align: top;
             cursor: default;
             -webkit-appearance: none;
             user-select: none;
             transition: background-color ease .1s;
-
             &:before {
               content: '';
               width: .5rem;
@@ -133,16 +128,6 @@
           }
 
         }*/
-        &.select_tab{
-          label{
-            z-index: 1;
-            span{
-              color: #ff0200;
-            }
-          }
-
-        }
-
       }
       &.search_address{
         width: 34%;
