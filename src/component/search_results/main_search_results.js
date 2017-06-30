@@ -2,11 +2,13 @@
  * Created by ZHUANGYI on 2017/6/26.
  */
 
-function tickChoose() {
+var jdSearch_results = {
+
+    tickChoose:function () {
 
     var chooseTab = document.getElementsByClassName('in_stock')[0];
 
-    var  labelTab = chooseTab.getElementsByTagName('label')[0];
+    var labelTab = chooseTab.getElementsByTagName('label')[0];
 
     chooseTab.addEventListener('click', function () {
 
@@ -22,60 +24,57 @@ function tickChoose() {
         }
 
 
-
     }, false);
 
-/*    function inStock() { //打钩变化效果
+    /*    function inStock() { //打钩变化效果
 
-        if (tickTab.className.indexOf('tick') > -1) {
+     if (tickTab.className.indexOf('tick') > -1) {
 
-            tickTab.className = tickTab.className.replace('tick', '');
-        }
+     tickTab.className = tickTab.className.replace('tick', '');
+     }
 
-        else {
+     else {
 
-            tickTab.className += ' tick'
-        }
+     tickTab.className += ' tick'
+     }
 
-    }*/
+     }*/
 
-};
+},
 
 
-function priceChoose() {
+priceChoose:function () {
 
     var allEle = document.getElementsByClassName('search_tab');
 
 
-        for (var i = 0;i<allEle.length;i++){
+    for (var i = 0; i < allEle.length; i++) {
 
-            allEle[i].addEventListener('click',function () {
+        allEle[i].addEventListener('click', function () {
 
-                remove();
+            remove();
 
-                this.className +=' show';
-
-
+            this.className += ' show';
 
 
+        }, false);
 
-            },false);
 
+        function remove() {
 
-            function remove() {
+            for (var j = 0; j < allEle.length; j++) {
 
-                for (var j= 0;j<allEle.length;j++){
+                if (allEle[j].className.indexOf('show') > -1) {
 
-                    if(allEle[j].className.indexOf('show') > -1){
+                    allEle[j].className = allEle[j].className.replace('show', '')
 
-                        allEle[j].className = allEle[j].className.replace('show','')
-
-                    }
                 }
-
             }
-
 
         }
 
+
+    }
+
+}
 }
