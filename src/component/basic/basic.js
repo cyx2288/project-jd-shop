@@ -1,6 +1,24 @@
 /**
  * Created by ZHUANGYI on 2017/5/18.
  */
+
+    /*loading的三种动画*/
+var loadInnerHtml={
+
+   'node':{
+
+       'loadingSuccess':'<div class="loading_box"><div class="success_animation"><div class="success_animation_circle"></div><div class="success_animation_cloud"></div><div class="success_animation_line2"></div><div class="success_animation_line3"></div><div class="success_animation_right"></div><div class="m-box"><div class="m-duigou"></div></div><div class="success_animation_text showtext"></div></div></div>',
+
+       'loading':'<div class="loading_box"><div class="jd_loading"><div class="jd_loading_tv"></div><div class="jd_loading_cloud"></div><div class="jd_loading_line2"></div><div class="jd_loading_line3"></div><div class="jd_loading_spot"></div><div class="jd_loading_wifi"></div><div class="loading_animation_text showtext"></div></div></div>',
+
+       'loadingFail':'<div class="loading_box"><div class="fail_animation"><div class="fail_animation_circle"></div><div class="fail_animation_cloud"></div><div class="fail_animation_line2"></div><div class="fail_animation_line3"></div><div class="fail_animation_wrong"></div><div class="fail_animation_text showtext"></div></div></div>'
+
+   }
+};
+
+
+
+
 var jfShowTips = {
 
     //弱提示toast出现的方法
@@ -83,7 +101,9 @@ var jfShowTips = {
 
         _this.loadingRemove();//先删除页面上loading元素
 
-        var thisText = details.text || 'LOADING..';//初始值
+        var thisText = details.text || 'LOADING..';//显示文字
+
+        var thisNode=details.thisNode||0;//传入动画html
 
         var overtimeFn= details.overtimeFn || function () {
 
@@ -91,25 +111,28 @@ var jfShowTips = {
 
             };
 
-        var thisInnerHtml='<div class="spinner"><div class="rect1 red"></div><div class="rect2 red"></div><div class="rect3 red"></div><div class="rect4 red"></div><div class="rect5 red"></div></div><i>'+thisText+'</i>';//html内容
 
         _this.addBlur();
 
         var thisBg=_this.addBg('loading_bg');
 
-        var thisAddEle=_this.addNode('div',thisInnerHtml,'tip_loading');//增加节点
+        var thisInnerHtml=thisNode;
+
+        var thisAddELe=_this.addNode('div',thisInnerHtml,'tip_loading');//增加节点
+
+        document.getElementsByClassName('showtext')[0].innerHTML=_this.changeString(thisText);
 
         document.activeElement.blur();//页面控件失焦
 
-        thisAddEle.focus();//loading元素获得焦点
+        thisAddELe.focus();//loading元素获得焦点
 
         setTimeout(function () {
 
-            if(thisAddEle){
+            if(thisAddELe){
 
                 overtimeFn();
 
-                _this.remove(thisAddEle);//删除该元素
+                _this.remove(thisAddELe);//删除该元素
 
                 windowBanEvent.unbundling();//解绑页面禁止事件
 
@@ -381,6 +404,19 @@ var jfShowTips = {
 
         setTimeout(myFn,500);
 
+    },
+
+
+    //转义字符串
+    changeString:function(node){
+
+        var _this=this;
+
+        var thisInsertHtml=node.toString().replace(/&/g,'&amp;').replace(/>/g,'&gt;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+
+        return thisInsertHtml
     }
 
 };
+
+
