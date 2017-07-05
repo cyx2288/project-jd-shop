@@ -11,7 +11,10 @@
 
 <button onclick="jfShowTips.toastShow({'text' : '提示信息'})">弱提示</button>
 
-<button onclick="jfShowTips.loadingShow({'text' : '请等待'})">弹出框</button>
+<button onclick="jfShowTips.loadingShow({
+'text' : '加载中',
+'thisNode':loadInnerHtml.node.loading,
+})">弹出框</button>
 
 <button onclick="
 jfShowTips.dialogShow({
