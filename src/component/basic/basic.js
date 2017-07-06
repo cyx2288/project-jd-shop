@@ -105,16 +105,7 @@ var jfShowTips = {
 
         var thisNode=details.thisNode||0;//传入动画html
 
-        var overtimeFn= details.overtimeFn || function () {
-
-                _this.toastShow({'text':'等待超时'})
-
-            };
-
-
         _this.addBlur();
-
-        var thisBg=_this.addBg('loading_bg');
 
         var thisInnerHtml=thisNode;
 
@@ -126,29 +117,6 @@ var jfShowTips = {
 
         thisAddELe.focus();//loading元素获得焦点
 
-        setTimeout(function () {
-
-            if(thisAddELe){
-
-                overtimeFn();
-
-                _this.remove(thisAddELe);//删除该元素
-
-                windowBanEvent.unbundling();//解绑页面禁止事件
-
-                _this.removeBlur();
-
-                _this.transitionEndFn(thisBg,function () {
-
-                    _this.removeBg('loading_bg');
-
-                });
-
-                thisBg.style.opacity='0';
-
-            }
-
-        },30000);//五秒
 
     },
 
@@ -163,11 +131,9 @@ var jfShowTips = {
 
             windowBanEvent.unbundling();//解绑页面禁止事件
 
-            _this.remove(document.getElementById('tip_loading'))//删除该元素
+            _this.remove(document.getElementById('tip_loading'));//删除该元素
 
             _this.removeBlur();
-
-            _this.removeBg('loading_bg');
 
         }
 
