@@ -105,8 +105,6 @@ var jfShowTips = {
 
         var thisNode=details.thisNode||0;//传入动画html
 
-        _this.addBlur();
-
         var thisInnerHtml=thisNode;
 
         var thisAddELe=_this.addNode('div',thisInnerHtml,'tip_loading');//增加节点
@@ -133,7 +131,6 @@ var jfShowTips = {
 
             _this.remove(document.getElementById('tip_loading'));//删除该元素
 
-            _this.removeBlur();
 
         }
 
@@ -164,58 +161,6 @@ var jfShowTips = {
 
     },
 
-
-    //模糊增加方法
-    //陈羽翔
-    //2017.2.4
-    addBlur:function () {
-        /*
-         var thisEle=this.returnAllBodyChildNode();
-
-         var addClass='';
-
-         if(browser.os.iOS){
-
-         addClass=' body_blur_transition_ios';
-
-         }
-         else{
-
-         addClass=' body_blur_transition_other';
-
-         }
-
-         for(var i=0;i<thisEle.length;i++){
-
-         thisEle[i].className+=addClass;
-         }
-         */
-    },
-
-    removeBlur:function () {
-        /*
-         var addClass='';
-
-         if(browser.os.iOS){
-
-         addClass='body_blur_transition_ios';
-
-         }
-         else{
-
-         addClass='body_blur_transition_other';
-
-         }
-
-         var thisEle=document.getElementsByClassName(addClass);
-
-         for(var i=thisEle.length-1;i>=0;i--){
-
-         thisEle[i].className=thisEle[i].className.replace(addClass,'');
-         }
-         */
-    },
-
     dialogShow:function (details) {
 
         if(!details){//如果details未输入，则防止报错
@@ -238,10 +183,7 @@ var jfShowTips = {
 
         var thisUrl=details.thisUrl||'#';
 
-
         var _this=this;
-
-        _this.addBlur();
 
         var thisBg=_this.addBg('dialog_bg');
 
@@ -294,28 +236,12 @@ var jfShowTips = {
 
         var thisDialogEle= document.getElementById('tip_dialog');
 
-        _this.removeBlur();
-
-
-        //_this.settimeoutFn(function(){
-
             _this.remove(thisDialogEle);//删除该元素
-
-        //})
-
-        //thisDialogEle.style.opacity='0';
 
 
         var thisBgEle=document.getElementById('dialog_bg');
 
-
-       // _this.settimeoutFn(function(){
-
             _this.removeBg('dialog_bg');//删除背景
-        //})
-
-
-        //thisBgEle.style.opacity='0';
 
     },
 
