@@ -44,8 +44,7 @@
   top: 55px;
   z-index: 1;
   position: absolute;
-  animation: line2Move 2.5s infinite;
-  animation-direction: alternate;
+  animation: line2Move 2.5s infinite alternate;
 }
 
 @keyframes line2Move {
@@ -67,8 +66,7 @@
   top: 55px;
   z-index: 1;
   position: absolute;
-  animation: line3Move 2s infinite;
-  animation-direction: alternate;
+  animation: line3Move 2s infinite alternate;
 }
 
 @keyframes line3Move {
@@ -87,26 +85,21 @@
   background-image: url("../images/loading_animation.png");
   background-position: -265px -24px;
   left: 32px;
-  top: 0px;
+  top: 0;
   z-index: 7;
   position: absolute;
-  /*transform: rotate(0deg);
-  /*-webkit-transform:rotate(30deg); /* Safari and Chrome */
-
-  animation: wifiMove 2s infinite;
-  animation-direction: alternate;
+  animation: wifiMove 2s infinite alternate;
   transform-origin: 25% 25%;
 
   @keyframes wifiMove {
     0% {
       transform: rotate(-5deg);
       transform-origin: 25% 25%;
+    }
+    50% {
+      transform: rotate(0deg);
+      transform-origin: 25% 25%;
 
-      50% {
-        transform: rotate(0deg);
-        transform-origin: 25% 25%;
-
-      }
     }
     100% {
       -webkit-transform: rotate(5deg);
@@ -126,8 +119,7 @@
   top: 42px;
   z-index: 10;
   position: absolute;
-  animation: spotMove 2.5s infinite;
-  animation-direction: alternate;
+  animation: spotMove 2.5s infinite alternate;
   transform-origin: 15% 15%;
   @keyframes spotMove {
     0% {

@@ -1,11 +1,12 @@
 .JD_banner_template{
   width: 100%;
+  height: calc(~'100vw / 375 * 174');
   display: block;
   position: relative;
 
   .banner_tab{
     position: absolute;
-   /* left:-2%;*/
+    left:-2%;
     top:5%;
     z-index: 2;
     width: 50%;
@@ -18,7 +19,6 @@
       right:-1%;
       position: absolute;
       border-top: 16px solid transparent;
-
       border-bottom: 16px solid transparent;
     }
 
@@ -27,9 +27,10 @@
       color: white;
       text-align: center;
       height: 100%;
+      line-height: 30px;
 
       @media screen and (max-width: 376px){
-        font-size: 16px;
+        font-size: 14px;
       }
     }
   }
