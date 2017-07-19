@@ -10,8 +10,8 @@ var jfProductDetails = {
 
     slidePositionTab: function () {
 
-        if (!browser.os.iOS) {  //判断机型
 
+        if (!browser.os.iOS) {  //判断机型
 
             var thisNavTab = document.getElementById('NavTab');
 
@@ -25,6 +25,8 @@ var jfProductDetails = {
                     thisNavTab.style.position = 'fixed';
 
                     thisNavTab.style.top = '45px';
+
+                    thisNavTab.style.zIndex = '100'
 
                 }
 
