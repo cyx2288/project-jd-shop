@@ -1,16 +1,47 @@
 .jd_loading {
-
   position: fixed;
   margin: auto;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  width: 140px;
-  height: 160px;
+  border-radius: 10px;
+  background:rgba(0,0,0,.6) ;
+.loading_box{
+  width: 80px;
+  margin: auto;
+  div{
+    width: 1rem;
+    height: 1rem;
+    background-color: #fff;
+    border-radius: 100%;
+    display: inline-block;
+    animation: balldelay 1.4s infinite ease-in-out;
+    animation-fill-mode: both;
+  }
+    .ball1{
+      animation-delay: -0.32s;
+    }
+    .ball2{
+      animation-delay: -0.16s;
+    }
 
+    @keyframes balldelay {
+      0%, 80%, 100% {
+        transform: scale(0.0);
+      } 40% {
+          transform: scale(1.0);
+        }
+    }
 }
+  .loading_animation_text{
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
 
+  }
+}
+/*
 .jd_loading_tv {
   width: 146px;
   height: 134px;
@@ -137,4 +168,4 @@
   margin-top: 5px;
   font-size: 14px;
 
-}
+}*/

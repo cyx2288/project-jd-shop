@@ -3,20 +3,19 @@
   padding: 10px 15px 5px 15px;
   .product_title{
     width: 100%;
+    margin-bottom: 10px;
     .product_name{
-      width: 80%;
-      width: calc( 65vh );
+      width: calc(~'100% - 60px');
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 20px;
     }
     .product_praise{
-      width: 20%;
-      width: calc( 100% - 65vh );
+      width: 60px;
       text-align: right;
       p{
         font-size: 12px;
@@ -39,7 +38,7 @@
       font-weight: bold;
       color: #ff4646;
       span{
-        font-size: 22px;
+        font-size: 26px;
       }
     }
 
@@ -61,13 +60,14 @@
 
 .product_additional_goods{
   text-align: right;
-  width: 30%;
+  width: 40%;
   font-size: 12px;
   .red_acc,.org_gift{
     position: relative;
     border: 1px solid #c9c9c9;
     border-radius: 8px;
     padding: 2px 6px;
+    font-size: 14px;
 
     &:before{
       left: -4px;
