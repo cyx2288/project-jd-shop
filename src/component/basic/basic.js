@@ -9,7 +9,7 @@ var loadInnerHtml={
 
        'loadingSuccess':'<div class="loading_box"><div class="success_animation"><div class="success_animation_circle"></div><div class="success_animation_cloud"></div><div class="success_animation_line2"></div><div class="success_animation_line3"></div><div class="success_animation_right"></div><div class="m-box"><div class="m-duigou"></div></div><div class="success_animation_text showtext"></div></div></div>',
 
-       'loading':'<div class="loading_box"><div class="jd_loading"><div class="jd_loading_tv"></div><div class="jd_loading_cloud"></div><div class="jd_loading_line2"></div><div class="jd_loading_line3"></div><div class="jd_loading_spot"></div><div class="jd_loading_wifi"></div><div class="loading_animation_text showtext"></div></div></div>',
+       'loading':'<div class="loading_box"><div class="jd_loading"><div class="loading_box jdshop_alignment_center"><div class="ball1"></div><div class="ball2"></div><div class="ball3"></div></div><div class="loading_animation_text showtext"></div></div></div>',
 
        'loadingFail':'<div class="loading_box"><div class="fail_animation"><div class="fail_animation_circle"></div><div class="fail_animation_cloud"></div><div class="fail_animation_line2"></div><div class="fail_animation_line3"></div><div class="fail_animation_wrong"></div><div class="fail_animation_text showtext"></div></div></div>'
 
@@ -105,16 +105,17 @@ var jfShowTips = {
 
         var thisNode=details.thisNode||0;//传入动画html
 
+        var otherClass=details.thisClass|| false;//loading添加特殊class,成功失败不需要添加为false
+
         var thisInnerHtml=thisNode;
 
-        var thisAddELe=_this.addNode('div',thisInnerHtml,'tip_loading');//增加节点
+        var thisAddELe=_this.addNode('div',thisInnerHtml,'tip_loading',otherClass);//增加节点
 
         document.getElementsByClassName('showtext')[0].innerHTML=_this.changeString(thisText);
 
         document.activeElement.blur();//页面控件失焦
 
         thisAddELe.focus();//loading元素获得焦点
-
 
     },
 
