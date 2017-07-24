@@ -13,8 +13,11 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     .details_address{
-      span{
+      span:first-child{
         color: #8a8a8a;
+      }
+      span{
+        color: #4a4a4a;
         margin-right: 10px;
       }
       img{
@@ -24,6 +27,7 @@
         margin-right: 10px;
       }
     }
+
   }
   .details_stock{
     span.in_stock{
@@ -35,6 +39,10 @@
       height: 14px;
       vertical-align: middle;
     }
+  }
+  .time{
+    margin-left: calc(38px);
+    color: #ababab;
   }
 &:active{
   opacity: .6;
