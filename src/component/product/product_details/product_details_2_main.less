@@ -5,21 +5,23 @@
     width: 100%;
     margin-bottom: 10px;
     .product_name{
-      width: calc(~'100% - 60px');
+      width: calc(~'100% - 65px');
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
+      -webkit-line-clamp: 3;
       font-size: 14px;
       line-height: 20px;
     }
     .product_praise{
+      position: relative;
       width: 60px;
       text-align: right;
       p{
         font-size: 12px;
         color: #9c9c9f ;
+        text-align: center;
         span{
           font-size: 14px;
           color: #ff4646;
@@ -28,6 +30,17 @@
       p+p{
         font-size: 10px;
         white-space: nowrap;
+      }
+      &:before{
+        content: '';
+        position: absolute;
+        left: -6px;
+        right: 0;
+        border-left: 1px solid #ddd;
+        width: 1px;
+        height: 100%;
+        transform:scaleX(.6) ;
+
       }
     }
   }
