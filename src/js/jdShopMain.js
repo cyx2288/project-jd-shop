@@ -57,12 +57,15 @@ var browser = {
 var windowBanEvent = {
 
     bundling: function () {
+
         var _self = this;
         //$(window).bind('click touchstart touchmove touchend ', _self.Canceling);//绑定禁止事件
 
         var allEvent = ['click', 'touchstart', 'touchmove', 'touchend'];
 
         for (var i = 0; i < allEvent.length; i++) {
+
+            document.body.addEventListener(allEvent[i], _self.Canceling, false);
 
             addEventListener(allEvent[i], _self.Canceling, false)
 
@@ -77,6 +80,8 @@ var windowBanEvent = {
         var allEvent = ['click', 'touchstart', 'touchmove', 'touchend'];
 
         for (var i = 0; i < allEvent.length; i++) {
+
+            document.body.removeEventListener(allEvent[i], _self.Canceling, false);
 
             removeEventListener(allEvent[i], _self.Canceling, false)
 
