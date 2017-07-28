@@ -16,9 +16,6 @@ var loadInnerHtml={
    }
 };
 
-
-
-
 var jfShowTips = {
 
     //弱提示toast出现的方法
@@ -109,6 +106,11 @@ var jfShowTips = {
 
         var thisInnerHtml=thisNode;
 
+        var thisBg = _this.addLoadingBg('tip_loading_bg');
+
+        /*在背景上加禁止浏览器默认事件*/
+        document.getElementById('tip_loading_bg').addEventListener('touchmove',windowBanEvent.Canceling);
+
         var thisAddELe=_this.addNode('div',thisInnerHtml,'tip_loading',otherClass);//增加节点
 
         document.getElementsByClassName('showtext')[0].innerHTML=_this.changeString(thisText);
@@ -118,6 +120,17 @@ var jfShowTips = {
         thisAddELe.focus();//loading元素获得焦点
 
     },
+
+    addLoadingBg:function (thisId) {
+
+        var _this=this;
+
+        _this.removeBg();
+
+        return _this.addNode('div','',thisId,'tip_loading_bg');//增加节点
+
+    },
+
 
     //loading删除方法
     //陈羽翔
@@ -134,6 +147,7 @@ var jfShowTips = {
 
 
         }
+            _this.removeBg('tip_loading_bg');
 
     },
     //新建元素的方法
