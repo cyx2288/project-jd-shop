@@ -7,59 +7,55 @@
         </a>
         <a class="content" href="../jdshop_search/search.html">
             <div class="search_tab jdshop_alignment_middle">
-                <i></i><span>查找您需要的商品</span>
+                <i></i>
+                <div class="product_choose">小米<i class="delete_product">×</i></div>
+                <div class="product_choose">智能家居<i class="delete_product">×</i></div>
+                <span>查找您需要的商品</span>
             </div>
         </a>
         <a class="right">
         </a>
     </div>
 </nav>
+
 <!-- 固定tab-->
 <div class="search_results_nav">
     <div class="tab_box"></div>
     <div class="search_nav_content">
-       <!-- 销量 -->
-        <div class="search_tab select_tab">销量</div>
+        <!-- 综合-->
+        <div class="comprehensive search_tab">
+            <span>综合</span>
+            <div class="search_tab arrow">▼</div>
+        </div>
+        <!-- 销量 -->
+        <div class="search_tab">销量</div>
         <!-- 价格 -->
         <div class="price">
             <div class="search_tab arrow up_arrow">▲</div>
             <div class="search_tab arrow down_arrow">▼</div>
             <span>价格</span>
         </div>
-        <!-- 有无货 -->
-        <div class="in_stock">
-            <!--<span class="tick"></span>-->
-
-            <label>
-                <span>仅看有货</span>
-                <input class="radio" type="checkbox" name="radio">
-            </label>
-
+        <div class="brand">
+            <span>品牌</span>
+            <div class="arrow">▼</div>
         </div>
-        <!-- 地址 -->
-        <div class="search_address" onclick="productAddress.show({fn:
-
-function(){
-
-     shoppingCart.run({
-     api: '../../api/address.json',
-     type: 'get',
-     targetDom:document.getElementById('search_address_show'),
-     fn:function() {
-       productAddress.hide()
-     }
-
-     })
-
-}
-
-})"><span id="search_address_show">上海市，浦东新区,城区啦啦啦</span><img src="../../images/product_go.png"></div>
+        <div class="filter">
+            <span>筛选</span>
+            <div class="filter_icon"></div>
+        </div>
 
     </div>
 
 
 </div>
 
+<!-- 推荐商品 -->
+<div class="search_recommend_content">
+
+    <%- include('search_results_list/search_results_2_recommend.ejs')%>
+</div>
+
+<!-- 商品列表-->
 <div class="search_results_content">
 
     <%- include('search_results_list/search_results_1_list.ejs') %>
@@ -73,6 +69,17 @@ function(){
 
 </div>
 
+<!--下拉框-->
+<div id="search_prompt">
+
+    <%- include('search_results_prompt/search_prompt_1_general.ejs')%>
+
+    <%- include('search_results_prompt/search_prompt_2_brand.ejs')%>
+
+    <%- include('search_results_prompt/search_prompt_3_filter.ejs')%>
+
+</div>
+
 <script>
 
     /*图片懒加载*/
@@ -81,17 +88,10 @@ function(){
         "bottomDistance":"50"//距离底部的距离，触发事件，单位省略
     })
 
-
-    //有无货选择
-    jdSearch_results.tickChoose();
-
     //价格高低选择
-
     jdSearch_results.priceChoose()
 
-    //地址选择
 
-    productAddress = new jfShowPop({'ele': 'product_address'})
 
 
 </script>

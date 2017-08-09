@@ -149,6 +149,7 @@ var jfShowTips = {
         }
             _this.removeBg('tip_loading_bg');
 
+
     },
     //新建元素的方法
     addNode: function (tag, innerHtml, id, className) {

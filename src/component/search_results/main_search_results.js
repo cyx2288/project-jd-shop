@@ -4,6 +4,7 @@
 
 var jdSearch_results = {
 
+/*
     tickChoose:function () {
 
     var chooseTab = document.getElementsByClassName('in_stock')[0];
@@ -26,7 +27,7 @@ var jdSearch_results = {
 
     }, false);
 
-    /*    function inStock() { //打钩变化效果
+    /!*    function inStock() { //打钩变化效果
 
      if (tickTab.className.indexOf('tick') > -1) {
 
@@ -38,15 +39,15 @@ var jdSearch_results = {
      tickTab.className += ' tick'
      }
 
-     }*/
+     }*!/
 
 },
+*/
 
-
+//价格选择
 priceChoose:function () {
 
     var allEle = document.getElementsByClassName('search_tab');
-
 
     for (var i = 0; i < allEle.length; i++) {
 
@@ -72,9 +73,10 @@ priceChoose:function () {
             }
 
         }
-
-
     }
+}
 
-}
-}
+};
+
+
+
