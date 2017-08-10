@@ -1,9 +1,9 @@
 <div class="jd_drop_down" id="general_list">
     <div class="jd_drop_down_content">
         <div class="general_list">
-            <div class="selected">综合排序</div>
-            <div>新品优先</div>
-            <div>好评率从高到低</div>
+            <div class="selected" data-name="综合">综合排序</div>
+            <div data-name="新品">新品优先</div>
+            <div data-name="好评">好评率从高到低</div>
         </div>
     </div>
     <div class="jd_drop_down_bg"></div>
@@ -14,37 +14,6 @@
 
     //综合选择
     searchGeneral = new jfDropDown({'ele':'general_list'})
-
-    document.getElementsByClassName('comprehensive')[0].addEventListener('click',function () {
-        
-
-            searchGeneral.show({fn:function () {
-
-                document.getElementsByClassName('general_list')[0].addEventListener('click',function (e) {
-
-                    var evt = e||window.event;
-
-                    var thisTargetEle = evt.srcElement||evt.target;
-
-                    if(document.getElementsByClassName('selected')[0]){
-
-                        document.getElementsByClassName('selected')[0].className = ''
-
-                    }
-
-                    thisTargetEle.className +=' selected';
-
-                    searchGeneral.hide();
-
-
-                },false)
-
-            }})
-
-
-    },false);
-
-
 
 
 </script>

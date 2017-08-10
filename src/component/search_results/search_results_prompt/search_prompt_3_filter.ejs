@@ -8,7 +8,6 @@
                     <div class="address jdshop_alignment_center" onclick="productAddress.show({fn:
 
 function(){
-
      shoppingCart.run({
      api: '../../api/address.json',
      type: 'get',
@@ -16,9 +15,7 @@ function(){
      fn:function() {
        productAddress.hide()
      }
-
      })
-
 }
 
 })">
@@ -33,7 +30,10 @@ function(){
                 <!--价格 -->
                 <div class="price">
                     <div class="title">价格</div>
-                    <input type="tel" class="filter_input" pattern="[0-9]*" placeholder="最低价">-<input type="tel" class="filter_input" pattern="[0-9]*" placeholder="最高价">
+                    <input type="tel" class="filter_input" pattern="[0-9]*" placeholder="最低价">-<input type="tel"
+                                                                                                      class="filter_input"
+                                                                                                      pattern="[0-9]*"
+                                                                                                      placeholder="最高价">
                 </div>
                 <!--分类-->
                 <div class="sort_block">
@@ -78,111 +78,7 @@ function(){
     searchFilter = new jfDropDown({'ele': 'filter_list'})
 
 
-    //展开内容
-    document.getElementsByClassName('filter')[0].addEventListener('click', function () {
-
-
-
-        if (this.className.indexOf('show') > -1) {
-
-            searchFilter.hide();
-
-            this.className = 'filter';
-
-        }
-
-        else {
-
-            this.className += ' show'
-
-            searchFilter.show({
-
-                fn: function () {
-
-                    var sortBlock = document.getElementsByClassName('sort_block')
-
-                    for (var i = 0; i < sortBlock.length; i++) {
-
-                        document.getElementsByClassName('type')[i].addEventListener('click', function (e) {
-
-                            var evt = e || window.event;
-
-                            var thisTargetEle = evt.srcElement || evt.target;
-
-                            if (thisTargetEle.className == 'type') { //如果点到的是自己 则class不变
-
-                                thisTargetEle.className = 'type';
-                            }
-                            else {
-
-                                if (thisTargetEle.className.indexOf('selected') > -1) {  //点击本身也会取消
-
-                                    thisTargetEle.className = '';
-                                }
-                                else {
-
-                                    thisTargetEle.className += ' selected';        //也可以点击其他的
-                                }
-                            }
-
-
-                        }, false)
-
-                    }
-
-
-                }
-            });
-
-        }
-
-
-    })
-
-
-    document.getElementsByClassName('filter_reset')[0].addEventListener('click',filterResetAll,false)
-
-
-    function filterResetAll() {
-
-        var listBox = document.getElementsByClassName('type')
-
-
-        for(var i=0;i<listBox.length;i++){
-
-            var divEle = listBox[i].getElementsByTagName('div')
-
-            for ( var j=0;j<divEle.length;j++){
-
-                divEle[j].className = divEle[j].className.replace('selected', '')
-
-            }
-
-        }
-
-        inputReset();
-
-        //清除input里面的内容
-
-        function inputReset() {
-
-            var inputEle = document.getElementsByTagName('input')
-
-
-            for (var j = 0; j < inputEle.length; j++) {
-
-
-                if (inputEle[j].value) {
-
-                    inputEle[j].value = '';
-                }
-
-            }
-
-        }
-
-    }
-
+    jdSearch_results.filterBlockEvent();
 
 
 

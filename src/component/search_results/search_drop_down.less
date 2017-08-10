@@ -30,11 +30,12 @@
     height: calc(~'100% - 90px');
     width: 100%;
     background: black;
-    z-index: 400;
+    z-index: -1;
     opacity: 0;
     transition: opacity .3s;
   }
 
   .jd_drop_down.show .jd_drop_down_bg{
     opacity: .3;
+    z-index: 400;
   }
