@@ -88,9 +88,16 @@ jfDropDown.prototype.show = function (details) {
 
 };
 
-jfDropDown.prototype.hide = function () {
+jfDropDown.prototype.hide = function (details) {
+
+    if(details){
+
+        details.fn();
+
+    }
 
     var thisEle = document.getElementById(this.details.ele);
+
 
     /*document.body.removeEventListener('touchmove', this.ban, true);*/
 

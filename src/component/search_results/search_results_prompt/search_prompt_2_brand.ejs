@@ -24,77 +24,7 @@
     //品牌选择
     searchBrand = new jfDropDown({'ele': 'brand_list'})
 
-    //下拉框选择
-    document.getElementsByClassName('brand')[0].addEventListener('click', function () {
-
-        if (document.getElementById('brand_list').className.indexOf('show') > -1) {
-
-            searchBrand.hide();
-
-            this.className = 'brand';
-
-        }
-
-        else {
-
-
-            this.className += ' show'
-
-            searchBrand.show({
-
-                fn: function () {
-
-                    document.getElementsByClassName('brand_list')[0].addEventListener('click', function (e) {
-
-                        var evt = e || window.event;
-
-                        var thisTargetEle = evt.srcElement || evt.target;
-
-                        if (thisTargetEle.className == 'brand_list') { //如果点到的是自己 则class不变
-
-                            thisTargetEle.className = 'brand_list';
-                        }
-                        else {
-
-                            if (thisTargetEle.className.indexOf('selected') > -1) {  //点击本身也会取消
-
-                                thisTargetEle.className = '';
-                            }
-                            else {
-
-                                thisTargetEle.className += ' selected';        //也可以点击其他的
-                            }
-                        }
-
-
-                    }, false)
-
-                }
-            })
-
-        }
-
-    }, false)
-
-
-    //重置
-
-
-    document.getElementsByClassName('brand_reset')[0].addEventListener('click', resetAll, false)
-
-    function resetAll() {
-
-        var boxEle = document.getElementsByClassName('brand_list')[0];
-
-        var allEle = boxEle.getElementsByTagName('div');
-
-        for (var i = 0; i < allEle.length; i++) { //找到页面上所有的selected 并且删除
-
-            allEle[i].className = allEle[i].className.replace('selected', '')
-
-        }
-
-    }
+    jdSearch_results.brandBlockEvent();
 
 
 </script>

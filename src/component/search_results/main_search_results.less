@@ -1,17 +1,26 @@
 a.content{
 
   .product_choose{
+    position: relative;
     background: #8a8a8a;
     color: #fff;
     margin: 0 2px;
-    text-align: center;
-    padding: 0 5px;
+    text-align: left;
+    padding: 0 15px 0 5px;
     border-radius: 5px;
     i.delete_product{
       color: #fff;
+      font-size: 16px;
     }
     &+span{
       display: none;
+    }
+    &:after{
+      content: '×';
+      position: absolute;
+      top: 0;
+      right: 5px;
+      color: #fff;
     }
   }
 }
