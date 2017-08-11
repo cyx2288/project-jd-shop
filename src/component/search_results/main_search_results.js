@@ -169,7 +169,8 @@ var jdSearch_results = {
         document.getElementsByClassName('filter')[0].addEventListener('click', function () {
 
 
-            if (this.className.indexOf('show') > -1) {
+            if (document.getElementById('filter_list').className.indexOf('show') > -1) {
+
 
                 jdSearch_results.hideShow(1);
 
@@ -403,6 +404,7 @@ var jdSearch_results = {
                     this.className += ' show';
 
                     searchGeneral.show({
+
                         fn: function () {
 
                             document.getElementsByClassName('general_list')[0].addEventListener('click', addEvent, false);
@@ -526,6 +528,8 @@ var jdSearch_results = {
                 this.className += ' show';
 
                 _this.hidePrompt();
+
+
                 //  searchGeneral.hide();
 
 
