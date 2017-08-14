@@ -530,7 +530,7 @@ var jdSearch_results = {
                 _this.hidePrompt();
 
 
-                //  searchGeneral.hide();
+                //searchGeneral.hide();
 
 
             }, false);
