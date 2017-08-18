@@ -22,21 +22,25 @@ var jdSearch_results = {
     hideShow: function (num) {
 
 
+        //数组1
         var elesOne = ['comprehensive', 'brand', 'filter'];
 
+        //数组2
         var elesTwo = ['volume', 'price'];
 
         var farEle = document.getElementsByClassName('search_nav_content')[0];
 
         var thisEle;
 
-        if (num == 1) {
+
+
+        if (num == 1) {     //如果为1 则启用数组1
 
             thisEle = allEle(elesOne);
 
         }
 
-        else {
+        else {    //反之启用数组2
 
             thisEle = allEle(elesTwo);
 
@@ -46,12 +50,13 @@ var jdSearch_results = {
 
             var ele = [];
 
+
+
             for (var i = 0; i < className.length; i++) {
 
-                ele.push(farEle.getElementsByClassName(className[i])[0])
+                ele.push(farEle.getElementsByClassName(className[i])[0]);
 
             }
-
 
             return ele
 
@@ -61,50 +66,9 @@ var jdSearch_results = {
 
             if (thisEle[i].className.indexOf('show') > -1) {
 
-                thisEle[i].className = thisEle[i].className.replace('show', '')
+                thisEle[i].className = thisEle[i].className.replace('show','');
 
             }
-
-        }
-
-    },
-
-
-    //删除搜索模块时显示在搜索栏
-    searchTabBlock: function () {
-
-
-        var eleBlock = document.getElementsByClassName('product_choose');
-
-        for (var i = 0; i < eleBlock.length; i++) {
-
-            eleBlock[i].addEventListener('click', function (event) {
-
-                for (var j = 0; j < eleBlock.length; j++) { //遍历一遍需要的元素
-
-                    if (eleBlock[j].innerHTML != this.innerHTML) {  //如果他点击的元素不是他本身 break
-
-                        break
-                    }
-
-                }
-
-                document.getElementsByClassName('search_tab')[0].getElementsByTagName('span')[0].innerHTML = eleBlock[j].innerHTML; //赋值
-
-
-                for (var a = 0; a < 2; a++) {   //删除本身
-
-                    eleBlock[0].parentNode.removeChild(eleBlock[0]);
-                }
-
-                //阻止事件冒泡&默认事件
-
-                event.preventDefault();
-
-                event.stopPropagation();
-
-
-            }, false)
 
         }
 
@@ -172,7 +136,7 @@ var jdSearch_results = {
             if (document.getElementById('filter_list').className.indexOf('show') > -1) {
 
 
-                jdSearch_results.hideShow(1);
+                //jdSearch_results.hideShow(1);
 
                 //点击任意下拉框收回
                 jdSearch_results.hidePrompt();
@@ -190,16 +154,20 @@ var jdSearch_results = {
             else {
 
 
-                jdSearch_results.hideShow(1);
+              //jdSearch_results.hideShow(1);
 
                 jdSearch_results.hidePrompt();
 
-                this.className += ' show';
+
+
+                if(this.className.indexOf('show') == -1){
+
+
+                    this.className += ' show';
+                }
 
                 searchFilter.show();
 
-
-                //多项选择tab
                 sortBlockChoose(1);
 
 
@@ -287,8 +255,10 @@ var jdSearch_results = {
 
             if (document.getElementById('brand_list').className.indexOf('show') > -1) {
 
-                jdSearch_results.hideShow(1);
 
+                //jdSearch_results.hideShow(1);
+
+                //页面上只能有一个弹出框
                 jdSearch_results.hidePrompt();
 
                 searchBrand.hide();
@@ -299,11 +269,16 @@ var jdSearch_results = {
 
             else {
 
-                jdSearch_results.hideShow(1);
+                //jdSearch_results.hideShow(1);
 
                 jdSearch_results.hidePrompt();
 
-                this.className += ' show';
+                if(this.className.indexOf('show')== -1){
+
+                    this.className += ' show';
+                }
+
+
 
                 searchBrand.show();
 
@@ -338,6 +313,7 @@ var jdSearch_results = {
 
     generalBlockEvent: function () {
 
+        var _this=this;
 
         function addEvent(e) {
 
@@ -354,6 +330,7 @@ var jdSearch_results = {
             thisTargetEle.className += ' selected';
 
             searchGeneral.hide({
+
                 fn: function () {
 
                     //收回之后删除监听
@@ -365,6 +342,8 @@ var jdSearch_results = {
             //获取私有值
             document.getElementsByClassName('comprehensive')[0].getElementsByTagName('span')[0].innerHTML = thisTargetEle.getAttribute('data-name');
 
+             //陈羽翔 816 弹出框判断
+            _this.zhSelect('general_list','comprehensive');
 
         }
 
@@ -375,7 +354,7 @@ var jdSearch_results = {
             if (document.getElementById('general_list').className.indexOf('show') > -1) {
 
 
-                jdSearch_results.hideShow(1);
+                //jdSearch_results.hideShow(1);
 
                 jdSearch_results.hidePrompt();
 
@@ -383,11 +362,11 @@ var jdSearch_results = {
 
                 //jdSearch_results.hideShow('comprehensive','comprehensive search_tab');
 
-                setTimeout(function () {
+              /*  setTimeout(function () {
 
                     this.className = 'comprehensive search_results_tab';
 
-                }.bind(this), 1)//指代function外面的
+                }.bind(this), 2)//指代function外面的*/
 
 
             }
@@ -395,26 +374,29 @@ var jdSearch_results = {
             else {
 
 
-                jdSearch_results.hideShow(1);
+               //jdSearch_results.hideShow(1);
 
                 jdSearch_results.hidePrompt();
 
+
                 if (this.className.indexOf('show') == -1) {
+
 
                     this.className += ' show';
 
-                    searchGeneral.show({
-
-                        fn: function () {
-
-                            document.getElementsByClassName('general_list')[0].addEventListener('click', addEvent, false);
-
-
-                        }
-                    })
-
-
                 }
+
+
+
+                searchGeneral.show({
+
+                    fn: function () {
+
+                        document.getElementsByClassName('general_list')[0].addEventListener('click', addEvent, false);
+
+
+                    }
+                })
 
 
             }
@@ -426,9 +408,22 @@ var jdSearch_results = {
 
     //搜索模块
 
-    searchRecommend: function () {
+    searchRecommend: function (details) {
 
-        var _this = this;
+        var _this=this;
+
+        var keyFn=0;
+
+        var categoryFn=0;
+
+        if(details.keyFn){//判断有没有值
+
+            keyFn=details.keyFn;
+        }
+        if(details.categoryFn){//判断有没有值
+
+            categoryFn=details.categoryFn;
+        }
 
         var thisEle = document.getElementsByClassName('search_results_recommend')[0];
 
@@ -437,7 +432,6 @@ var jdSearch_results = {
             var evt = e || window.event;//兼容性
 
             var thisTargetEle = evt.srcElement || evt.target;
-
 
             if (thisTargetEle != thisEle) {
 
@@ -460,31 +454,29 @@ var jdSearch_results = {
                 var productEle = fatherEle.getElementsByClassName('product_choose');
 
 
-                //删除
+                //删除框
                 if (productEle.length > 1) { //如有页面有个元素的话 执行
 
                     for (var i = 0; i < 2; i++) {
 
                         productEle[0].parentNode.removeChild(productEle[0]);//删除自己
 
-
                     }
 
                 }
 
+                _this.keyName=document.getElementsByClassName('search_tab')[0].getElementsByTagName('span')[0].innerHTML;
+
+                _this.categoryName=targetEle.getElementsByTagName('span')[0].innerHTML;
 
                 //获取需要插入的元素
-                caseBox(document.getElementsByClassName('search_tab')[0].getElementsByTagName('span')[0].innerHTML);
+                caseBox(_this.keyName,keyFn);
 
-                caseBox(targetEle.getElementsByTagName('span')[0].innerHTML);
+                caseBox(_this.categoryName,categoryFn);
 
-
-                //点击之后内容代入至搜索框
-
-                _this.searchTabBlock();
 
                 //小框模板
-                function caseBox(caseName) {
+                function caseBox(caseName,fn) {
 
                     var addEle = document.createElement('div');  //添加一个元素的tag
 
@@ -492,15 +484,51 @@ var jdSearch_results = {
 
                     addEle.innerHTML = caseName;  //添加元素的innerHtml
 
+                    addEle.addEventListener('click',fn,false);
+
+                    //点击之后内容代入至搜索框
+                    addEle.addEventListener('click', function (event) {
+
+                        var eleBlock = document.getElementsByClassName('product_choose');
+
+                        for (var j = 0; j < eleBlock.length; j++) { //遍历一遍需要的元素
+
+                            if (eleBlock[j].innerHTML != this.innerHTML) {  //如果他点击的元素不是他本身 break
+
+                                break
+                            }
+                        }
+                        document.getElementsByClassName('search_tab')[0].getElementsByTagName('span')[0].innerHTML = eleBlock[j].innerHTML; //赋值
+
+                        for (var a = 0; a < 2; a++) {   //删除本身
+
+                            eleBlock[0].parentNode.removeChild(eleBlock[0]);
+                        }
+
+                        //阻止事件冒泡&默认事件
+
+                        event.preventDefault();
+
+                        event.stopPropagation();
+
+
+                    }, false);
+
                     var tagEle = fatherEle.getElementsByTagName('span')[0];
 
                     fatherEle.insertBefore(addEle, tagEle);  //在span前插入内容
 
                 }
 
-
                 //清除两个小框
                 document.getElementsByClassName('search_recommend_content')[0].innerHTML = ''
+
+                //出现框子
+
+
+
+
+
 
 
             }
@@ -527,10 +555,13 @@ var jdSearch_results = {
 
                 this.className += ' show';
 
-                _this.hidePrompt();
+                //_this.hidePrompt();
 
+                searchGeneral.hide();
 
-                //searchGeneral.hide();
+                //陈羽翔 816 弹出框判断
+                _this.zhSelect('general_list','comprehensive');
+
 
 
             }, false);
@@ -550,6 +581,36 @@ var jdSearch_results = {
             }
         }
     },
+
+
+   // _this.zhSelect('general_list','comprehensive');
+
+    //陈羽翔 816
+    zhSelect:function (id,className) {
+
+        var dis=document.getElementById(id);
+
+        var ele=document.getElementsByClassName('search_results_nav')[0].getElementsByClassName(className)[0];
+
+        var row=ele.getElementsByClassName('arrow')[0];
+
+        setTimeout(function () {
+
+            if(dis.className.indexOf('show')<0&&ele.className.indexOf('show')>-1&&row.className.indexOf('another')<0){  //当弹框收起、综合点亮、箭头无变化时
+
+                row.className+=' another'
+
+            }
+
+            else{
+
+                row.className=row.className.replace(' another','')
+
+            }
+
+        },100)
+
+    }
 
 };
 

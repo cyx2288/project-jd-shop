@@ -110,6 +110,7 @@ var jfLazyLoading = {
         var _this = this;
 
         if (!details) {//如果details未输入，则防止报错
+
             details = {};
         }
 
