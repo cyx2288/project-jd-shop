@@ -72,10 +72,17 @@ function(){
 <script>
 
     //地址
-    productAddress = new jfShowPop({'ele': 'product_address'})
+    productAddress = new jfShowPop({
+        'ele': 'product_address',
+         'thisScrollEle':'address'//含有滚动条元素的classname
+
+    })
 
     //筛选
-    searchFilter = new jfDropDown({'ele': 'filter_list'})
+    searchFilter = new jfDropDown({
+        'ele': 'filter_list',//id选择器
+        'thisScrollEle':'sort_list'//含有滚动条元素的classname
+    })
 
 
     jdSearch_results.filterBlockEvent();
