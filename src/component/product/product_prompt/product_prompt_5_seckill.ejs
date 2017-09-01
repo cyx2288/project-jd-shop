@@ -1,0 +1,234 @@
+
+<div class="jf_pop_up" id="product_prompt_seckill">
+
+    <div class="jf_pop_up_main">
+
+        <div class="pop_top">
+
+            <div class="pop_title">看京东价</div>
+
+            <div class="pop_cancel"></div>
+
+            <div class="pop_line"></div>
+
+        </div>
+
+        <div class="iframebox">
+
+            <iframe  id="iframePage" frameborder="0" marginheight="0" width="300" height="300" marginwidth="0"  scrolling="no" ></iframe>
+
+        </div>
+
+        <!-- 按钮-->
+        <div class="prompt_seckill_btn">
+            <a class="product_prompt_btn" id="jumpBtn" href="https://item.m.jd.com/product/10211831816.html">
+                <div>打开京东App，查看全部评价</div>
+            </a>
+
+        </div>
+
+        <!-- <div class="pop_main">
+             <div class="pop_content">
+                 &lt;!&ndash; 导入的内容&ndash;&gt;
+                 <div class="iframe_contain">
+                     <iframe src="" frameborder="0" marginheight="0" width="300" height="300" marginwidth="0"  id="iframePage" scrolling="auto"></iframe>
+
+
+                 </div>
+
+
+             </div>
+
+             <div class="prompt_seckill_btn">
+                 <a class="product_prompt_btn" id="jumpBtn" href="https://item.m.jd.com/product/10211831816.html">
+                     <div>打开京东App，查看全部评价</div>
+                 </a>
+
+             </div>
+         </div>-->
+    </div>
+
+    <div class="jf_pop_up_bg"></div>
+</div>
+
+<script>
+
+    showProductSecKill=new jfShowPop({
+        'ele':'product_prompt_seckill',
+        'thisScrollEle':'pop_content'
+    })
+
+
+    function iFrameHeight() {
+
+        var ifm= document.getElementById("iframePage");
+
+        var btnEle = document.getElementById('jumpBtn');
+
+        if(ifm) {
+
+            ifm.height = 2000 ;
+
+            ifm.width = document.body.scrollWidth;
+
+            ifm.src=btnEle.href;
+
+        }
+
+    }
+
+    iFrameHeight();
+
+
+
+
+
+
+
+
+/*
+    if(browser.os.iOS){
+
+
+        var iframeBox = document.getElementById('iframeBox');
+
+        var windoxWidth = window.innerWidth;
+
+        console.log(iframeBox.width)
+
+        //iframeBox.width = windoxWidth -30+ 'px';
+
+        iframeBox.width = windoxWidth+'px';
+    }
+
+
+
+*/
+
+/*function iframeJump() {
+
+    var fatherEle = document.getElementById('popContent')
+
+    if (browser.os.android) {
+
+        //安卓终端使用iframe
+        var addIframe = document.createElement('iframe');
+
+        var windowWidth = window.innerWidth;
+
+        addIframe.id = 'iframeBox';
+
+        addIframe.src = "https://item.m.jd.com/";
+
+        addIframe.style.width = windowWidth;
+
+        addIframe.style.height = '100%';
+
+        addIframe.style.border = '0 none';
+
+        addIframe.setAttribute('scrolling', 'auto');
+
+        fatherEle.appendChild(addIframe);
+
+
+
+
+    }
+    else if (browser.os.iOS) {
+        //iOS终端直接页面跳转
+        fatherEle.href = 'https://item.m.jd.com/';
+
+    }
+    else {
+        fatherEle.href = 'https://item.m.jd.com/';
+    }
+
+}
+
+document.getElementsByClassName('view_jd')[0].addEventListener('click',iframeJump,false);*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<!--
+<div class="iframe_pop_up">
+
+    &lt;!&ndash; 弹框内容&ndash;&gt;
+    <div class="iframe_main">
+
+        <div class="iframe_top">
+
+            <div class="iframe_title">看京东价</div>
+
+            <div class="iframe_cancel"></div>
+
+            <div class="iframe_line"></div>
+
+        </div>
+
+        &lt;!&ndash; iframe内容&ndash;&gt;
+
+        <div class="iframebox">
+
+            <iframe  id="iframeTest" frameborder="0" marginheight="0" width="300" height="300" marginwidth="0"  scrolling="no" ></iframe>
+
+        </div>
+
+        &lt;!&ndash; 按钮&ndash;&gt;
+        <div class="prompt_seckill_btn">
+            <a class="product_prompt_btn" id="jumpBtn" href="https://item.m.jd.com/product/10211831816.html">
+                <div>打开京东App，查看全部评价</div>
+            </a>
+
+        </div>
+
+    </div>
+
+    &lt;!&ndash; 背景&ndash;&gt;
+    <div class="iframe_bg"></div>
+
+</div>
+
+
+
+
+
+
+<script>
+
+    function iFrameHeight() {
+
+        var ifm= document.getElementById("iframeTest");
+
+        var btnEle = document.getElementById('jumpBtn');
+
+        if(ifm) {
+
+            ifm.height = 2000 ;
+
+            ifm.width = document.body.scrollWidth;
+
+            //ifm.src=btnEle.href;
+
+            ifm.src="https://item.m.jd.com/product/10211831816.html";
+
+        }
+
+    }
+
+    iFrameHeight();
+
+
+
+
+</script>-->

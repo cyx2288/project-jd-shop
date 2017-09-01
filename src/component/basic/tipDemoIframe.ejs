@@ -1,0 +1,162 @@
+
+<button id="btnTest">点我</button>
+
+
+<%- include('../search_results/search_results_list/search_results_1_list.ejs') %>
+
+
+
+    <!-- 弹框内容-->
+    <div class="iframe_main" id="iframDemo">
+
+        <div class="iframe_top">
+
+            <div class="iframe_title">看京东价</div>
+
+            <div class="iframe_cancel"></div>
+
+            <div class="iframe_line"></div>
+
+        </div>
+
+        <!-- iframe内容-->
+
+        <div class="iframebox">
+
+            <iframe  id="iframe" frameborder="0" marginheight="0" width="300" height="300" marginwidth="0"  scrolling="no"></iframe>
+
+        </div>
+
+        <!-- 按钮-->
+        <div class="prompt_seckill_btn">
+            <a class="product_prompt_btn" id="jumpBtn" href="https://item.m.jd.com/product/10211831816.html">
+                <div>打开京东App，查看全部评价</div>
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+<script>
+
+
+    //传url
+
+    function iFrameHeight() {
+
+        var ifm= document.getElementById("iframe");
+
+        var btnEle = document.getElementById('jumpBtn');
+
+        if(ifm) {
+
+            ifm.height = 2000 ;
+
+            ifm.width = document.body.scrollWidth;
+
+            //ifm.src=btnEle.href;
+
+            ifm.src="https://item.m.jd.com/product/10211831816.html";
+
+
+
+        }
+
+    }
+
+    iFrameHeight();
+
+
+
+
+    function iframePopUp() {
+
+
+        var thisEle = document.getElementById('iframDemo');
+
+        var thisEleCancel = thisEle.getElementsByClassName('iframe_cancel')[0];
+
+
+        document.getElementById('btnTest').addEventListener('click',function () {
+
+            if(thisEle.className.indexOf('show') == -1){
+
+                iframeShow();
+            }
+            else {
+               iframeHide()
+            }
+
+
+        },false);
+
+        thisEleCancel.addEventListener('click',iframeHide,false);
+
+        function iframeShow(){
+
+            thisEle.style.display = 'block';
+
+            setTimeout(function () {
+
+                if(thisEle.className.indexOf('show') == -1){
+
+                    thisEle.className += ' show'
+                }
+
+            },10)
+
+        }
+
+        function iframeHide(){
+
+
+            if (thisEle.className.indexOf('show') > -1) {
+
+                transitionMove(thisEle);
+
+                //thisEle.style.display = 'none';
+
+               thisEle.className = thisEle.className.replace(' show', '')
+
+            }
+
+
+            function transitionMove(ele) {
+
+                // Safari 3.1 到 6.0 代码
+                ele.addEventListener("webkitTransitionEnd", MFunction);
+                // 标准语法
+                ele.addEventListener("transitionend", MFunction);
+
+                function MFunction() {
+
+                    ele.style.display = 'none';
+                    // Safari 3.1 到 6.0 代码
+                    ele.removeEventListener("webkitTransitionEnd", MFunction);
+                    // 标准语法
+                    ele.removeEventListener("transitionend", MFunction);
+
+
+                }
+
+
+            }
+
+        }
+
+
+    }
+
+
+
+    iframePopUp();
+
+
+
+
+
+
+
+</script>

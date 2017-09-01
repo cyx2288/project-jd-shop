@@ -64,30 +64,7 @@
 
       }
     }
-    //&:after{
-    //  content:'京东自营';
-    //  position: absolute;
-    //  display: block;
-    //  padding: 1px 2px;
-    //  top: -40px;
-    //  left: 0;
-    //  width: 28px;
-    //  color: #fff;
-    //  font-size: 14px;
-    //  line-height: 16px;
-    //  background: -webkit-linear-gradient(bottom,#ff0200,#ff4646);
-    //}
-    //&:before{
-    //  content: '';
-    //  position: absolute;
-    //  top: -6px;
-    //  left:0;
-    //  width: 0;
-    //  height: 0;
-    //  border-left: 16px solid transparent;
-    //  border-right: 16px solid transparent;
-    //  border-top: 3px solid #ff0200;
-    //}
+
   }
   .product_imf{
     width: 100%;
@@ -98,8 +75,20 @@
       span{
         font-size: 26px;
       }
-    }
 
+    }
+    .view_jd{
+      color: #ff0200;
+      border: 1px solid #ff4646;
+      border-radius: 8px;
+      padding: 0 4px;
+      font-size: 12px;
+      font-weight: normal;
+      white-space: nowrap;
+      &:active{
+        opacity: .6;
+      }
+    }
   }
   &:before{
     content: '';
@@ -118,7 +107,7 @@
 
 .product_additional_goods{
   text-align: right;
-  width: 40%;
+  width: 35%;
   font-size: 12px;
   .red_acc,.org_gift{
     position: relative;
