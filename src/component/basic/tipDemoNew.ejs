@@ -11,7 +11,7 @@
 
 <div id="showLog" style="position: fixed;left: 0;top: 100px;background: black;color: white;z-index: 9999999">111</div>
 
-<button onclick="test1.show()">点我</button>
+<button onclick="test1.show()" style="position: fixed;top: 0;left: 0;z-index: 111">点我</button>
 
 
 <%- include('../search_results/search_results_list/search_results_1_list.ejs') %>
@@ -51,13 +51,47 @@
 
         </div>
 
-        <div class="pop_main">
+        <div class="pop_main" style="max-height:300px;overflow-y: scroll">
 
+            <p>1111111111</p>
             <p>11</p>
             <p>11</p>
             <p>11</p>
             <p>11</p>
             <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>11</p>
+            <p>22222222</p>
+
 
         </div>
 
@@ -72,32 +106,30 @@
 
 <script>
 
-
-
     test1 = new jfShowPop({
-
-
-        'ele': 'test5',//弹出框的id
-
-        'thisScrollEle': 'pop_main'//含有有滚动条的元素的classname
-
-
-
+        'ele': 'test5'//弹出框的id
     })
 
 
-    /*function clickThrough(hasScrollEle) {
+
+    clickThrough('pop_main')
+
+
+    function clickThrough(hasScrollEle) {
 
 
         var thisScrollEle = document.getElementsByClassName(hasScrollEle)[0];
+
+        var thisTop = document.getElementsByClassName('pop_top')[0]
 
         var startY, endY, distance;//开始距离、移动距离
 
         thisScrollEle.addEventListener('touchstart', touchStartEle, false);
 
-        thisScrollEle.addEventListener('touchmove', touchMoveDistance, false);
-
         thisScrollEle.addEventListener('touchmove', reachEdge, false);
+
+        thisTop.addEventListener('touchmove', windowBanEvent.Canceling,false);
+        //thisScrollEle.addEventListener('touchmove', reachEdge, false);
 
 
         function touchStartEle(e) {
@@ -105,21 +137,6 @@
             //touchstart 获取位置startY
 
             startY = e.touches[0].pageY;
-
-        }
-
-
-        function touchMoveDistance(e) {
-
-            //touchmove 获取位置 endY
-
-            endY = e.touches[0].pageY;
-
-            //两者之减的距离用来判断是向上活动还是向下滑动
-            distance = startY - endY;
-
-            //此时touchmove的值等于touchstart的值 循环
-            endY = startY;
 
         }
 
@@ -133,6 +150,18 @@
             var eleHeight = _this.scrollHeight;//元素实际高度 506
 
             var containerHeight = _this.offsetHeight;//容器高度 300
+
+
+
+            //touchmove 获取位置 endY
+
+            endY = event.touches[0].pageY;
+
+            //两者之减的距离用来判断是向上活动还是向下滑动
+            distance = startY - endY;
+
+            //此时touchmove的值等于touchstart的值 循环
+            endY = startY;
 
 
             //滚动条到达底部
@@ -168,7 +197,7 @@
         }
 
 
-    }*/
+    }
 
 
 
