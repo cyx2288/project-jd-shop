@@ -4,13 +4,133 @@
 
 var jfShowPop = function (details) {
 
+    if(!details){
+
+        details ={}
+
+    }
+
     this.details = details;
 
     var thisEle = document.getElementById(this.details.ele);
 
+    //var thisfatherEle = this.details.fatherId || 0;
+
+    var thishasScrollEle = this.details.scrollClassname || 0;
+
+
     thisEle.getElementsByClassName('pop_cancel')[0].addEventListener('click', clickEven.bind(this), false);
 
     thisEle.getElementsByClassName('jf_pop_up_bg')[0].addEventListener('click', clickEven.bind(this), false);
+
+
+    if(thishasScrollEle){
+
+        clickThought(thishasScrollEle);
+
+    }
+
+
+    function clickThought(thishasScrollEle) {
+
+
+        var thisScrollEle = thisEle.getElementsByClassName(thishasScrollEle)[0];
+
+        var thisVolum = thisEle.getElementsByClassName('sku_volume_purchased')[0];
+
+        var popTop = thisEle.getElementsByClassName('pop_top')[0];
+
+        var thisAddress = thisEle.getElementsByClassName('top_address')[0];
+
+        var startY, endY, distance;//开始距离、移动距离
+
+        thisScrollEle.addEventListener('touchstart', touchStartEle, false);
+
+        thisScrollEle.addEventListener('touchmove', reachEdge, false);
+
+
+        //如果有这个元素 就绑定禁止事件
+         if(thisVolum){
+
+             thisVolum.addEventListener('touchmove',windowBanEvent.Canceling,false);
+         }
+
+        if(thisAddress){
+
+            thisAddress.addEventListener('touchmove',windowBanEvent.Canceling,false);
+
+        }
+
+        popTop.addEventListener('touchmove',windowBanEvent.Canceling,false);
+
+        //thisScrollEle.addEventListener('touchmove', reachEdge, false);
+
+
+        function touchStartEle(e) {
+
+            //touchstart 获取位置startY
+
+            startY = e.touches[0].pageY;
+
+        }
+
+
+        function reachEdge(event) {
+
+            var _this = this;
+
+            var eleScrollHeight = _this.scrollTop;//获取滚动条的位置 206
+
+            var eleHeight = _this.scrollHeight;//元素实际高度 506
+
+            var containerHeight = _this.offsetHeight;//容器高度 300
+
+
+            //touchmove 获取位置 endY
+
+            endY = event.touches[0].pageY;
+
+            //两者之减的距离用来判断是向上活动还是向下滑动
+            distance = startY - endY;
+
+            //此时touchmove的值等于touchstart的值 循环
+            endY = startY;
+
+
+            //滚动条到达底部
+
+            if (Math.abs(parseFloat(eleHeight) - parseFloat(eleScrollHeight + containerHeight)) <= 2) {
+
+
+                //如果距离为正数 则向上滑动是 禁止浏览器事件
+
+                if (distance > 0) {
+
+                    event.preventDefault();
+
+
+                }
+
+
+            }
+
+            else if (Math.abs(parseFloat(eleScrollHeight)) == 0) {
+
+                //如果距离为负数 则向下滑动
+
+                if (distance < 0) {
+
+                    event.preventDefault();
+
+                }
+
+
+            }
+
+        }
+
+
+}
 
     function clickEven() {
 
@@ -19,7 +139,6 @@ var jfShowPop = function (details) {
     }
 
     /*this.ban=function (e) {
-
 
         window.event? window.event.cancelBubble = true : e.stopPropagation();//阻止冒泡
 
@@ -31,11 +150,11 @@ var jfShowPop = function (details) {
 
     }
 
-     if(thisEle.getElementsByClassName('pop_top')[0]) {
-
-         addEvent(thisEle.getElementsByClassName('pop_top')[0]);
-         
-     }
+     // if(thisEle.getElementsByClassName('pop_top')[0]) {
+     //
+     //     addEvent(thisEle.getElementsByClassName('pop_top')[0]);
+     //
+     // }
 
 
     function addEvent(ele) {
@@ -54,11 +173,11 @@ var jfShowPop = function (details) {
 
             // window.event? window.event.cancelBubble = true : e.stopPropagation();
 
-         if(browser.os.iOS) {
+         //if(browser.os.iOS) {
 
              window.event ? window.event.returnValue = false : e.preventDefault();
 
-         }
+        // }
      }
 
 };
@@ -71,6 +190,7 @@ jfShowPop.prototype.show = function (details) {
         details.fn();
 
     }
+
 
    /* this.ban();*/
 
@@ -88,7 +208,10 @@ jfShowPop.prototype.show = function (details) {
 
         }
 
-    }, 1)
+    }, 1);
+
+    document.getElementsByClassName('jf_pop_up_bg')[0].addEventListener('touchmove',windowBanEvent.Canceling,false);//给阴影绑定冒泡事件
+
 
 };
 
@@ -106,7 +229,7 @@ jfShowPop.prototype.hide = function () {
 
     }
 
-
+    windowBanEvent.unbundling();//解绑页面禁止事件
 
     function transitionMove(ele) {
 

@@ -77,7 +77,12 @@
 <script>
 
     //弹出框方法
-    showProductSku = new jfShowPop({'ele':'product_prompt_buy'})
+    showProductSku = new jfShowPop({
+
+        'ele':'product_prompt_buy',//弹框id
+
+        'scrollClassname':'pop_content'//可选参数 该id下带有滚动条元素的classname
+    })
 
 
     //sku 选择
@@ -87,6 +92,11 @@
 
     //购物车加减
     jfProductDetails.volumeChange(true);
+
+
+
+
+
 
 
 </script>

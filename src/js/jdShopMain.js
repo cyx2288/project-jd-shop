@@ -128,7 +128,7 @@ if (browser.os.iOS) {//如果当前是IOS系统
     document.addEventListener('touchmove', function () {
 
 
-        var thisActiveEle = document.activeElement;//当前获取焦点的元素
+        var thisActiveEle = document.activeElement;//当前获取焦点的元素a
 
         if (thisActiveEle.tagName == 'INPUT') {//如果当前元素是input
 
