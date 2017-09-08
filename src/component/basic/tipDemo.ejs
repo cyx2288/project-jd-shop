@@ -20,7 +20,19 @@
 <button onclick="
 jfShowTips.dialogShow({
 'mainText':'商品已加入购物车',
-'minText':'京东实物商品请从首页进入嘉福商城【购物车】查看'
+'minText':'京东实物商品请从首页进入嘉福商城【购物车】查看',
+'checkFn':function() {
+
+    jfShowTips.dialogRemove(function() {
+        setTimeout(function() {
+          window.history.go(-1)
+        },10)
+
+    })
+
+
+
+}
 });
 ">
     弹出框
@@ -41,3 +53,5 @@ jfShowTips.dialogShow({
 <button></button>
 <button></button>
 <button></button>
+
+

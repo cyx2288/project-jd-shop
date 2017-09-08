@@ -110,8 +110,7 @@ var jfShowPop = function (details) {
 
 
                 }
-
-
+                
             }
 
             else if (Math.abs(parseFloat(eleScrollHeight)) == 0) {
@@ -146,7 +145,19 @@ var jfShowPop = function (details) {
 
     if(thisEle.getElementsByClassName('jf_pop_up_bg')[0]) {
 
-        addEvent(thisEle.getElementsByClassName('jf_pop_up_bg')[0]);
+       if(browser.os.android){
+
+           thisEle.getElementsByClassName('jf_pop_up_bg')[0].addEventListener('touchmove',windowBanEvent.Canceling,false);
+
+
+
+       }
+      else {
+
+            addEvent(thisEle.getElementsByClassName('jf_pop_up_bg')[0]);
+       }
+
+
 
     }
 
@@ -173,11 +184,9 @@ var jfShowPop = function (details) {
 
             // window.event? window.event.cancelBubble = true : e.stopPropagation();
 
-         //if(browser.os.iOS) {
-
              window.event ? window.event.returnValue = false : e.preventDefault();
 
-        // }
+
      }
 
 };
@@ -221,7 +230,9 @@ jfShowPop.prototype.hide = function () {
 
      /*document.body.removeEventListener('touchmove', this.ban, true);*/
 
+
     if (thisEle.className.indexOf('show') > -1) {
+
 
         transitionMove(thisEle);
 
