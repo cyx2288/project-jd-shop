@@ -85,6 +85,9 @@ var jfShowPop = function (details) {
 
             var containerHeight = _this.offsetHeight;//容器高度 300
 
+            var eleClientHeight = _this.clientHeight ;//可视区域的高度 243
+
+            //console.log(eleClientHeight);
 
             //touchmove 获取位置 endY
 
@@ -96,6 +99,13 @@ var jfShowPop = function (details) {
             //此时touchmove的值等于touchstart的值 循环
             endY = startY;
 
+            //如果滚动条不存在  禁止事件
+
+            if(Math.abs(parseFloat(eleHeight)- parseFloat(eleClientHeight) )<3){
+
+                event.preventDefault()
+
+            }
 
             //滚动条到达底部
 
@@ -110,7 +120,7 @@ var jfShowPop = function (details) {
 
 
                 }
-                
+
             }
 
             else if (Math.abs(parseFloat(eleScrollHeight)) == 0) {
@@ -125,6 +135,8 @@ var jfShowPop = function (details) {
 
 
             }
+
+
 
         }
 
