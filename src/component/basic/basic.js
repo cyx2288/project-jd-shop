@@ -197,7 +197,7 @@ var jfShowTips = {
 
         var cancleBtnText=details.cancleBtnText ||'取消';
 
-        var thisUrl=details.thisUrl||'#';
+        var thisUrl=details.thisUrl||'javascript:';
 
         var _this=this;
 
@@ -221,7 +221,7 @@ var jfShowTips = {
 
         if(!hasCancel){
 
-            thisInnerHtml+='<a class="dialog_cancel gray" href="#">'+cancleBtnText+'</a>'
+            thisInnerHtml+='<a class="dialog_cancel gray" href="javascript:">'+cancleBtnText+'</a>'
 
         }
 
@@ -236,6 +236,8 @@ var jfShowTips = {
         }
 
         thisBg.addEventListener('click',_this.dialogRemove.bind(_this),false);
+
+        thisBg.addEventListener('touchmove',windowBanEvent.Canceling,false);
 
         if(checkFn) {
 
