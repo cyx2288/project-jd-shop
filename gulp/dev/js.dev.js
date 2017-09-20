@@ -11,6 +11,8 @@ var gulp = require('gulp'),
 
     rename = require("gulp-rename");//重命名
 
+var browserSync = require('browser-sync').get("My Server");
+
 
 function devJs() {
 
@@ -22,7 +24,9 @@ function devJs() {
 
         .pipe(gulp.dest('build/js'))
 
-        .pipe(connect.reload());
+        .pipe(browserSync.stream());
+
+        //.pipe(connect.reload());
 
     //将会在src/css下生成index.css
 
@@ -47,11 +51,13 @@ function devJs() {
 
       //  .pipe(connect.reload());
 
-    gulp.src(['src/json/*']) //该任务针对的文件7
+    gulp.src(['src/api/*']) //该任务针对的文件7
 
-        .pipe(gulp.dest('build/json'))
+        .pipe(gulp.dest('build/api'))
 
-        .pipe(connect.reload());
+        .pipe(browserSync.stream());
+
+        //.pipe(connect.reload());
 
 }
 

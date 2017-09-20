@@ -11,6 +11,8 @@ var gulp = require('gulp'),
 
     rename = require("gulp-rename");//重命名
 
+var browserSync = require('browser-sync').get("My Server");
+
 
 function devEjs() {
 
@@ -106,12 +108,14 @@ function devEjs() {
 
         .pipe(gulp.dest('build/html'))//输出为html
 
+        .pipe(browserSync.stream({once: true}));
+
         //.pipe(notify({message: 'html task complete'}));
 
-        .pipe(connect.reload());
+        //.pipe(connect.reload());
 
     /*框架html导入*/
-    gulp.src("src/*.html")
+    gulp.src("src/index.html")
 
         .pipe(gulp.dest('build'));
 

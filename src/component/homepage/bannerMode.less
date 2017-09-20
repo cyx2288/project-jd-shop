@@ -18,7 +18,6 @@
       right:-1%;
       position: absolute;
       border-top: 16px solid transparent;
-
       border-bottom: 16px solid transparent;
     }
 
@@ -34,16 +33,19 @@
     }
   }
   .banner_paster{
-    z-index: 1;
+
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
+    z-index: 3;
     img{
+      z-index: 6;
       width: 100%;
     }
   }
   .banner_theme{
     position: absolute;
+    z-index: 2;
   }
 
   .banner_background{
@@ -52,7 +54,6 @@
     img{
       width:100%;
       height: calc(100vw / 800 * 372);
-
 
     }
 
@@ -90,7 +91,7 @@
 
   //紫色模块
   &>.banner_tab.purple{
-    background:linear-gradient(left,#c86af7,#8c43f6);
+    background: linear-gradient(left,#c86af7,#8c43f6);
   }
   &>.banner_tab.purple:after{
     border-right: 18px solid #f6e4f0;
@@ -104,14 +105,17 @@
   }
 
 
-  //绿色模块
-  &>.banner_tab.green{
-    background:linear-gradient(left,#b2c98c,#8ca86c);
+
+
+  //-----------------------------------17-8-11 更新
+  //粉色模块-新-17-8-11
+  &>.banner_tab.pink1{
+    background: linear-gradient(left,#f683b5,#f65c9f);
   }
-  &>.banner_tab.green:after{
-    border-right: 18px solid #eef5e5;
+  &>.banner_tab.pink1:after{
+    border-right: 18px solid #fff;
   }
-  &>.banner_theme.green{
+  &>.banner_theme.pink1{
     img{
       width: calc(25vw);
       height: calc(25vw);
@@ -119,67 +123,97 @@
 
   }
 
-  //白色模块
-  &>.banner_tab.white{
-    background:linear-gradient(left,#e5ca95,#c1aa74);
+
+  //深绿色模块-新-17-8-11
+  &>.banner_tab.dark_green{
+    background: linear-gradient(left,#0d8d36,#00531b);
   }
-  &>.banner_tab.white:after{
-    border-right: 18px solid #ffffff;
+  &>.banner_tab.dark_green:after{
+    border-right: 18px solid #3b8252;
   }
-  &>.banner_theme.white{
+  &>.banner_theme.dark_green{
     img{
-      width: calc(30vw);
-      height: calc(30vw);
-    }
-
-  }
-
-  //红色模块
-  &>.banner_tab.red{
-    background:linear-gradient(left,#f98b8a,#e44e50);
-  }
-  &>.banner_tab.red:after{
-    border-right: 18px solid #ffffff;
-  }
-  &>.banner_theme.red{
-    img{
-      width: calc(30vw);
-      height: calc(30vw);
-    }
-
-  }
-
-  //深红色模块
-  &>.banner_tab.peony{
-    background:linear-gradient(left,#b05f48,#992a25);
-  }
-  &>.banner_tab.peony:after{
-    border-right: 18px solid #ffffff;
-  }
-  &>.banner_theme.peony{
-    img{
-      width: calc(38vw);
-      height: calc(35vw);
-    }
-
-  }
-
-  //青色模块
-  &>.banner_tab.cyan{
-    background:linear-gradient(left,#c2d6df,#1c7d9f);
-  }
-  &>.banner_tab.cyan:after{
-    border-right: 18px solid #ffffff;
-  }
-  &>.banner_theme.cyan{
-    img{
-      width: calc(36vw);
-      height: calc(36vw);
+      width: calc(24vw);
+      height: calc(24vw);
     }
 
   }
 
 
 
+  //黄色模块-新-17-8-11
+  &>.banner_tab.yellow{
+    background: linear-gradient(left,#84ccc9,#13afa8);
+  }
+  &>.banner_tab.yellow:after{
+    border-right: 18px solid #fcf8ea;
+  }
+  &>.banner_theme.yellow{
+    img{
+      width: calc(28.4vw);
+      height: calc(28.4vw);
+    }
 
+  }
+
+  //肉色模块-新-17-8-11
+  &>.banner_tab.flesh{
+    background: linear-gradient(left,#c6da66,#afcc26);
+  }
+  &>.banner_tab.flesh:after{
+    border-right: 18px solid #fff7ea;
+  }
+  &>.banner_theme.flesh{
+    img{
+      width: calc(24vw);
+      height: calc(24vw);
+    }
+
+  }
+
+  //深蓝绿模块-新-17-8-11
+  &>.banner_tab.deongaree{
+    background: linear-gradient(left,#ebb04c,#ed9a0f);
+  }
+  &>.banner_tab.deongaree:after{
+    border-right: 18px solid #0098a6;
+  }
+  &>.banner_theme.deongaree{
+    img{
+      width: calc(21.6vw);
+      height: calc(21.6vw);
+    }
+
+  }
+
+  //薄荷绿模块-新-17-8-11
+  &>.banner_tab.mintgreen{
+    background: linear-gradient(left,#92c786,#81cb70);
+  }
+  &>.banner_tab.mintgreen:after{
+    border-right: 18px solid #cae4c4;
+  }
+  &>.banner_theme.mintgreen{
+    img{
+      width: calc(19vw);
+      height: calc(19vw);
+    }
+
+  }
+
+
+  //紫色模块-新-17-8-11
+  &>.banner_tab.purple1{
+    background: linear-gradient(left,#99ace1,#839ad8);
+  }
+  &>.banner_tab.purple1:after{
+    border-right: 18px solid #cbd1e1;
+  }
+  &>.banner_theme.purple1{
+    img{
+      width: calc(28.3vw);
+      height: calc(28.3vw);
+    }
+
+  }
 }

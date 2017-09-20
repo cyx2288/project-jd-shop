@@ -18,6 +18,9 @@ function jsDist() {
 
         .pipe(gulp.dest('dist/js'));
 
+    gulp.src(['build/api/*'])
+
+        .pipe(gulp.dest('dist/js'));
 }
 
 module.exports = jsDist;

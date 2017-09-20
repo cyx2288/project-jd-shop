@@ -1,4 +1,4 @@
-/**样式翻译合并
+7/**样式翻译合并
  * 开发*/
 
 var gulp = require('gulp'),
@@ -14,6 +14,8 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),//服务器
 
     rename = require("gulp-rename");//重命名
+
+var browserSync = require('browser-sync').get("My Server");
 
 
 function devLess() {
@@ -50,7 +52,7 @@ function devLess() {
         .pipe(less()) //编译less
 
         .pipe(autoprefixer({
-            browsers: ['Android >= 4.0', 'IOS >=7', 'Firefox >= 20', 'ie >= 8'],//兼容设备
+            browsers: ['Android >= 4.0', 'IOS >=7'],//兼容设备
 
             cascade: true, //是否美化属性值 默认：true 像这样：
             //-webkit-transform: rotate(45deg);
@@ -65,7 +67,9 @@ function devLess() {
 
         .pipe(gulp.dest('build/css')) //将会在build/css下生成index.css
 
-        .pipe(connect.reload());
+        .pipe(browserSync.stream());
+
+        //.pipe(connect.reload());
 
    /* gulp.src(['src/css/component.css'])
 
