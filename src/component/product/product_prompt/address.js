@@ -303,9 +303,10 @@ var shoppingCart = {
 
                         }
 
-
-
                     }
+
+
+
 
                     thisWrightHtml.innerHTML=thisInnerHtml;
 
