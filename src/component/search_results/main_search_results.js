@@ -443,6 +443,8 @@ var jdSearch_results = {
 
                 }
 
+
+
                 else {  //如果不是的话
 
                     targetEle = thisTargetEle.parentNode   //等于他的父元素

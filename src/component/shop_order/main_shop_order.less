@@ -16,7 +16,8 @@
     background-color: #fff;
     .tab{
       float: left;
-      width: 33.333333%;
+      white-space: nowrap;
+      width: 25%;
       text-align: center;
       padding: 10px 0;
       &.choose_tab{
@@ -34,6 +35,37 @@
         }
       }
     }
+
+  }
+  .tab_return{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    white-space: nowrap;
+    width: 25%;
+    color: #4a4a4a;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 501;
+    &.choose_tab{
+
+      color: #ff0200;
+      &:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: calc(~'(100% - 80px)/2');
+        height: 1px;
+        border-top: 2px solid #ff0200;
+        color: #ff0200;
+        width: 80px;
+      }
+    }
+    &:active{
+      color: #ff0200;
+    }
+
   }
   &:after{
     content:'';

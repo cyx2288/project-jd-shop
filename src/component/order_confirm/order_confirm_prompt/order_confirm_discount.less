@@ -1,69 +1,5 @@
 #order_discount{
 
-
-
-  .dialog_bg{
-
-    position: fixed;
-    left: -100%;
-    top: -100%;
-    width: 300%;
-    height: 300%;
-    background: black;
-    opacity: .5;
-    z-index: 1000;
-    animation: opacity_change .5s;
-    transition: opacity .5s;
-  }
-  @keyframes opacity_change {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: .5;
-    }
-  }
-  .tip_dialog{
-
-    width: calc(80vw);
-    position: fixed;
-    z-index: 1001;
-    left: 50%;
-    top: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    background: #f5f5f5;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    transform-origin: 50% 50%;
-    animation: showDialog .5s both;
-  }
-  @keyframes showDialog {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  .text_big{
-
-    color: #4a4a4a;
-    font-size: 18px;
-    text-align: center;
-    margin: 10px auto 10px;
-    width: 90%;
-  }
-  .text_small{
-    font-size: 14px;
-    margin: 10px auto;
-    max-height: 320px;
-    overflow-y: scroll;
-    width: 90%;
-    color: #ababab;
-    text-align: center;
-    overflow-x: hidden;
-    /*优惠券*/
-
     .discount_list{
 
       position: relative;
@@ -71,7 +7,10 @@
       margin-bottom: 10px;
       border-radius: 5px;
       padding: 10px;
+      padding-bottom: 0;
       overflow: hidden;
+      box-shadow: 0 2px 3px #E9E9E9;
+      z-index: 10;
 
       .discount_card{
         position: relative;
@@ -123,7 +62,7 @@
       }
       .discount_explain{
         text-align: left;
-        width: calc(~'100% - 30% 10px');
+        width: calc(~'100% - 30% - 10px');
 
         p:first-child{
           color: #4a4a4a;
@@ -133,15 +72,19 @@
         p+p{
           line-height: 14px;
           font-size: 12px;
+          color: #4a4a4a;
         }
       }
 
       .time{
         position: relative;
+        top: -8px;
         margin-top: 15px;
         text-align: left;
         font-size: 12px;
-        &:before{
+        border-top: 1px dashed #ddd;
+        padding-top: 5px;
+/*        &:before{
           content: '';
           position: absolute;
           top: -8px;
@@ -150,7 +93,7 @@
           height: 1px;
           border-bottom: 1px dashed #ddd;
           transform: scaleY(.6);
-        }
+        }*/
       }
       &:active{
         opacity: .8;
@@ -158,10 +101,11 @@
 
 
     }
-    .no_discount{
+    p.no_discount{
       position: relative;
       text-align: left;
       color: #4a4a4a;
+      padding-bottom: 10px;
 
       &:before ,&:after{
         content: '';
@@ -205,7 +149,6 @@
 
 
 
-  }
 
 
 }

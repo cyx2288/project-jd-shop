@@ -5,6 +5,7 @@
     background-color: #fff;
     position: relative;
     padding: 10px 15px;
+
     p:first-child{
       width: 100px;
     }
@@ -30,6 +31,30 @@
       position: absolute;
       top: 0;
       border: none;
+    }
+  }
+  #discountList{
+  .font_red{
+    position: relative;
+    margin-right: 10px;
+  }
+    .font_red:after{
+      content: " ";
+      display: inline-block;
+      height: 6px;
+      width: 6px;
+      border-width: 1px 1px 0 0;
+      border-color: #c8c8cd;
+      border-style: solid;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      position: absolute;
+      top: 50%;
+      margin-top: -4px;
+      right: -10px;
+    }
+    &:active{
+      background: #f3f3f3;
     }
   }
   .tips{

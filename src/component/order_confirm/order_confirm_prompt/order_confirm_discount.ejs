@@ -1,13 +1,14 @@
-<div class="discount_dialog" id="order_discount">
+<div class="jf_dialog" id="order_discount">
 
     <div class="dialog_bg"></div>
-    <div class="tip_dialog">
+
+    <div class="dialog_box">
         <div class="text_dialog_container">
             <div class="text_big">选择优惠券</div>
-            <div class="text_small">
+            <div class="text_small" id="discountBox">
 
                 <!-- 优惠券 -->
-                <div class="discount_list jdshop_shadow select_use">
+                <div class="discount_list select_use" data-name="-20.00">
 
                     <div class="discount_card jdshop_alignment_left">
 
@@ -25,7 +26,7 @@
                     <div class="time">使用期限：2017.09.28 - 2017.10.29</div>
                 </div>
                 <!-- 优惠券 -->
-                <div class="discount_list jdshop_shadow">
+                <div class="discount_list" data-name="-30.00">
 
                     <div class="discount_card jdshop_alignment_left">
 
@@ -43,7 +44,7 @@
                     <div class="time">使用期限：2017.09.28 - 2017.10.29</div>
                 </div>
                 <!-- 优惠券 -->
-                <div class="discount_list jdshop_shadow">
+                <div class="discount_list" data-name="-100.00">
 
                     <div class="discount_card jdshop_alignment_left">
 
@@ -61,7 +62,7 @@
                     <div class="time">使用期限：2017.09.28 - 2017.10.29</div>
                 </div>
                 <!-- 优惠券 -->
-                <div class="discount_list jdshop_shadow">
+                <div class="discount_list" data-name="-20.00">
 
                     <div class="discount_card jdshop_alignment_left">
 
@@ -79,7 +80,7 @@
                     <div class="time">使用期限：2017.09.28 - 2017.10.29</div>
                 </div>
                 <!-- 不使用优惠券 -->
-                <div class="discount_list jdshop_shadow no_discount">不使用优惠券</div>
+                <div class="discount_list" data-name="不使用优惠券"><p class="no_discount">不使用优惠券</p></div>
 
             </div>
 
@@ -89,4 +90,9 @@
 
 </div>
 
+<script>
 
+    //优惠券选择 0926
+    jfOrderTips.orderDiscountChoose();
+
+</script>
