@@ -351,9 +351,27 @@ var jfProductDetails = {
 
     var startY, endY, distance;//开始距离、移动距离
 
-    thisScrollEle.addEventListener('touchstart', touchStartEle, false);
+/*        for (var i=0;i<thisScrollEle.length;i++){
 
-    thisScrollEle.addEventListener('touchmove', reachEdge, false);
+            if(thisScrollEle[i].clientHeight < thisScrollEle[i].offsetHeight-4){
+
+                thisScrollEle[i].addEventListener('touchstart', touchStartEle, false);
+
+                thisScrollEle[i].addEventListener('touchmove', reachEdge, false);
+
+            }
+
+            else {
+
+                thisScrollEle[i].addEventListener('touchmove,touchstart',windowBanEvent.Canceling,false);
+            }
+
+        }*/
+
+        thisScrollEle.addEventListener('touchstart', touchStartEle, false);
+
+        thisScrollEle.addEventListener('touchmove', reachEdge, false);
+
 
 
     //如果有这个元素 就绑定禁止事件

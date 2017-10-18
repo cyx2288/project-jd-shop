@@ -41,13 +41,17 @@
 
 </div>
 
+<!-- 取消模态框-->
+
+<%- include('order_details_prompt/order_details_cancel.ejs') %>
+
 
 <!-- footer-->
 
 <footer class="order_details_tabbar">
     <div class="tab_box"></div>
     <div class="order_tabbar_contain jdshop_alignment_right">
-        <a class="jdshop_btn_mini btn_gray_border">取消</a>
+        <a class="jdshop_btn_mini btn_lightgray_border" onclick="orderCancel.show();">取消订单</a>
         <a class="jdshop_btn_mini btn_gray_border" href="../jdshop_status/status.html">物流信息</a>
         <a class="jdshop_btn_mini btn_red_border" id="view_order">查看京东单号</a>
     </div>

@@ -7,14 +7,23 @@
         <p>订单运费：</p>
         <p class="font_red">￥24.00</p>
     </div>
-    <div class="text_list jdshop_alignment_center">
+    <div class="text_list jdshop_alignment_center" id="discountList" onclick="discountShow.show()">
         <p>优惠券：</p>
-        <p class="font_red">-￥20.00</p>
+        <p class="font_red">-20.00</p>
     </div>
 </div>
 
 <script>
 
+
+    //点击优惠券显示弹出框 0926
+
+    discountShow = new jfDialog({
+
+        'ele':'order_discount',
+        'scrollClassname':'text_small'
+
+    })
 
 
 </script>

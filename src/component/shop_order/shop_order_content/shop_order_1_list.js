@@ -23,7 +23,29 @@ var jfOrderTab = {
                 orderList[this.index].className += ' show'
             })
         }
-    }
+    },
+
+    hrefTab:function () {
+
+
+        document.getElementsByClassName('tab_return')[0].addEventListener('click',function () {
+
+            var thisEle = document.getElementsByClassName('tab_contain')[0].getElementsByClassName('tab');
+
+
+            for (var i=0;i<thisEle.length;i++){
+
+                thisEle[i].className =  thisEle[i].className.replace('choose_tab', '');
+
+            }
+
+            this.className += ' choose_tab'
+
+
+
+        },false)
+
+}
 };
 
 

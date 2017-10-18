@@ -26,6 +26,7 @@
         <div class="tab">待付款订单</div>
         <div class="tab">待收货订单</div>
     </div>
+    <a class="tab_return" href="../return_service/application_record.html">退款/售后</a>
 
 </div>
 <!-- shop_order_content -->
@@ -68,6 +69,14 @@
     //tab 切换
 
     jfProductDetails.clickTabChange(document.getElementById('orderTab'), 'choose_tab', 'tab');
+
+
+    //切换跳转
+
+    jfOrderTab.hrefTab();
+
+
+
 
 
 </script>
