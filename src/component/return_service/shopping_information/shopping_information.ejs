@@ -15,7 +15,7 @@
            <div class="shipping_information_reason">快递公司:</div>
 
 
-           <select class="shipping_information_click" >
+           <select class="shipping_information_click" onchange="this.parentNode.nextSibling.value=this.value">
                <option disabled="" selected="" class="select_holder">请选择快递公司</option>
                <option>圆通快递</option>
                <option>申通快递</option>
@@ -63,6 +63,7 @@
 
     //选择日期
     jfReturnService.dateSelected();
+
 
 
 

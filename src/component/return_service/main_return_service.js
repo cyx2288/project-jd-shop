@@ -51,7 +51,7 @@ var jfReturnService = {
     },
 
 
-    //申请售后tab页面切换
+    //申请售后页面按钮切换
     selectTab:function () {
 
     document.getElementsByClassName('type_choose')[0].addEventListener('click', function (e) {
@@ -157,6 +157,8 @@ var jfReturnService = {
 
         }
 
+        //切换文案
+
         if (thisTargetEle.getAttribute('data-name') == 'delivery') {
 
 
@@ -188,9 +190,6 @@ var jfReturnService = {
 
         }
 
-
-
-
         changeBlock2()
 
     });
@@ -202,7 +201,9 @@ var jfReturnService = {
 
         var showBlock2 = 'none';
 
-        //查找
+        //查找对应关系
+
+        //例如 allCheckRelation[0].y[2] [false,false]
 
         var thisIndex = allCheckRelation[indexNum(document.getElementsByClassName('type_choose')[0], 'service_tab')].y[indexNum(document.getElementsByClassName('return_choose')[0], 'return_tab')];
 
@@ -223,7 +224,7 @@ var jfReturnService = {
         document.getElementById('deliveryAddress').style.display = showBlock2;
 
 
-        //查找第几个元素被选中的方法
+        //查找第几个元素被选中的方法 返回i
 
         function indexNum(farEle, className) {
 
@@ -247,6 +248,14 @@ var jfReturnService = {
 
     }
 
+
+    //数组对应关系
+
+        // name: data-name
+
+        //x : 退货模块
+
+        //y : x对应y的几种情况
 
     var allCheckRelation = [
 
@@ -329,9 +338,10 @@ var jfReturnService = {
 
         imgWrite();
 
+
+        //读写图片
+
         function imgWrite() {
-
-
 
             for (var i = 0; i < img_length; i++) {
 
@@ -347,9 +357,14 @@ var jfReturnService = {
 //                div_html是包括图片和图片名称的容器
                     var img_html = '<img src="' + e.target.result + '"/>';
                     var div_html = document.createElement("div");
+                    //添加class
                     var span_html = document.createElement("div");
 
+                    //最长不超过10张
+
                     if (document.getElementsByClassName("photo_content")[0].getElementsByClassName('choose_file').length <= 10) {
+
+                        //
                         div_html.innerHTML = img_html+'<div class="delete_img"></div>';
                         div_html.className = "choose_file";
                         span_html.className ='delete_img';
@@ -422,6 +437,7 @@ var jfReturnService = {
     },false)
 },
 
+    //字数
 
     countWordsDescription:function () {
 
