@@ -219,7 +219,12 @@ jfShowPop.prototype.show = function (details) {
 
     var thisEle = document.getElementById(this.details.ele);
 
+
     thisEle.style.display = 'block';
+
+    /*document.getElementsByTagName("body")[0].className = "ovfHiden";//页面禁止滚动
+
+    document.getElementsByTagName("html")[0].className = "ovfHiden";//页面禁止滚动*/
 
     setTimeout(function () {
 
@@ -253,6 +258,12 @@ jfShowPop.prototype.hide = function () {
     }
 
     windowBanEvent.unbundling();//解绑页面禁止事件
+
+    /*document.getElementsByTagName("body")[0].className = "";//页面禁止滚动
+
+    document.getElementsByTagName("html")[0].className = "";//页面禁止滚动*/
+
+
 
     function transitionMove(ele) {
 

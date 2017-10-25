@@ -341,7 +341,7 @@ var jfProductDetails = {
     //------弹出框点穿问题 0904更新
     clickThrough:function (fatherEle,hasScrollEle) {
 
-    var thisScrollEle = document.getElementById(fatherEle).getElementsByClassName(hasScrollEle)[0];
+    var thisScrollEle = document.getElementById(fatherEle).getElementsByClassName(hasScrollEle);
 
     //var thisVolum = document.getElementById('product_prompt_buy').getElementsByClassName('sku_volume_purchased')[0];
 
@@ -367,18 +367,18 @@ var jfProductDetails = {
             }
 
         }*/
-
-        thisScrollEle.addEventListener('touchstart', touchStartEle, false);
-
-        thisScrollEle.addEventListener('touchmove', reachEdge, false);
+        for(var i=0;i<thisScrollEle.length;i++){
 
 
 
-    //如果有这个元素 就绑定禁止事件
- /*   if(thisVolum){
+            thisScrollEle[i].addEventListener('touchstart', touchStartEle, false);
 
-        thisVolum.addEventListener('touchmove',windowBanEvent.Canceling,false);
-    }*/
+            thisScrollEle[i].addEventListener('touchmove', reachEdge, false);
+
+        }
+
+
+
 
     if(thisAddress){
 
