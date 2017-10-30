@@ -322,10 +322,11 @@ var jfReturnService = {
 
     addPhoto:function () {
 
+     //最后选择的class
     var last_choose=document.getElementsByClassName("choose_file")[document.getElementsByClassName("choose_file").length-1];
 
     var file_input = last_choose.getElementsByTagName('input')[0];
-    //    触发事件用的是change，因为files是数组，需要添加下标
+    // 触发事件用的是change，因为files是数组，需要添加下标
     file_input.addEventListener("change", function () {
 
         var obj = this;
@@ -354,46 +355,57 @@ var jfReturnService = {
                     alert("读取异常")
                 };
                 reader.onload = function (e) {
-//                div_html是包括图片和图片名称的容器
+
+               //div_html是包括图片和图片名称的容器
                     var img_html = '<img src="' + e.target.result + '"/>';
+                    //创建一个class
                     var div_html = document.createElement("div");
-                    //添加class
+                    //创建一个class
                     var span_html = document.createElement("div");
-
-                    //最长不超过10张
-
+                    //最多不超过10张
                     if (document.getElementsByClassName("photo_content")[0].getElementsByClassName('choose_file').length <= 10) {
 
-                        //
+                        //class的内容
                         div_html.innerHTML = img_html+'<div class="delete_img"></div>';
+
+                        //添加元素classname
                         div_html.className = "choose_file";
+
+                        //删除打叉的class
                         span_html.className ='delete_img';
 
+                        //在最后一个元素中添加
                         document.getElementsByClassName("photo_content")[0].insertBefore(div_html,last_choose);
 
+                        //将滚动条拉倒最右边
                         document.getElementsByClassName('photo_content')[0].scrollLeft=9999;
 
-                        addImgNum()
+                        //添加了几张图片
+                        addImgNum();
 
+                        //点击打叉删除图片
                         div_html.getElementsByClassName('delete_img')[0].addEventListener('click',function () {
 
+                            //调用删除本身的方法
                             jfShowTips.remove(this.parentNode);
 
-                            addImgNum()
+                            //添加了几张图片
+                             addImgNum()
 
-                        },false)
+                        },false);
 
                         function addImgNum() {
 
                             var num=document.getElementsByClassName('photo_content')[0].getElementsByClassName('choose_file').length-1;
 
-                            document.getElementById('image_length').innerHTML=num;
+                            document.getElementById('image_length').innerHTML= num;
 
                         }
 
 
                     } else {
 
+                        //如果超过的话显示弹框
                         jfShowTips.loadingShow({
                             'text' : '最多添加10张图片',
                             'thisNode':loadInnerHtml.node.loadingFail

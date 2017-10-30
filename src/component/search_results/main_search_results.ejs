@@ -6,7 +6,7 @@
             <p class="back"><img src="../../images/nav_go_back.png"></p>
         </a>
         <a class="content" href="../jdshop_search/search.html">
-            <div class="search_tab jdshop_alignment_middle">
+            <div class="search_tab jdshop_alignment_middle" id="searchTab">
                 <i></i>
                 <span>小米</span>
             </div>
@@ -47,6 +47,13 @@
 
 </div>
 
+<!-- 未找到该商品 1030添加-->
+
+<div class="not_found">
+    <img src="../../images/status_spot.png">
+    <p>抱歉，没有找到该商品，为您推荐<span>“小米”</span>下搜索结果</p>
+</div>
+
 <!-- 推荐商品 -->
 <div class="search_recommend_content">
 
@@ -59,6 +66,13 @@
     <%- include('search_results_list/search_results_1_list.ejs') %>
 
 </div>
+
+<!-- 换个词搜搜 1030添加-->
+<div class="search_change_word">
+    <%- include('search_results_list/search_results_3_change.ejs') %>
+
+</div>
+
 
 <!--地址选择-->
 <div class="address_dialog">
@@ -86,6 +100,7 @@
         "bottomDistance":"50"//距离底部的距离，触发事件，单位省略
     })
 
+    //选择模块
     jdSearch_results.searchRecommend({
 
         //jdSearch_results.keyName
@@ -107,19 +122,10 @@
     });
 
 
-
     jdSearch_results.generalBlockEvent();
 
     //价格高低选择
     jdSearch_results.priceChoose()
-
-
-
-
-
-
-
-
 
 
 </script>

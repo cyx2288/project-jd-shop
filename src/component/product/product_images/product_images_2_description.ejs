@@ -2,64 +2,64 @@
 <div class="product_images_description">
 
 
-<img data-src="../../images/product_details_3_description.jpg" src="../../images/img_loading.gif" class="loading_img">
+<img src="../../images/product_details_3_description.jpg" data-src="../../images/product_details_3_description.jpg" class="loading_img">
 
 </div>
 
 <script>
-/*
-    var allImgEle = document.getElementById('product_image_in').getElementsByTagName('img');
+    /*
+        var allImgEle = document.getElementById('product_image_in').getElementsByTagName('img');
 
-    for (var i = 0; i < allImgEle.length; i++) {
+        for (var i = 0; i < allImgEle.length; i++) {
 
-        allImgEle[i].addEventListener('load', loadImg, false);
-
-    }
-
-    var thisAll = 0;
-
-    function loadImg() {
-
-        thisAll++;
-
-        if (thisAll == allImgEle.length) {
-
-            changeImageSize();
+            allImgEle[i].addEventListener('load', loadImg, false);
 
         }
-         if(allImgEle.length == 0){
 
-            setTimeout(function () {
+        var thisAll = 0;
+
+        function loadImg() {
+
+            thisAll++;
+
+            if (thisAll == allImgEle.length) {
 
                 changeImageSize();
 
-            },50)
+            }
+             if(allImgEle.length == 0){
+
+                setTimeout(function () {
+
+                    changeImageSize();
+
+                },50)
+
+            }
 
         }
 
-    }
+        function changeImageSize() {
 
-    function changeImageSize() {
+         /!*内部*!/
 
-     /!*内部*!/
+            var innerDom = document.getElementById('product_image_in');
 
-        var innerDom = document.getElementById('product_image_in');
+            var num = document.body.clientWidth / innerDom.scrollWidth;
 
-        var num = document.body.clientWidth / innerDom.scrollWidth;
-
-        changeTransform(innerDom, num);
+            changeTransform(innerDom, num);
 
 
-        function changeTransform(thisEle, sc) {
+            function changeTransform(thisEle, sc) {
 
-            thisEle.style.transform = 'scale(' + sc + ')';
+                thisEle.style.transform = 'scale(' + sc + ')';
 
-            thisEle.style.webkitTransform = 'scale(' + sc + ')';
+                thisEle.style.webkitTransform = 'scale(' + sc + ')';
 
-            thisEle.style.transformOrigi = '0 0 0';
+                thisEle.style.transformOrigi = '0 0 0';
 
-            thisEle.style.webkitTransformOrigin = '0 0 0';
+                thisEle.style.webkitTransformOrigin = '0 0 0';
 
-        }
-    }*/
+            }
+        }*/
 </script>

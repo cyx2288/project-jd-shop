@@ -11,7 +11,7 @@
 }
 
 .search_find_title {
-  display: block;
+  //display: block;
   position: relative;
   padding-left: 15px;
   padding-right: 10px;
@@ -19,6 +19,7 @@
   color: #8a8a8a;
   width: 100%;
   box-sizing: border-box;
+
   &:after{
     content: '';
     position: absolute;
@@ -31,6 +32,22 @@
     border-bottom: 1px solid #ddd;
     transform-origin: 0 0;
     transform: scaleY(.4);
+  }
+  .choose_other{
+    span{
+        font-size: 12px;
+        box-sizing: border-box;
+        padding: 3px 8px;
+        margin: 8px 8px 8px 0;
+        border: 1px solid transparent;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        background: #ddd;
+        border-radius: 5px;
+
+    }
   }
 
 }
