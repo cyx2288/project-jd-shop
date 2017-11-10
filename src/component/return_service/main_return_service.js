@@ -476,7 +476,26 @@ var jfReturnService = {
 
         if (thisTargetEle.tagName == 'IMG') {
 
-            thisEle.getElementsByClassName('img_content')[0].innerHTML = thisTargetEle.parentNode.innerHTML
+
+            var img_html = '<img src="' + thisTargetEle.parentNode.getAttribute('data-src') + '"/>';
+
+
+            if(thisTargetEle.parentNode.getAttribute('data-src')){
+
+                thisEle.getElementsByClassName('img_content')[0].innerHTML = img_html;
+
+            }
+            //console.log(thisTargetEle.parentNode.getAttribute('data-src'));
+
+
+            else {
+
+                thisEle.getElementsByClassName('img_content')[0].innerHTML = thisTargetEle.parentNode.innerHTML;
+
+            }
+
+
+
 
             //thisEle.getElementsByClassName('img_box')[0].getElementsByTagName('img')[0].src =  thisTargetEle.src
 
