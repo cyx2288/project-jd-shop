@@ -3,8 +3,10 @@
     <div class="dialog_bg"></div>
 
     <div class="dialog_box">
+
         <div class="text_dialog_container">
             <div class="text_big">选择优惠券</div>
+
             <div class="text_small" id="discountBox">
 
                 <!-- 优惠券 -->
@@ -80,9 +82,12 @@
                     <div class="time">使用期限：2017.09.28 - 2017.10.29</div>
                 </div>
                 <!-- 不使用优惠券 -->
-                <div class="discount_list" data-name="不使用优惠券"><p class="no_discount">不使用优惠券</p></div>
+                <div class="discount_list" id="noDiscount" data-name="不使用优惠券"><p class="no_discount">不使用优惠券</p></div>
 
             </div>
+
+
+            <div class="dialog_button"><a class="dialog_check red" onclick="discountShow.hide()">确定</a></div>
 
         </div>
     </div>

@@ -11,7 +11,7 @@ var jfOrderTips = {
 
             orderDialog[0].style.display = 'block';
 
-            document.getElementById('dialog_bg_order').addEventListener('touchmove',windowBanEvent.Canceling,false);//给阴影绑定冒泡事件
+            document.getElementById('dialog_bg_order').addEventListener('touchmove', windowBanEvent.Canceling, false);//给阴影绑定冒泡事件
 
         }, false);
 
@@ -29,7 +29,7 @@ var jfOrderTips = {
 
     },
 
-    orderDiscountChoose:function () {
+    orderDiscountChoose: function () {
 
         document.getElementById('discountBox').addEventListener('click', addEvent, false);
 
@@ -43,24 +43,29 @@ var jfOrderTips = {
 
             var selectEle = document.getElementsByClassName('select_use');
 
-            //console.log(thisTargetEle)
+            var discount = document.getElementsByClassName('discount_list');
+
+            var lastNodiscount = discount[discount.length - 1];
+
+
+            /* console.log(LastNodiscount.innerHTML)*/
 
             //清楚页面所有的select_use
 
-            if (selectEle[0]) {
+            // if (selectEle[0]) {
+            //
+            //     selectEle[0].className = selectEle[0].className.replace(' select_use','')
+            //
+            // }
 
-                selectEle[0].className = selectEle[0].className.replace(' select_use','')
-
-            }
 
             //点击的是本身
 
-            if( thisTargetEle.className.indexOf('discount_list')!==-1){
+            if (thisTargetEle.className.indexOf('discount_list') !== -1) {
 
+                judgeNoDiscount();
 
-                thisTargetEle.className += ' select_use';
-
-                discountShow.hide();
+                judgeClass();
 
                 return thisTargetEle;
 
@@ -70,7 +75,7 @@ var jfOrderTips = {
 
             //点击是监听元素
 
-            if( thisTargetEle == document.getElementById('discountBox')){
+            if (thisTargetEle == document.getElementById('discountBox')) {
 
 
                 return false
@@ -82,25 +87,90 @@ var jfOrderTips = {
             //点击元素的子元素
 
 
-            while(thisTargetEle.className.indexOf('discount_list') === -1){
+            while (thisTargetEle.className.indexOf('discount_list') === -1) {
 
                 thisTargetEle = thisTargetEle.parentNode;
 
             }
 
 
-            //返回的thisTargetEle添加class 选中
+            //得到的TargetEle
 
-            thisTargetEle.className += ' select_use';
+            judgeNoDiscount();
 
 
-            //选中后弹出框消失
+            judgeClass();
 
-            discountShow.hide();
+            //判断点的是不是不使用优惠券
+
+            function judgeNoDiscount() {
+
+
+                if(thisTargetEle.id == 'noDiscount'){
+
+
+                    for(var i=0;i<discount.length-1;i++){
+
+
+                        discount[i].className = 'discount_list';
+
+                    }
+
+                }
+
+                else {
+
+
+                    document.getElementById('noDiscount').className = document.getElementById('noDiscount').className.replace(' select_use','');
+                }
+
+
+            }
+
+
+
+
+
+            function judgeClass() {
+
+                if (thisTargetEle.className.indexOf('select_use') > -1) {
+
+
+                    thisTargetEle.className = 'discount_list';
+
+                }
+                else {
+
+                    //返回的thisTargetEle添加class 选中
+
+                    thisTargetEle.className += ' select_use';
+
+
+                }
+
+            }
+
+
+
+            function  noDiscountChoose(num) {
+
+                var nodiscount = document.getElementById('noDiscount');
+
+                if(num==0){
+
+                    nodiscount.className += ' select_use'
+                }
+                else {
+
+                    nodiscount.className = 'discount_list'
+
+                }
+            }
+
 
             //选择的金额对应优惠券
 
-            document.getElementById('discountList').getElementsByClassName('font_red')[0].innerHTML = thisTargetEle.getAttribute('data-name');
+            //document.getElementById('discountList').getElementsByClassName('font_red')[0].innerHTML = thisTargetEle.getAttribute('data-name');
 
 
         }

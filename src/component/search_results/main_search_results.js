@@ -408,6 +408,7 @@ var jdSearch_results = {
 
     //搜索模块
 
+
     searchRecommend: function (details) {
 
         var _this=this;
@@ -433,9 +434,13 @@ var jdSearch_results = {
 
             var thisTargetEle = evt.srcElement || evt.target;
 
+
+
             if (thisTargetEle != thisEle) {
 
                 var targetEle;
+
+
 
                 if (thisTargetEle.className.indexOf('product') > -1) { //如果点击是他本身
 
@@ -467,77 +472,91 @@ var jdSearch_results = {
 
                 }
 
+                //搜索的关键词
                 _this.keyName=document.getElementsByClassName('search_tab')[0].getElementsByTagName('span')[0].innerHTML;
 
+                //分类的关键词
                 _this.categoryName=targetEle.getElementsByTagName('span')[0].innerHTML;
 
+
                 //获取需要插入的元素
-                caseBox(_this.keyName,keyFn);
+                _this.caseBox(_this.keyName,keyFn);
 
-                caseBox(_this.categoryName,categoryFn);
-
-
-                //小框模板
-                function caseBox(caseName,fn) {
-
-                    var addEle = document.createElement('div');  //添加一个元素的tag
-
-                    addEle.className = 'product_choose';   //添加元素的classname
-
-                    addEle.innerHTML = caseName;  //添加元素的innerHtml
-
-                    addEle.addEventListener('click',fn,false);
-
-                    //点击之后内容代入至搜索框
-                    addEle.addEventListener('click', function (event) {
-
-                        var eleBlock = document.getElementsByClassName('product_choose');
-
-                        for (var j = 0; j < eleBlock.length; j++) { //遍历一遍需要的元素
-
-                            if (eleBlock[j].innerHTML != this.innerHTML) {  //如果他点击的元素不是他本身 break
-
-                                break
-                            }
-                        }
-                        document.getElementsByClassName('search_tab')[0].getElementsByTagName('span')[0].innerHTML = eleBlock[j].innerHTML; //赋值
-
-                        for (var a = 0; a < 2; a++) {   //删除本身
-
-                            eleBlock[0].parentNode.removeChild(eleBlock[0]);
-                        }
-
-                        //阻止事件冒泡&默认事件
-
-                        event.preventDefault();
-
-                        event.stopPropagation();
-
-
-                    }, false);
-
-                    var tagEle = fatherEle.getElementsByTagName('span')[0];
-
-                    fatherEle.insertBefore(addEle, tagEle);  //在span前插入内容
-
-                }
+                _this.caseBox(_this.categoryName,categoryFn);
 
                 //清除两个小框
                 document.getElementsByClassName('search_recommend_content')[0].innerHTML = ''
 
                 //出现框子
 
-
-
-
-
-
-
             }
 
 
         }, false)
 
+    },
+
+
+    //小框模板
+    caseBox:function (caseName,fn) {
+
+        var addEle = document.createElement('div');  //添加一个元素的tag
+
+        var boxEle = document.getElementsByClassName('product_choose');
+
+        addEle.className = 'product_choose';   //添加元素的classname
+
+        addEle.innerHTML = caseName;  //添加元素的innerHtml
+
+        //添加框之前先删除原有的
+        if (boxEle.length > 1) { //如有页面有个元素的话 执行
+
+            for (var i = 0; i < 2; i++) {
+
+                boxEle[0].parentNode.removeChild(boxEle[0]);//删除自己
+
+            }
+
+        }
+
+
+        if(fn){
+
+            addEle.addEventListener('click',fn,false);
+
+        }
+
+        //点击之后内容代入至搜索框
+        addEle.addEventListener('click', function (event) {
+
+            var eleBlock = document.getElementsByClassName('product_choose');
+
+            for (var j = 0; j < eleBlock.length; j++) { //遍历一遍需要的元素
+
+                if (eleBlock[j].innerHTML != this.innerHTML) {  //如果他点击的元素不是他本身 break
+
+                    break
+                }
+            }
+            document.getElementsByClassName('search_tab')[0].getElementsByTagName('span')[0].innerHTML = eleBlock[j].innerHTML; //赋值
+
+            for (var a = 0; a < 2; a++) {   //删除本身
+
+                eleBlock[0].parentNode.removeChild(eleBlock[0]);
+            }
+
+            //阻止事件冒泡&默认事件
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+
+        }, false);
+
+        var tagEle = document.getElementsByClassName('search_tab')[0].getElementsByTagName('span')[0];
+
+        document.getElementsByClassName('search_tab')[0].insertBefore(addEle, tagEle);  //在span前插入内容
     },
 
 
