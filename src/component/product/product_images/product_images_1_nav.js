@@ -161,7 +161,7 @@ var jfProductDetails = {
     scrollEle: function (ele, distance) {
 
 
-        var eleScrollTop = ele.getBoundingClientRect().top + document.body.scrollTop - distance;
+        var eleScrollTop = ele.getBoundingClientRect().top + getScrollTop() - distance;
 
         var scrollTopMove = setInterval(interValScroll, 5);                                                             //循环
 
@@ -171,14 +171,15 @@ var jfProductDetails = {
 
         var thisScrollTop;
 
-        var changeDistanceScrollTop = eleScrollTop - document.body.scrollTop;                                           //真实的相差距离
+        var changeDistanceScrollTop = eleScrollTop - getScrollTop();                                           //真实的相差距离
 
         function interValScroll() {
 
             elasticity = (25 - iChage) / 25 * .9 + 1;                                                                   //变化的计量=(25-此时的计数)/25*.9+1; 用于乘法的计量，大概变化过程：1.5 -> 1 -> 0.5 ，模拟平滑过渡
 
-            thisScrollTop = document.body.scrollTop + changeDistanceScrollTop / 50 * elasticity;                        //计算此时的距离
+            thisScrollTop = getScrollTop() + changeDistanceScrollTop / 50 * elasticity;                        //计算此时的距离
 
+            console.log('页面滚动距离'+getScrollTop())
 
             window.scrollTo(0, thisScrollTop);
 
@@ -191,9 +192,25 @@ var jfProductDetails = {
 
                 clearInterval(scrollTopMove);                                                                           //如果到50，则结束循环
 
+                console.log('最后滚动为止：'+eleScrollTop)
+
 
             }
 
+
+
+
+        }
+
+        //兼容性修正
+        function getScrollTop(){
+            var scrollTop=0;
+            if(document.documentElement&&document.documentElement.scrollTop){
+                scrollTop=document.documentElement.scrollTop;
+            }else if(document.body){
+                scrollTop=document.body.scrollTop;
+            }
+            return scrollTop;
         }
 
     },

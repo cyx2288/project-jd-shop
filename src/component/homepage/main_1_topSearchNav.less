@@ -56,9 +56,17 @@ nav.top_search_bar{
         padding: 0 15px;
         border-radius: 15px;
 
+        max-width: 210px;
+        max-width: calc(100% - (5px + 5px) * 2);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+
+
         i{
           display: inline-block;
-          background: url("../icon/search_bar_glass.png");
+          background: url("../icon/search_bar_glass.png") no-repeat;
           background-size: 100%;
           width: 17px;
           height: 17px;
@@ -81,6 +89,13 @@ nav.top_search_bar{
         }
         span{
           padding-left: 10px;
+
+          max-width: 210px;
+          max-width: calc(100% - (5px + 5px) * 2);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
         }
       }
     }
