@@ -8,12 +8,15 @@
                     <div class="address jdshop_alignment_center" onclick="productAddress.show({fn:
 
 function(){
-     shoppingCart.run({
-     api: '../../api/address.json',
+     addressChoose.run({
+      yourUrl:'http://jd-test.jia-fu.cn',
      type: 'get',
      targetDom:document.getElementById('search_address_show'),
      fn:function() {
+
        productAddress.hide()
+
+       console.log(addressChoose.addressCity)
      }
      })
 }
