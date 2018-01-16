@@ -354,27 +354,15 @@ var jdSearch_results = {
             if (document.getElementById('general_list').className.indexOf('show') > -1) {
 
 
-                //jdSearch_results.hideShow(1);
-
                 jdSearch_results.hidePrompt();
 
                 searchGeneral.hide();
-
-                //jdSearch_results.hideShow('comprehensive','comprehensive search_tab');
-
-              /*  setTimeout(function () {
-
-                    this.className = 'comprehensive search_results_tab';
-
-                }.bind(this), 2)//指代function外面的*/
 
 
             }
 
             else {
 
-
-               //jdSearch_results.hideShow(1);
 
                 jdSearch_results.hidePrompt();
 

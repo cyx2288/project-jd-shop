@@ -3,14 +3,12 @@
 
 function(){
 
-     shoppingCart.run({
-     api: '../../api/address.json',
+     addressChoose.run({
+     yourUrl:'http://jd-test.jia-fu.cn',
      type: 'get',
      targetDom:document.getElementById('product_address_show'),
      fn:function() {
        productAddress.hide();
-
-        console.log(chooseAdressId);//当前选择地址ID
      }
 
      })

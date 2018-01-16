@@ -82,7 +82,6 @@ var jfShowTips = {
 
     },
 
-
     //loading方法
     //陈羽翔
     //2017.2.3
@@ -130,7 +129,6 @@ var jfShowTips = {
         return _this.addNode('div','',thisId,'tip_loading_bg');//增加节点
 
     },
-
 
     //loading删除方法
     //陈羽翔
@@ -315,7 +313,6 @@ var jfShowTips = {
         setTimeout(myFn,500);
 
     },
-
 
     //转义字符串
     changeString:function(node){
