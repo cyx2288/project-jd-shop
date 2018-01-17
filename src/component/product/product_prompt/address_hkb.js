@@ -1,7 +1,14 @@
 /**
  * Created by ZHUANGYI on 2017/11/29.
  */
+<<<<<<< HEAD
+<<<<<<< HEAD
 /*
+=======
+>>>>>>> refs/remotes/origin/develop
+=======
+/*
+>>>>>>> refs/remotes/origin/develop
 var addressChoose = {
 
     //页面进入后tab切换自锁
@@ -160,6 +167,8 @@ var addressChoose = {
                         // console.log(0, '未初始化....');
                         break;
                     case 1 :
+<<<<<<< HEAD
+<<<<<<< HEAD
                         /!*console.log(1, '请求参数已准备，尚未发送请求...');*!/
                         break;
                     case 2 :
@@ -170,6 +179,25 @@ var addressChoose = {
                         break;
                     case 4 :
                         /!*console.log(4, '响应全部接受完毕');*!/
+=======
+                        /*console.log(1, '请求参数已准备，尚未发送请求...');*/
+=======
+                        /!*console.log(1, '请求参数已准备，尚未发送请求...');*!/
+>>>>>>> refs/remotes/origin/develop
+                        break;
+                    case 2 :
+                        /*console.log(2, '已经发送请求,尚未接收响应');*/
+                        break;
+                    case 3 :
+                        /*console.log(3, '正在接受部分响应.....');*/
+                        break;
+                    case 4 :
+<<<<<<< HEAD
+                        /*console.log(4, '响应全部接受完毕');*/
+>>>>>>> refs/remotes/origin/develop
+=======
+                        /!*console.log(4, '响应全部接受完毕');*!/
+>>>>>>> refs/remotes/origin/develop
                         if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
 
 
@@ -291,7 +319,15 @@ var addressChoose = {
 
             }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
             /!*每个元素点击事件*!/
+=======
+            /*每个元素点击事件*/
+>>>>>>> refs/remotes/origin/develop
+=======
+            /!*每个元素点击事件*!/
+>>>>>>> refs/remotes/origin/develop
             function clickFn() {
 
 
@@ -423,7 +459,15 @@ var addressChoose = {
 
             }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
             /!*每个父切换元素*!/
+=======
+            /*每个父切换元素*/
+>>>>>>> refs/remotes/origin/develop
+=======
+            /!*每个父切换元素*!/
+>>>>>>> refs/remotes/origin/develop
             function fatherEleClick(evt) {
 
                 if (this.className.indexOf('show') > -1) {
@@ -439,7 +483,15 @@ var addressChoose = {
                     }
 
 
+<<<<<<< HEAD
+<<<<<<< HEAD
                         /!*渲染下一个列表*!/
+=======
+                        /*渲染下一个列表*/
+>>>>>>> refs/remotes/origin/develop
+=======
+                        /!*渲染下一个列表*!/
+>>>>>>> refs/remotes/origin/develop
 
                         var thisNum = evt.target.getAttribute('areaId');
 
@@ -504,4 +556,12 @@ var addressChoose = {
 
     }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 };*/
+=======
+};
+>>>>>>> refs/remotes/origin/develop
+=======
+};*/
+>>>>>>> refs/remotes/origin/develop
