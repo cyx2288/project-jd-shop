@@ -179,7 +179,7 @@ var jfProductDetails = {
 
             thisScrollTop = getScrollTop() + changeDistanceScrollTop / 50 * elasticity;                        //计算此时的距离
 
-            console.log('页面滚动距离'+getScrollTop())
+            //console.log('页面滚动距离'+getScrollTop());
 
             window.scrollTo(0, thisScrollTop);
 
@@ -192,7 +192,7 @@ var jfProductDetails = {
 
                 clearInterval(scrollTopMove);                                                                           //如果到50，则结束循环
 
-                console.log('最后滚动为止：'+eleScrollTop)
+                //console.log('最后滚动为止：'+eleScrollTop)
 
 
             }
@@ -204,10 +204,15 @@ var jfProductDetails = {
 
         //兼容性修正
         function getScrollTop(){
+
             var scrollTop=0;
+
             if(document.documentElement&&document.documentElement.scrollTop){
+
                 scrollTop=document.documentElement.scrollTop;
+
             }else if(document.body){
+
                 scrollTop=document.body.scrollTop;
             }
             return scrollTop;

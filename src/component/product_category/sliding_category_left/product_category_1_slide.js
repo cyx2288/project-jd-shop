@@ -20,6 +20,7 @@ var jdCategoryPage = {
                 /*选中高亮*/
                 fatherEle.getElementsByClassName('select_sort')[0].className = fatherEle.getElementsByClassName('select_sort')[0].className.replace('select_sort', '');
 
+
                 _this.className += ' select_sort';
 
 
@@ -39,14 +40,12 @@ var jdCategoryPage = {
                 /*现在滚动位置*/
                 var thisScrollTop = _this.parentNode.scrollTop;
 
-
                 /*平滑过渡*/
 
                 var index = 0;
 
                 /*每10毫秒执行一次*/
                 var time = setInterval(timeSet, 10);
-
 
                 /*执行方法*/
                 function timeSet() {
@@ -61,6 +60,7 @@ var jdCategoryPage = {
                     /*三十次*/
                     if (index >= 30) {
                         clearInterval(time);
+
                     }
 
                 }
