@@ -1,6 +1,7 @@
 /**
  * Created by ZHUANGYI on 2017/11/29.
  */
+/*
 var addressChoose = {
 
     //页面进入后tab切换自锁
@@ -159,16 +160,16 @@ var addressChoose = {
                         // console.log(0, '未初始化....');
                         break;
                     case 1 :
-                        /*console.log(1, '请求参数已准备，尚未发送请求...');*/
+                        /!*console.log(1, '请求参数已准备，尚未发送请求...');*!/
                         break;
                     case 2 :
-                        /*console.log(2, '已经发送请求,尚未接收响应');*/
+                        /!*console.log(2, '已经发送请求,尚未接收响应');*!/
                         break;
                     case 3 :
-                        /*console.log(3, '正在接受部分响应.....');*/
+                        /!*console.log(3, '正在接受部分响应.....');*!/
                         break;
                     case 4 :
-                        /*console.log(4, '响应全部接受完毕');*/
+                        /!*console.log(4, '响应全部接受完毕');*!/
                         if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
 
 
@@ -290,7 +291,7 @@ var addressChoose = {
 
             }
 
-            /*每个元素点击事件*/
+            /!*每个元素点击事件*!/
             function clickFn() {
 
 
@@ -422,7 +423,7 @@ var addressChoose = {
 
             }
 
-            /*每个父切换元素*/
+            /!*每个父切换元素*!/
             function fatherEleClick(evt) {
 
                 if (this.className.indexOf('show') > -1) {
@@ -438,7 +439,7 @@ var addressChoose = {
                     }
 
 
-                        /*渲染下一个列表*/
+                        /!*渲染下一个列表*!/
 
                         var thisNum = evt.target.getAttribute('areaId');
 
@@ -503,4 +504,4 @@ var addressChoose = {
 
     }
 
-};
+};*/

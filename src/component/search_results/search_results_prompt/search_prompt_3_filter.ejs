@@ -8,16 +8,31 @@
                     <div class="address jdshop_alignment_center" onclick="productAddress.show({fn:
 
 function(){
+
      addressChoose.run({
-      yourUrl:'http://jd-test.jia-fu.cn',
+
+     //ip地址
+     yourUrl:'http://jd-test.jia-fu.cn',
+
      type: 'get',
-     targetDom:document.getElementById('search_address_show'),
+
+     targetDom:document.getElementById('product_address_show'),
+
+     //初始化id
+     startId:['1','72','2799'],
+
+     //初始化name
+     startName:['北京', '朝阳区', '三环以内'],
+
      fn:function() {
 
        productAddress.hide()
-
+       //城市名称数组
        console.log(addressChoose.addressCity)
+       //城市id数组
+       console.log(addressChoose.addressCityId)
      }
+
      })
 }
 
@@ -33,10 +48,7 @@ function(){
                 <!--价格 -->
                 <div class="price">
                     <div class="title">价格</div>
-                    <input type="tel" class="filter_input" pattern="[0-9]*" placeholder="最低价">-<input type="tel"
-                                                                                                      class="filter_input"
-                                                                                                      pattern="[0-9]*"
-                                                                                                      placeholder="最高价">
+                    <input type="tel" class="filter_input" pattern="[0-9]*" placeholder="最低价">-<input type="tel" class="filter_input" pattern="[0-9]*" placeholder="最高价">
                 </div>
                 <!--分类-->
                 <div class="sort_block">
@@ -77,7 +89,9 @@ function(){
     //地址
     productAddress = new jfShowPop({
 
-        'ele': 'product_address'
+        'ele': 'product_address',
+
+        'scrollClassname':'address'
 
     })
 
