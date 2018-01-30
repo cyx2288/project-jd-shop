@@ -477,7 +477,22 @@ var jfProductDetails = {
     }
 
 
-}
+},
+
+
+    //------弹出框滚动条 0125更新
+    accSrcollToTop:function () {
+
+        document.getElementById('product_prompt_acc').getElementsByClassName('pop_cancel')[0].addEventListener('click',toTop,false);
+
+        document.getElementById('product_prompt_acc').getElementsByClassName('jf_pop_up_bg')[0].addEventListener('click',toTop,false);
+
+        function toTop() {
+
+            document.getElementById('product_prompt_acc').getElementsByClassName('pop_content')[0].scrollTop = 0
+            
+        }
+    }
 
 
 };
