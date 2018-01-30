@@ -479,16 +479,19 @@ var productInfoPlay={
 
         _this.fn=details.fn||0;
 
-
-
         _this.thisPosition = 0;//初始化现在在第几个页面
 
         _this.moveDistanceX = 0;//x方向移动的距离(一根手指)
 
         _this.moveDistanceY=0;//y方向移動的距離
 
-        //当前页面Banner部分绑定事件
-        _this.initPointEle(_this.moveEleParent);//初始化点点（参数一当前移动元素的父元素）
+        setTimeout(function () {
+
+            //当前页面Banner部分绑定事件
+            _this.initPointEle(_this.moveEleParent);//初始化点点（参数一当前移动元素的父元素）
+
+        },100);
+
 
         _this.moveEvent();//元素绑定事件（参数一当前移动元素）
 
@@ -521,12 +524,12 @@ var productInfoPlay={
 
                 document.getElementsByClassName( _this.allShowEle)[0].style.display='none';
 
-
-
                 document.getElementsByTagName("body")[0].style.overflow="";//页面可以滚动
+
                 document.getElementsByTagName("html")[0].style.overflow="";//页面可以滚动
 
                 document.getElementsByTagName("body")[0].style.height="100%";
+
                 document.getElementsByTagName("html")[0].style.height="100%";
 
 
@@ -801,6 +804,7 @@ var productInfoPlay={
 
     /*添加元素*/
     initPointEle:function(pointParentEle){//参数是点点以及banner的父元素,以及点点父元素的class值
+
         var _this = this;
 
         var AllBannerImg=document.getElementsByClassName( _this.moveEle)[0].getElementsByClassName(_this.scaleEleParent);//显示的banner图片

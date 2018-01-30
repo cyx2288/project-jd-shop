@@ -13,18 +13,29 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;*/
     .details_address{
+      div:first-child{
+        height: 22px;
+      }
       span:first-child{
         color: #8a8a8a;
       }
       span{
+        display: inline-block;
         color: #4a4a4a;
         margin-right: 10px;
+        max-width: 170px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        @media screen and (max-width:320px){
+          max-width: 130px;
+        }
       }
       img{
         width: 18px;
         height: 18px;
-        vertical-align: sub;
         margin-right: 10px;
+        vertical-align: top;
       }
     }
 
