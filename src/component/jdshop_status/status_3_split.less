@@ -9,6 +9,7 @@
 
 .status_split {
 
+  position: relative;
   font-size: 12px;
   position: relative;
   line-height: 20px;
@@ -43,19 +44,6 @@
     }
   }
 
-  &:before {
-
-    content: '';
-    width: 1px;
-    height: 200px;
-    display: block;
-    background: #ddd;
-    position: absolute;
-    left: -21px;
-    top: 10px;
-
-  }
-
   .status_split_title {
 
     position: relative;
@@ -84,4 +72,15 @@
 
   }
 
+  .status_line{
+    position: absolute;
+    top: 15px;
+    left: -21px;
+    border-left: 1px solid #ddd;
+    height: 120%;
+    width: 1px;
+  }
+
+
 }
+
