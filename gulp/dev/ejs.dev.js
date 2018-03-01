@@ -44,7 +44,7 @@ function devEjs() {
 
             parserOptions: {
                 // Options here
-               // decodeEntities: false
+                decodeEntities: false
             }
 
             }
@@ -106,18 +106,19 @@ function devEjs() {
 
         }))
 
+
         .pipe(gulp.dest('build/html'))//输出为html
 
-        .pipe(browserSync.stream({once: true}));
+        .pipe(connect.reload());
 
         //.pipe(notify({message: 'html task complete'}));
 
         //.pipe(connect.reload());
 
     /*框架html导入*/
-    gulp.src("src/index.html")
+    //gulp.src("src/index.html")
 
-        .pipe(gulp.dest('build'));
+        //.pipe(gulp.dest('build'));
 
 }
 

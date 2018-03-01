@@ -1,6 +1,21 @@
 /**服务器设置
  * 开发*/
+var gulp = require('gulp'),
 
+    connect = require('gulp-connect'),
+
+    option = require('../config.js').serverDev;//服务器
+
+
+
+function devServer() {
+    //
+    connect.server(option);
+
+}
+
+module.exports = devServer;
+/*
 var gulp = require('gulp'),
 
     connect = require('gulp-connect'),
@@ -32,11 +47,11 @@ function devServer() {
 
 
 
-    /* browserSync.init({
+    /!* browserSync.init({
      proxy: 'http://localhost:3000',
      browser: 'chrome',
-     port: 7000*/
+     port: 7000*!/
 
 }
 
-module.exports = devServer;
+module.exports = devServer;*/
