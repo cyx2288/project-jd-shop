@@ -67,9 +67,9 @@ function devLess() {
 
         .pipe(gulp.dest('build/css')) //将会在build/css下生成index.css
 
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream())
 
-        //.pipe(connect.reload());
+        .pipe(connect.reload());
 
    /* gulp.src(['src/css/component.css'])
 
