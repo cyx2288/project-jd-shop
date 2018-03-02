@@ -1,5 +1,3 @@
-/**模板引擎合并
- * 开发*/
 
 var gulp = require('gulp'),
 
@@ -11,115 +9,94 @@ var gulp = require('gulp'),
 
     rename = require("gulp-rename");//重命名
 
-var browserSync = require('browser-sync').get("My Server");
+var bom = require('gulp-bom');//解决UTF-8文件是采用无BOM
 
-
-function devEjs() {
-
+function devEjs(){
     gulp.src('src/view/*/**.{ejs,html}')
 
         .pipe(ejs())
 
         //增加媒体查询，通用样式文件
         .pipe(cheerio({
+            run:function ($) {
 
-                run:function ($) {
+                var addHtml = "\n<meta charset='UTF-8'>\n";
 
-                    if ($('head').children('link')) {
+                addHtml += "<meta name='viewport' content='width=device-width,initial-scale=1,user-scalable=0,minimum-scale=1, maximum-scale=1'>\n";
 
-                        $('head').children('link').remove();//重新引入全新css
+                addHtml += "<meta name='apple-mobile-web-app-capable' content='yes' />\n";
 
-                        $('head').append(addHtml);
+                addHtml += "<meta name='apple-mobile-web-app-status-bar-style' content='black' />\n";
 
-                    }
+                addHtml += "<meta name='format-detection' content='telephone=no, email=no' />\n";
 
-                    var addHtml = "";
-
-                    addHtml += "<link rel='stylesheet'  href='../../css/jdShopMain.css'/>\n ";//框架
+                addHtml += "<link rel='stylesheet'  href='../../css/jdShopMain.css'/>\n";
 
 
-                    $('head').prepend(addHtml);
+                $('head').prepend(addHtml);
 
-                },
-
+            },
             parserOptions: {
                 // Options here
                 decodeEntities: false
             }
 
-            }
-        ))
+        }))
 
         //顺序增加脚本文件
-        .pipe(cheerio(function ($) {
+        .pipe(cheerio({
 
-            var addJSHtml = '';//保存引用的业务脚本
+            run:function($){
+                var addJsMain = '\n<script src="../../js/jdShopMain.js"></script>\n';//主要的脚本文件
 
-            var addJsRun = "<script src='../../js/jdShopMain.js'></script>\n";//运行的脚本
+                var addJsHtml="";//保存用的业务脚本
 
-            var addJs="<script>addEventListener('load',function()\{";
+                var addJsRun="<script>\n";//运行的脚本
 
-            var addJsHtmlHead = "<script src='";
+                var addJsHtmlHead="<script src='";
 
-            var addJSHtmlBottom = "'></script>\n";
+                var addJSHtmlBottom = "'></script>\n";
 
-            $('script').each(function (index, ele) {
+                $('script').each(function(index,ele){
 
-                if ($(this).attr('src')) {
+                    if($(this).attr('src')){
 
-                    var thisAttr=$(this).attr('src');
+                        addJsHtml+=addJsHtmlHead+$(this).attr('src')+addJSHtmlBottom;
 
-                    if(thisAttr.indexOf('jdShopMain.min.js')>-1){
-
-                        thisAttr=thisAttr.replace('jdShopMain.min.js','jdShopMain.js')
-
+                    }else {
+                        addJsRun += $(this).html() + '\n';
                     }
 
-                    addJSHtml += addJsHtmlHead + thisAttr + addJSHtmlBottom;
+                })
 
-                }
+                addJsRun += "\n</script>\n";
 
-                else {
+                $('script').remove();
 
-                    addJs += $(this).html() + '\n';
+                $('body').append(addJsMain);
 
-                }
+                $('body').append(addJsHtml);
 
-            });
+                $('body').append(addJsRun);
 
-            addJs += "\})\n</script>\n";
-
-
-            $('script').remove();
-
-            $('body').append(addJSHtml);
-
-            $('body').append(addJsRun);
-
-            $('body').append(addJs);
-
+            },
+            parserOptions: {
+                // Options here
+                decodeEntities: false
+            }
         }))
 
         .pipe(rename({
-
-            extname: ".html"
-
+            extname:".html"
         }))
+        .pipe(gulp.dest('build/html'))//输出到bulid文件夹
+
+        .pipe(bom())//不乱码
+
+        .pipe(connect.reload())
 
 
-        .pipe(gulp.dest('build/html'))//输出为html
-
-        .pipe(connect.reload());
-
-        //.pipe(notify({message: 'html task complete'}));
-
-        //.pipe(connect.reload());
-
-    /*框架html导入*/
-    //gulp.src("src/index.html")
-
-        //.pipe(gulp.dest('build'));
 
 }
 
-module.exports = devEjs;
+module.exports=devEjs;
