@@ -1,6 +1,3 @@
-/**
- * Created by Qiaodan on 2017/5/19.
- */
 
 
 var gulp = require('gulp');
