@@ -1,8 +1,6 @@
-
-
 var gulp = require('gulp');
-    //rev = require('gulp-rev');
-   // revCollector = require('gulp-rev-collector')
+
+var browserSync = require('browser-sync').create("My Server");
 
 //服务器,开发
 var devServer = require('./gulp/dev/server.dev.js');
@@ -14,7 +12,6 @@ gulp.task('connect', devServer);
 var devLess = require('./gulp/dev/less.dev.js');
 
 gulp.task('changeLessDev', devLess);
-
 
 
 //js合并，开发
@@ -32,28 +29,25 @@ gulp.task('fileIncludeDev', devEjs);
 //图片压缩 开发
 var devImg = require('./gulp/dev/img.dev.js');
 
-gulp.task('imageMinDev',devImg);
+gulp.task('imageMinDev', devImg);
 
 
 //监听文件变化
-gulp.task('devWatch',function () {
+
+
+gulp.task('devWatch', function () {
 
     //less文件修改 ，注入css
-    gulp.watch('src/**/*.less', ['changeLessDev']);
+    gulp.watch('src/component/**/*.less', ['changeLessDev']);
 
-    //图片文件修改 ，注入css
-    gulp.watch(['src/icon/*.*','src/images/**/*.*'], ['imageMinDev']);
-
-    //html文件修改，重新拼接，刷新
-    gulp.watch(['src/**/*.ejs','src/**/**/*.ejs'], ['fileIncludeDev']);
-
-    //js文件修改，重新拼接，刷新
-    gulp.watch('src/**/*.js',['changeJsDev'])
+    //html,js文件修改，重新拼接，刷新
+    gulp.watch(['src/**/*.ejs', 'src/**/*.js'], ["fileIncludeDev",'changeJsDev']);
 
 });
 
+
 //开发环境
-gulp.task('myServer',['devWatch','connect','imageMinDev','changeLessDev','changeJsDev','fileIncludeDev']);
+gulp.task('.myServer', ['imageMinDev', 'changeLessDev', 'changeJsDev', 'fileIncludeDev', 'devWatch', 'connect']);
 
 
 //js压缩 交付
@@ -88,3 +82,4 @@ gulp.task('.dist', ['imageMinDev', 'changeLessDev', 'changeJsDev', 'fileIncludeD
     gulp.start('distJs', 'distCss', 'distImg', 'distHtml')
 
 });
+

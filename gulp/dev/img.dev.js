@@ -12,6 +12,18 @@ var gulp = require('gulp'),
 
 function devImg() {
 
+    gulp.src('src/icon/*.{png,jpg}')
+
+        .pipe(cache(imagemin({
+
+            progressive: true,
+
+            use: [pngquant()]
+
+        })))
+
+        .pipe(gulp.dest('build/icon'));
+
     gulp.src('src/images/**/*.{png,jpg,gif}')
 
         .pipe(cache(imagemin({
@@ -24,18 +36,9 @@ function devImg() {
 
         .pipe(gulp.dest('build/images'));
 
+    gulp.src("src/fonts/*.*")
 
-    gulp.src('src/icon/*.{png,jpg}')
-
-        .pipe(cache(imagemin({
-
-            progressive: true,
-
-            use: [pngquant()]
-
-        })))
-
-        .pipe(gulp.dest('build/icon'));
+        .pipe(gulp.dest('build/fonts'))
 
 
 }
