@@ -492,7 +492,66 @@ var jfProductDetails = {
             document.getElementById('product_prompt_acc').getElementsByClassName('pop_content')[0].scrollTop = 0
             
         }
+    },
+
+
+    //------关注
+
+    likeGoods:function(ele) {
+
+    var thisEle = ele;
+
+    if(thisEle.className.indexOf('like_red') > -1){
+
+        thisEle.className = 'btn';
+
+        thisEle.getElementsByTagName('p')[0].innerHTML = '关注'
+
     }
+    else {
+
+        thisEle.className = 'btn like_red';
+
+        thisEle.getElementsByTagName('p')[0].innerHTML = '已关注'
+    }
+
+},
+
+
+    //------关注
+    slidePositionSimilarTab: function () {
+
+
+        if (!browser.os.iOS) {  //判断机型
+
+            var thisNavTab = document.getElementsByClassName('similar_nav_content');
+
+            var thisNavTabEmpty = document.getElementsByName('similar_tab_box');
+
+
+            function scrcoll() {
+
+                if (thisNavTabEmpty.getBoundingClientRect().top <= 0) { //元素到页面顶端的位置
+
+                    thisNavTab.style.position = 'fixed';
+
+                    thisNavTab.style.top = '45px';
+
+                    thisNavTab.style.zIndex = '100'
+
+                }
+
+                else {
+
+                    thisNavTab.style.cssText = "";
+
+                }
+            }
+
+            scrcoll();
+        }
+
+    },
 
 
 };

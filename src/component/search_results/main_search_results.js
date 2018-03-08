@@ -4,7 +4,7 @@
 
 var jdSearch_results = {
 
-//收起下拉框
+    //收起下拉框
     hidePrompt: function () {
 
         var allEle = document.getElementById('search_prompt').getElementsByClassName('jd_drop_down');
@@ -18,7 +18,7 @@ var jdSearch_results = {
     },
 
 
-//清除show
+   //清除show
     hideShow: function (num) {
 
 
@@ -619,7 +619,37 @@ var jdSearch_results = {
 
         },100)
 
+    },
+
+
+    //光标
+
+    inputCursor:function () {
+
+    var thisId = document.getElementById('filter_list')
+
+    var inputEle = thisId.getElementsByClassName('filter_input')
+
+    for (var i=0;i<inputEle.length;i++){
+
+
+        inputEle[i].addEventListener('focus',function () {
+
+            thisId.getElementsByClassName('jd_drop_down_content')[0].style.position = 'absolute'
+
+        },false)
+
+
+
+        inputEle[i].addEventListener('blur',function () {
+
+            thisId.getElementsByClassName('jd_drop_down_content')[0].style.position = 'fixed'
+
+        },false)
     }
+
+
+}
 
 };
 
