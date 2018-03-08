@@ -65,11 +65,14 @@ var similarList = {
 
         this.getElementsByClassName("choose_tab")[0].className = 'tab';
 
-        thisTargetEle.className = 'tab choose_tab'
+        thisTargetEle.className = 'tab choose_tab';
+
     }
 
 
-},
+
+
+    },
 
     //选择分类
     chooseSort:function (e) {
@@ -78,20 +81,41 @@ var similarList = {
 
         var thisTargetEle = evt.srcElement || evt.target;
 
+
+
+
         if (thisTargetEle.className == 'watch_brand_list') { //如果点到的是自己 则class不变
 
             thisTargetEle.className = 'watch_brand_list';
         }
         else {
 
-            if (thisTargetEle.className.indexOf('selected') > -1) {  //点击本身也会取消
+
+            if (document.getElementsByClassName('selected')[0]) {
+
+                document.getElementsByClassName('selected')[0].className = ''
+
+
+
+            }
+
+
+            thisTargetEle.className += ' selected';
+
+
+
+
+
+
+
+           /* if (thisTargetEle.className.indexOf('selected') > -1) {  //点击本身也会取消
 
                 thisTargetEle.className = '';
             }
             else {
 
                 thisTargetEle.className += ' selected';        //也可以点击其他的
-            }
+            }*/
         }
 
     },
@@ -100,6 +124,9 @@ var similarList = {
     brandDialog:function () {
 
     document.getElementsByClassName('brand')[0].addEventListener('click',function () {
+
+
+        followList.retractTab();
 
         if (document.getElementById('watch_brand_list').className.indexOf('show') > -1) {
 
@@ -136,7 +163,9 @@ var similarList = {
     //默认&查看有货选择
     chooseListTab:function () {
 
-    var thisTab = document.getElementsByClassName('tab')
+    var thisTab = document.getElementsByClassName('tab');
+
+
 
     for(var i=0;i<thisTab.length;i++){
 
@@ -145,9 +174,12 @@ var similarList = {
 
             if(document.getElementsByClassName('choose_tab')[0]){
 
-                document.getElementsByClassName('choose_tab')[0].className = 'tab'
+                document.getElementsByClassName('choose_tab')[0].className = 'tab';
+
 
             }
+
+            followList.retractTab();
 
 
             this.className = 'tab choose_tab';
@@ -156,28 +188,10 @@ var similarList = {
 
         },false)
     }
+},
+
+
+
 }
-}
 
 
-/* document.getElementsByClassName('similar_nav_content')[0].addEventListener('click',function (e) {
-
-
- var evt = e || window.event;
-
- var thisTargetEle = evt.srcElement || evt.target;
-
- console.log(thisTargetEle);
-
- if(document.getElementsByClassName('choose_tab')[0]){
-
- document.getElementsByClassName('choose_tab')[0].className = 'tab'
-
- }
-
-
- thisTargetEle.className = 'tab choose_tab'
-
-
-
- },false)*/
