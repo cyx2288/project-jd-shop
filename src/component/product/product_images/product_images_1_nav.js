@@ -524,9 +524,9 @@ var jfProductDetails = {
 
         if (!browser.os.iOS) {  //判断机型
 
-            var thisNavTab = document.getElementsByClassName('similar_nav_content');
+            var thisNavTab = document.getElementsByClassName('similar_details_nav')[0];
 
-            var thisNavTabEmpty = document.getElementsByName('similar_tab_box');
+            var thisNavTabEmpty = document.getElementsByClassName('similar_tab_box')[0];
 
 
             function scrcoll() {
