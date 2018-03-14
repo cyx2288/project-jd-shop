@@ -17,7 +17,7 @@
         </div>
         <div class="operation_btn">
             <div class="brand_reset" onclick="similarList.listResetAll();">重置</div>
-            <div class="ensure" onclick="watchBrand.hide()">确定</div>
+            <div class="ensure">确定</div>
         </div>
     </div>
     <div class="jd_drop_down_bg"></div>
@@ -28,7 +28,20 @@
 
     //选择分类
     document.getElementsByClassName('watch_brand_list')[0].addEventListener('click', similarList.chooseSort, false);
+    
+    
+    //
 
+    document.getElementsByClassName('ensure')[0].addEventListener('click',function () {
+
+        var listEle = document.getElementById('watch_brand_list').getElementsByClassName('watch_brand_list')[0];
+
+        if(listEle.getElementsByClassName('selected')[0]){
+
+            console.log('变回')
+        }
+        watchBrand.hide();
+    })
 
 
 </script>
