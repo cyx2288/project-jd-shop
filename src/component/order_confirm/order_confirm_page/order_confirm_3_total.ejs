@@ -4,7 +4,17 @@
         <p class="font_red">￥123,678,000.00</p>
     </div>
     <div class="text_list jdshop_alignment_center">
-        <p>订单运费：</p>
+        <p>订单运费：<span onclick="jfShowTips.dialogShow({
+         'mainText':'订单运费规则',
+         'minText':'<p>订单金额＜49元，收取基础运费8元，不收续重运费；</p><p>49元≤订单金额＜99元，收取基础运费6元，不收续重运费；</p><p>订单金额≥99元，免基础运费，不收续重运费</p>',
+         'noCancel':true,
+         'checkBtnText':'我知道了',
+         'checkFn': function() {
+           jfShowTips.dialogRemove();
+         }
+
+        }
+        )"><img src="../../images/order_details_4_help.png"></span></p>
         <p class="font_red">￥24.00</p>
     </div>
     <div class="text_list jdshop_alignment_center" id="discountList" onclick="discountShow.show()">
