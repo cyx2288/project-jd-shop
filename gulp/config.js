@@ -6,7 +6,7 @@ module.exports = {
 
         root: 'build',//目录
 
-        host: "192.168.1.218",//ip
+        host: "192.168.120.122",//ip
 
         port: 777,//端口
 
